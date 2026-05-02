@@ -10,6 +10,8 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
+
+// TODO 适配SSC 1.9.0的饰品系统
 public class TrinketWithToolTip extends TrinketItem {
     private final List<Text> tooltips;
 

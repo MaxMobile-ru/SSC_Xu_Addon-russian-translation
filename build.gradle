@@ -139,6 +139,7 @@ dependencies {
 	modImplementation "com.terraformersmc:modmenu:${mod_menu_version}"
 	modImplementation "dev.emi:trinkets:${trinkets_version}"
 
+	compileOnly 'org.jetbrains:annotations:24.0.0'  // 使用了NotNull之类的注解
 }
 
 processResources {

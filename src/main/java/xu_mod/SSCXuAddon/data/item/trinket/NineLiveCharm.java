@@ -20,6 +20,7 @@ import xu_mod.SSCXuAddon.network.ModPacketsServer;
 
 import java.util.List;
 
+// TODO 适配SSC 1.9.0的饰品系统(TrinketItem->AccessoryItem(应该是叫这个名))
 public class NineLiveCharm extends TrinketItem implements Vanishable {
     public NineLiveCharm(Settings settings) {
         super(settings);
