@@ -112,7 +112,8 @@ dependencies {
 
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 
-	modImplementation "maven.modrinth:shape-shifter-curse:${ssc_version}"
+	// modImplementation "maven.modrinth:shape-shifter-curse:${ssc_version}"
+	modImplementation "curse.maven:shape-shifter-curse-1253045:${ssc_version}"
 	modRuntimeOnly "curse.maven:rich-translatable-text-1342784:7440321"  // 1.0.2
 
 	// compileOnly("mezz.jei:jei-${project.minecraft_version}-common-api:${project.jei_version}")
@@ -137,9 +138,7 @@ dependencies {
 	}
 	modApi("com.jamieswhiteshirt:reach-entity-attributes:${reach_version}")
 	modImplementation "com.terraformersmc:modmenu:${mod_menu_version}"
-	modImplementation "dev.emi:trinkets:${trinkets_version}"
-
-	compileOnly 'org.jetbrains:annotations:24.0.0'  // 使用了NotNull之类的注解
+	modCompileOnly "dev.emi:trinkets:${trinkets_version}"
 }
 
 processResources {

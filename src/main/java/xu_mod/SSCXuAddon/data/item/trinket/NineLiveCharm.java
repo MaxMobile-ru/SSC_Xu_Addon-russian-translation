@@ -14,14 +14,14 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
+import net.onixary.shapeShifterCurseFabric.items.accessory.AccessoryItem;
 import org.jetbrains.annotations.NotNull;
 import xu_mod.SSCXuAddon.init.Init_Item;
 import xu_mod.SSCXuAddon.network.ModPacketsServer;
 
 import java.util.List;
 
-// TODO 适配SSC 1.9.0的饰品系统(TrinketItem->AccessoryItem(应该是叫这个名))
-public class NineLiveCharm extends TrinketItem implements Vanishable {
+public class NineLiveCharm extends AccessoryItem implements Vanishable {
     public NineLiveCharm(Settings settings) {
         super(settings);
     }

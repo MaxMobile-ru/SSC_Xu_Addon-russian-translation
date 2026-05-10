@@ -40,15 +40,14 @@
 		]
 	},
 	"mixins": [
-		"ssc_xu_addon.mixins.json",
-		"ssc_xu_addon_extra.mixins.json"
+		"ssc_xu_addon.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.12.3",
 		"minecraft": "~1.20.1",
 		"java": ">=17",
 		"fabric-api": "*",
-		"shape-shifter-curse": ">=1.8.3"
+		"shape-shifter-curse": ">=1.9.0"
 	},
 	"recommends": {
 		"rich_translatable_text": ">=1.0.2"

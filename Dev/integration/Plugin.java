@@ -18,17 +18,17 @@ public class Plugin implements IMixinConfigPlugin {
     private static final HashMap<String, Supplier<Boolean>> MixinLoadConditionRegistry = new HashMap<>();
 
     static {
-        MixinLoadConditionRegistry.put("xu_mod.SSCXuAddon.mixin.integration.GlowFixMixin", () -> {
-            try {
-                Optional<ModContainer> SSC_Container = FabricLoader.getInstance().getModContainer("shape-shifter-curse");
-                if (SSC_Container.isPresent()) {
-                    return !(SSC_Container.get().getMetadata().getVersion().compareTo(Version.parse("1.8.3")) > 0);
-                }
-                return true;
-            } catch (VersionParsingException e) {
-                return true;
-            }
-        });
+        // MixinLoadConditionRegistry.put("xu_mod.SSCXuAddon.mixin.integration.GlowFixMixin", () -> {
+        //     try {
+        //         Optional<ModContainer> SSC_Container = FabricLoader.getInstance().getModContainer("shape-shifter-curse");
+        //         if (SSC_Container.isPresent()) {
+        //             return !(SSC_Container.get().getMetadata().getVersion().compareTo(Version.parse("1.8.3")) > 0);
+        //         }
+        //         return true;
+        //     } catch (VersionParsingException e) {
+        //         return true;
+        //     }
+        // });
     }
 
     @Override

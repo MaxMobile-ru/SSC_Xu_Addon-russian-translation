@@ -7,12 +7,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
+import net.onixary.shapeShifterCurseFabric.items.accessory.AccessoryItem;
 
 import java.util.List;
 
 
 // TODO 适配SSC 1.9.0的饰品系统
-public class TrinketWithToolTip extends TrinketItem {
+public class TrinketWithToolTip extends AccessoryItem {
     private final List<Text> tooltips;
 
     public TrinketWithToolTip(Settings settings, Text... tooltip) {
