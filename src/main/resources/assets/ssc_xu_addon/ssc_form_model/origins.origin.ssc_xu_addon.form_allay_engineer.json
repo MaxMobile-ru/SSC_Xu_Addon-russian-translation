@@ -1,0 +1,39 @@
+{
+  "load_priority": 0,
+
+  "name": "ssc_xu_addon.form_allay_engineer.model_name",
+  "layer": "origins:origin",
+  "form": "ssc_xu_addon:form_allay_engineer",
+
+  "wide_only": true,
+
+  "model": "ssc_xu_addon:geo/form/form_allay_engineer.geo.json",
+  "texture": "ssc_xu_addon:textures/form/form_allay_engineer/form_allay_engineer.png",
+  "texture_mask": "ssc_xu_addon:textures/form/form_allay_engineer/form_allay_engineer_colormask.png",
+  "overlay": "ssc_xu_addon:textures/form/form_allay_engineer/form_allay_engineer_overlay.png",
+  "overlay_mask": "ssc_xu_addon:textures/form/form_allay_engineer/form_allay_engineer_overlay_colormask.png",
+  "hidden": [
+    "leftLeg",
+    "rightLeg",
+    "rightPants",
+    "leftPants",
+    "body",
+    "jacket"
+  ],
+  "builtin_controller_data": {
+    "tail_chain": {
+      "tail_l": [0],
+      "tail_r": [0]
+    },
+    "wing_chain_l": {
+      "wing_l": [0, 1]
+    },
+    "wing_chain_r": {
+      "wing_r": [0, 1]
+    },
+    "tail_chain_head": {
+      "head_tail_l": [0, 1],
+      "head_tail_r": [0, 1]
+    }
+  }
+}

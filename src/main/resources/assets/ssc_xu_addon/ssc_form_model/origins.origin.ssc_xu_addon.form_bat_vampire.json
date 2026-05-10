@@ -1,0 +1,36 @@
+{
+  "load_priority": 0,
+
+  "name": "ssc_xu_addon.form_bat_vampire.model_name",
+  "layer": "origins:origin",
+  "form": "ssc_xu_addon:form_bat_vampire",
+
+  "wide_only": true,
+  "model": "ssc_xu_addon:geo/form/form_bat_vampire.geo.json",
+  "texture": "ssc_xu_addon:textures/form/form_bat_vampire/form_bat_vampire.png",
+  "texture_mask": "ssc_xu_addon:textures/form/form_bat_vampire/form_bat_vampire_colormask.png",
+  "fullbrightTexture": "ssc_xu_addon:textures/form/form_bat_vampire/form_bat_vampire_emissive_overlay.png",
+  "hidden": [
+    "leftArm",
+    "rightArm",
+    "leftLeg",
+    "rightLeg",
+    "leftSleeve",
+    "rightSleeve",
+    "rightPants",
+    "leftPants",
+    "body",
+    "jacket",
+    "head",
+    "hat"
+  ],
+  "builtin_controller_data": {
+    "tail_chain": {
+      "tail": [0, 1, 2, 3]
+    },
+    "tail_chain_head": {
+      "ear_l": [0],
+      "ear_r": [0]
+    }
+  }
+}
