@@ -1,18 +1,14 @@
 package xu_mod.SSCXuAddon.data.item.trinket;
 
-import dev.emi.trinkets.api.TrinketItem;
 import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.annotation.Nullable;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
 import net.onixary.shapeShifterCurseFabric.items.accessory.AccessoryItem;
 
 import java.util.List;
 
-
-// TODO 适配SSC 1.9.0的饰品系统
 public class TrinketWithToolTip extends AccessoryItem {
     private final List<Text> tooltips;
 
