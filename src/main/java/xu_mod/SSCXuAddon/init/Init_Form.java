@@ -15,6 +15,8 @@ public class Init_Form {
     public static PlayerFormGroup AllayEngineerGroup = RegPlayerForms.registerPlayerFormGroup((new PlayerFormGroup(SSCXuAddon.identifier("allay_engineer_form")).addForm(AllayEngineer, 5)));
     public static PlayerFormBase OcelotJungle = RegPlayerForms.registerPlayerForm(new OcelotJungle(SSCXuAddon.identifier("ocelot_jungle")).setPhase(PlayerFormPhase.PHASE_3));
     public static PlayerFormGroup OcelotJungleGroup = RegPlayerForms.registerPlayerFormGroup((new PlayerFormGroup(SSCXuAddon.identifier("ocelot_jungle_form")).addForm(OcelotJungle, 3)));
+    public static PlayerFormBase AxolotlSeaKing = RegPlayerForms.registerPlayerForm(new AxolotlSeaKing(SSCXuAddon.identifier("axolotl_sea_king")).setPhase(PlayerFormPhase.PHASE_3));
+    public static PlayerFormGroup AxolotlSeaKingGroup = RegPlayerForms.registerPlayerFormGroup((new PlayerFormGroup(SSCXuAddon.identifier("axolotl_sea_king_form")).addForm(AxolotlSeaKing, 3)));
 
     public static void init() {}
 }

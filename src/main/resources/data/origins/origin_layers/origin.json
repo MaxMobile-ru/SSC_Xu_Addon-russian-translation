@@ -7,7 +7,8 @@
     "ssc_xu_addon:form_bat_vampire",
     "ssc_xu_addon:form_feral_cat_vf",
     "ssc_xu_addon:form_allay_engineer",
-    "ssc_xu_addon:form_ocelot_jungle"
+    "ssc_xu_addon:form_ocelot_jungle",
+    "ssc_xu_addon:form_axolotl_sea_king"
   ],
   "allow_random": true,
   "exclude_random": [
