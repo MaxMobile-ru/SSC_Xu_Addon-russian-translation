@@ -75,7 +75,7 @@ public class SSC_Xu_Addon_Command {
     private static int test(CommandContext<ServerCommandSource> commandContext) throws CommandSyntaxException {
         PlayerEntity owner = commandContext.getSource().getPlayer();
         if (owner != null) {
-            SummonTrident project = new SummonTrident(owner, 5f, new Vec3d(0d,0d,0d));
+            SummonTrident project = new SummonTrident(owner, 2f, new Vec3d(0d,0d,0d));
             owner.getWorld().spawnEntity(project);
         }
         return 0;

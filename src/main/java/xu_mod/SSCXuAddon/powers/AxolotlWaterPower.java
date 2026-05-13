@@ -29,13 +29,14 @@ public class AxolotlWaterPower {
                         .add("extra_damage", SerializableDataTypes.DOUBLE, 4.0d)
                         .add("knock_power", SerializableDataTypes.DOUBLE, 1.0d)
                         .add("particle_count", SerializableDataTypes.INT, 8)
-                        .add("force_damage", SerializableDataTypes.BOOLEAN, false),
+                        .add("force_damage", SerializableDataTypes.BOOLEAN, false)
+                        .add("high_sound", SerializableDataTypes.BOOLEAN, false),
                 (data, e) -> {
                     if (e instanceof LivingEntity entity) {
                         if (e instanceof Ownable ownable) {
-                            MiscAction.WaterExplosion(entity, ownable.getOwner(), data.get("radius"), data.get("base_damage"), data.get("extra_damage"), data.get("knock_power"), data.get("particle_count"), data.get("force_damage"));
+                            MiscAction.WaterExplosion(entity, ownable.getOwner(), data.get("radius"), data.get("base_damage"), data.get("extra_damage"), data.get("knock_power"), data.get("particle_count"), data.get("force_damage"), data.get("high_sound"));
                         } else {
-                            MiscAction.WaterExplosion(entity, entity, data.get("radius"), data.get("base_damage"), data.get("extra_damage"), data.get("knock_power"), data.get("particle_count"), data.get("force_damage"));
+                            MiscAction.WaterExplosion(entity, entity, data.get("radius"), data.get("base_damage"), data.get("extra_damage"), data.get("knock_power"), data.get("particle_count"), data.get("force_damage"), data.get("high_sound"));
                         }
                     }
                 }

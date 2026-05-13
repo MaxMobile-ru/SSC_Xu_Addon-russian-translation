@@ -3,12 +3,14 @@ package xu_mod.SSCXuAddon.utils.Misc;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.Vec3d;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class MiscAction {
-    public static void WaterExplosion(@NotNull Entity explosionOwner, @Nullable Entity Owner, double Range, float BaseDamage, float ExtraDamage, float KnockPower, int ParticleCount, boolean ForceDamage) {
+    public static void WaterExplosion(@NotNull Entity explosionOwner, @Nullable Entity Owner, double Range, float BaseDamage, float ExtraDamage, float KnockPower, int ParticleCount, boolean ForceDamage, boolean highSound) {
         if (Owner == null) {
             Owner = explosionOwner;
         }
@@ -30,12 +32,13 @@ public class MiscAction {
             entity.damage(explosionOwner.getDamageSources().explosion(explosionOwner, Owner), distanceMultiplier * ExtraDamage + BaseDamage);
             entity.takeKnockback(KnockPower * distanceMultiplier, direction.x, direction.z);
         }
-        for (int i = 0; i < ParticleCount; i++) {
-            float x, y, z;
-            x = (float) (explosionPos.x + (float) (Math.random() * 2f - 1) * Range);
-            y = (float) (explosionPos.y + (float) (Math.random() * 2f - 1) * Range);
-            z = (float) (explosionPos.z + (float) (Math.random() * 2f - 1) * Range);
-            explosionOwner.getWorld().addParticle(ParticleTypes.UNDERWATER, x, y, z, 0, 0, 0);
+        if (explosionOwner.getWorld() instanceof ServerWorld serverWorld) {
+            serverWorld.spawnParticles(ParticleTypes.SPLASH, explosionPos.x, explosionPos.y, explosionPos.z, ParticleCount, Range * 0.5f, Range * 0.1f, Range * 0.5f, 0.2f);
+        }
+        if (highSound) {
+            explosionOwner.getWorld().playSound(explosionPos.x, explosionPos.y, explosionPos.z, SoundEvents.ENTITY_AXOLOTL_SPLASH, explosionOwner.getSoundCategory(), 0.5f, 0.8f, false);
+        } else {
+            explosionOwner.getWorld().playSound(explosionPos.x, explosionPos.y, explosionPos.z, SoundEvents.ENTITY_AXOLOTL_SPLASH, explosionOwner.getSoundCategory(), 0.35f, 0.5f, false);
         }
     }
 }
