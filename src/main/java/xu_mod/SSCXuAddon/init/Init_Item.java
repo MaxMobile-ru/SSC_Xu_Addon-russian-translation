@@ -94,6 +94,7 @@ public class Init_Item {
                 entries.add(VITALITY_STONE);
                 // entries.add(CHARM_OF_NINE_LIVE);  // 隐藏物品 不展示 之后加一下掉落
                 entries.add(CHARM_OF_BLOOD_THIRST);
+                entries.add(SEA_SCEPTER);
 
                 entries.add(UNSTABLE_HOLY_APPLE);
                 entries.add(STABLE_HOLY_APPLE);
