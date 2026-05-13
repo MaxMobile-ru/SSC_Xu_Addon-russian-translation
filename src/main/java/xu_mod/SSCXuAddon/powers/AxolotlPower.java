@@ -8,13 +8,16 @@ import io.github.apace100.calio.data.SerializableDataTypes;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Ownable;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Pair;
 import xu_mod.SSCXuAddon.SSCXuAddon;
+import xu_mod.SSCXuAddon.data.item.tools.SeaScepter;
 import xu_mod.SSCXuAddon.utils.Misc.MiscAction;
 
 import java.util.function.Consumer;
 
-public class AxolotlWaterPower {
+public class AxolotlPower {
     // 改一下结构 使用内嵌Power 让power文件夹简洁一点
     public static void registerPower(Consumer<PowerFactory<?>> registerMethod) {
 
@@ -37,6 +40,22 @@ public class AxolotlWaterPower {
                             MiscAction.WaterExplosion(entity, ownable.getOwner(), data.get("radius"), data.get("base_damage"), data.get("extra_damage"), data.get("knock_power"), data.get("particle_count"), data.get("force_damage"), data.get("high_sound"));
                         } else {
                             MiscAction.WaterExplosion(entity, entity, data.get("radius"), data.get("base_damage"), data.get("extra_damage"), data.get("knock_power"), data.get("particle_count"), data.get("force_damage"), data.get("high_sound"));
+                        }
+                    }
+                }
+        ));
+        ActionRegister.accept(new ActionFactory<>(
+                SSCXuAddon.identifier("charge_scepter"),
+                new SerializableData()
+                        .add("value", SerializableDataTypes.INT, 5),
+                (data, e) -> {
+                    if (e instanceof PlayerEntity player) {
+                        ItemStack stack = player.getMainHandStack();
+                        if (!(stack.getItem() instanceof SeaScepter)) {
+                            stack = player.getOffHandStack();
+                        }
+                        if (stack.getItem() instanceof SeaScepter) {
+                            SeaScepter.charge(stack, player.getWorld(), data.get("value"));
                         }
                     }
                 }
