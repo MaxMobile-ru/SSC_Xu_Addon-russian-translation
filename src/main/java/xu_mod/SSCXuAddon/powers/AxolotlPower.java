@@ -37,9 +37,9 @@ public class AxolotlPower {
                 (data, e) -> {
                     if (e instanceof LivingEntity entity) {
                         if (e instanceof Ownable ownable) {
-                            MiscAction.WaterExplosion(entity, ownable.getOwner(), data.get("radius"), data.get("base_damage"), data.get("extra_damage"), data.get("knock_power"), data.get("particle_count"), data.get("force_damage"), data.get("high_sound"));
+                            MiscAction.WaterExplosion(entity, entity, ownable.getOwner(), data.get("radius"), data.get("base_damage"), data.get("extra_damage"), data.get("knock_power"), data.get("particle_count"), data.get("force_damage"), data.get("high_sound"));
                         } else {
-                            MiscAction.WaterExplosion(entity, entity, data.get("radius"), data.get("base_damage"), data.get("extra_damage"), data.get("knock_power"), data.get("particle_count"), data.get("force_damage"), data.get("high_sound"));
+                            MiscAction.WaterExplosion(entity, entity, entity, data.get("radius"), data.get("base_damage"), data.get("extra_damage"), data.get("knock_power"), data.get("particle_count"), data.get("force_damage"), data.get("high_sound"));
                         }
                     }
                 }
@@ -47,7 +47,8 @@ public class AxolotlPower {
         ActionRegister.accept(new ActionFactory<>(
                 SSCXuAddon.identifier("charge_scepter"),
                 new SerializableData()
-                        .add("value", SerializableDataTypes.INT, 5),
+                        .add("value", SerializableDataTypes.INT, 5)
+                        .add("over_charge", SerializableDataTypes.BOOLEAN, true),
                 (data, e) -> {
                     if (e instanceof PlayerEntity player) {
                         ItemStack stack = player.getMainHandStack();
@@ -55,7 +56,7 @@ public class AxolotlPower {
                             stack = player.getOffHandStack();
                         }
                         if (stack.getItem() instanceof SeaScepter) {
-                            SeaScepter.charge(stack, player.getWorld(), data.get("value"));
+                            SeaScepter.charge(stack, player.getWorld(), data.get("value"), data.get("over_charge"));
                         }
                     }
                 }

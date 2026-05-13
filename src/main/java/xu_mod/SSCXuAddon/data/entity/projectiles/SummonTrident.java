@@ -62,9 +62,9 @@ public class SummonTrident extends PersistentProjectileEntity {
 
     public void selfExplosion() {
         if (Tier == 2) {
-            MiscAction.WaterExplosion(this, this.getOwner(), 4f, 5f, 5f, 2.0f, 24, true, true);
+            MiscAction.WaterExplosion(this, this, this.getOwner(), 3f, 5f, 5f, 2.0f, 24, true, true);
         } else {
-            MiscAction.WaterExplosion(this, this.getOwner(), 4f, 4f, 4f, 1.2f, 24, true, true);
+            MiscAction.WaterExplosion(this, this, this.getOwner(), 3f, 4f, 4f, 1.2f, 24, true, true);
         }
         this.kill();
     }
@@ -80,11 +80,11 @@ public class SummonTrident extends PersistentProjectileEntity {
         }
         if (this.Tier == 2) {
             if (this.age % Tier2_WE_Rate == 0) {
-                MiscAction.WaterExplosion(this, this.getOwner(), WE_Range, WE_BaseDamage, WE_ExtraDamage, WE_KnockPower, WE_ParticleCount, WE_ForceDamage, false);
+                MiscAction.WaterExplosion(this, this, this.getOwner(), WE_Range, WE_BaseDamage, WE_ExtraDamage, WE_KnockPower, WE_ParticleCount, WE_ForceDamage, false);
             }
         } else {
             if (this.age % Tier1_WE_Rate == 0) {
-                MiscAction.WaterExplosion(this, this.getOwner(), WE_Range, WE_BaseDamage, WE_ExtraDamage, WE_KnockPower, WE_ParticleCount, WE_ForceDamage, false);
+                MiscAction.WaterExplosion(this, this, this.getOwner(), WE_Range, WE_BaseDamage, WE_ExtraDamage, WE_KnockPower, WE_ParticleCount, WE_ForceDamage, false);
             }
         }
         super.tick();

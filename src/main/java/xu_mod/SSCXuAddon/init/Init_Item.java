@@ -58,7 +58,8 @@ public class Init_Item {
     public static final Item HEAVY_BRACELET = register("heavy_bracelet", new TrinketWithToolTip(new Item.Settings().maxCount(1), Text.translatable("item.ssc_xu_addon.heavy_bracelet.tooltip").formatted(Formatting.YELLOW)));
     public static final Item VITALITY_STONE = register("vitality_stone", new TrinketWithToolTip(new Item.Settings().maxCount(1), Text.translatable("item.ssc_xu_addon.vitality_stone.tooltip").formatted(Formatting.YELLOW)));
 
-    public static final Item SEA_SCEPTER = register("sea_scepter", new SeaScepter(ToolMaterials.DIAMOND, 5, -2.9f, new Item.Settings().maxCount(1)));
+    public static final Item SEA_SCEPTER = register("sea_scepter", new SeaScepter(ToolMaterials.DIAMOND, 4, -2.9f, new Item.Settings().maxCount(1), 10, 10, false));
+    public static final Item SEA_SCEPTER_VIRTUAL = register("sea_scepter_virtual", new SeaScepter(ToolMaterials.DIAMOND, 4, -2.9f, new Item.Settings().maxCount(1), 0, 5, true));
 
     // 火焰宝石 大地宝石 超级神圣金苹果
     public static final Item FIRE_GEM = register("fire_gem", new FireGem(new Item.Settings().maxCount(64)));
@@ -95,6 +96,7 @@ public class Init_Item {
                 // entries.add(CHARM_OF_NINE_LIVE);  // 隐藏物品 不展示 之后加一下掉落
                 entries.add(CHARM_OF_BLOOD_THIRST);
                 entries.add(SEA_SCEPTER);
+                entries.add(SEA_SCEPTER_VIRTUAL);
 
                 entries.add(UNSTABLE_HOLY_APPLE);
                 entries.add(STABLE_HOLY_APPLE);

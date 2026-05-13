@@ -10,13 +10,16 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class MiscAction {
-    public static void WaterExplosion(@NotNull Entity explosionOwner, @Nullable Entity Owner, double Range, float BaseDamage, float ExtraDamage, float KnockPower, int ParticleCount, boolean ForceDamage, boolean highSound) {
+    public static void WaterExplosion(@Nullable Entity targetEntity, @NotNull Entity explosionOwner, @Nullable Entity Owner, double Range, float BaseDamage, float ExtraDamage, float KnockPower, int ParticleCount, boolean ForceDamage, boolean highSound) {
         if (Owner == null) {
             Owner = explosionOwner;
         }
+        if (targetEntity == null) {
+            targetEntity = explosionOwner;
+        }
         Vec3d explosionPos = explosionOwner.getPos();
         @Nullable Entity finalOwner = Owner;
-        for (LivingEntity entity : explosionOwner.getWorld().getEntitiesByClass(LivingEntity.class, explosionOwner.getBoundingBox().expand(Range), e -> e != explosionOwner && e != finalOwner)) {
+        for (LivingEntity entity : explosionOwner.getWorld().getEntitiesByClass(LivingEntity.class, targetEntity.getBoundingBox().expand(Range), e -> e != explosionOwner && e != finalOwner)) {
             Vec3d direction = entity.getPos().subtract(explosionPos);
             double distance = direction.length();
             if (distance > Range) {
