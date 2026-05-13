@@ -23,6 +23,7 @@ import net.onixary.shapeShifterCurseFabric.util.EnchantmentUtils;
 import xu_mod.SSCXuAddon.SSCXuAddon;
 import xu_mod.SSCXuAddon.data.item.*;
 import xu_mod.SSCXuAddon.data.item.tools.BloodClaw;
+import xu_mod.SSCXuAddon.data.item.tools.SeaScepter;
 import xu_mod.SSCXuAddon.data.item.tools.SpaceBag;
 import xu_mod.SSCXuAddon.data.item.tools.StableSpaceGem;
 import xu_mod.SSCXuAddon.data.item.trinket.NineLiveCharm;
@@ -56,6 +57,8 @@ public class Init_Item {
     public static final Item CHARM_OF_WIND = register("charm_of_wind", new TrinketWithToolTip(new Item.Settings().maxCount(1), Text.translatable("item.ssc_xu_addon.charm_of_wind.tooltip").formatted(Formatting.YELLOW)));
     public static final Item HEAVY_BRACELET = register("heavy_bracelet", new TrinketWithToolTip(new Item.Settings().maxCount(1), Text.translatable("item.ssc_xu_addon.heavy_bracelet.tooltip").formatted(Formatting.YELLOW)));
     public static final Item VITALITY_STONE = register("vitality_stone", new TrinketWithToolTip(new Item.Settings().maxCount(1), Text.translatable("item.ssc_xu_addon.vitality_stone.tooltip").formatted(Formatting.YELLOW)));
+
+    public static final Item SEA_SCEPTER = register("sea_scepter", new SeaScepter(ToolMaterials.DIAMOND, 5, -2.9f, new Item.Settings().maxCount(1)));
 
     // 火焰宝石 大地宝石 超级神圣金苹果
     public static final Item FIRE_GEM = register("fire_gem", new FireGem(new Item.Settings().maxCount(64)));
