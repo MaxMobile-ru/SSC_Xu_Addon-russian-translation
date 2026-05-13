@@ -5,10 +5,10 @@ import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
-import net.minecraft.client.render.entity.model.EntityModelLayers;
 import xu_mod.SSCXuAddon.SSCXuAddon;
 import xu_mod.SSCXuAddon.data.entity.projectiles.BloodThornEntItyRenderer;
 import xu_mod.SSCXuAddon.data.entity.projectiles.SummonTridentModel;
+import xu_mod.SSCXuAddon.data.entity.projectiles.SummonTridentRenderer;
 import xu_mod.SSCXuAddon.init.Init_Entity;
 
 @Environment(EnvType.CLIENT)
@@ -18,6 +18,7 @@ public class Init_EntityRenderer {
     static {
         EntityRendererRegistry.register(Init_Entity.BLOOD_THORN, BloodThornEntItyRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(SUMMON_TRIDENT_LAYER, SummonTridentModel::getTexturedModelData);
+        EntityRendererRegistry.register(Init_Entity.SUMMON_TRIDENT, SummonTridentRenderer::new);
     }
 
     public static void init() {}

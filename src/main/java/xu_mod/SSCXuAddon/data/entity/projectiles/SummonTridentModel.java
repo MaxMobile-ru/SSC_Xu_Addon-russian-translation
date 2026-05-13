@@ -6,12 +6,13 @@ import net.minecraft.client.model.*;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
 public class SummonTridentModel extends Model {
     private final ModelPart group;
     public SummonTridentModel(ModelPart root) {
-        super(RenderLayer::getEntityCutout);
+        super(RenderLayer::getEntityTranslucentCull);
         this.group = root.getChild("group");
     }
 

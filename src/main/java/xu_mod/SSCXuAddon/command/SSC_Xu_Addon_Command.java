@@ -12,6 +12,8 @@ import net.minecraft.util.math.Vec3d;
 import net.onixary.shapeShifterCurseFabric.mana.ManaUtils;
 import net.onixary.shapeShifterCurseFabric.mana.RegManaComponent;
 import xu_mod.SSCXuAddon.data.entity.projectiles.BloodThornEntity;
+import xu_mod.SSCXuAddon.data.entity.projectiles.SummonTrident;
+import xu_mod.SSCXuAddon.init.Init_Entity;
 
 
 public class SSC_Xu_Addon_Command {
@@ -73,9 +75,8 @@ public class SSC_Xu_Addon_Command {
     private static int test(CommandContext<ServerCommandSource> commandContext) throws CommandSyntaxException {
         PlayerEntity owner = commandContext.getSource().getPlayer();
         if (owner != null) {
-            BloodThornEntity bloodThornEntity = new BloodThornEntity(owner, 5.0f, new Vec3d(0d,0d,0d));
-            bloodThornEntity.setDamage(10.0f, 0.1f, 8f);
-            owner.getWorld().spawnEntity(bloodThornEntity);
+            SummonTrident project = new SummonTrident(owner, 5f, new Vec3d(0d,0d,0d));
+            owner.getWorld().spawnEntity(project);
         }
         return 0;
     }
