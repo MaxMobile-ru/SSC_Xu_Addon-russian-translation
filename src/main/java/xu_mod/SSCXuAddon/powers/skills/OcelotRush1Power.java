@@ -47,15 +47,22 @@ public class OcelotRush1Power extends ActiveCooldownPower {
     private long skillRemainTick = 0;
     private long skillTimer = 0;
 
+    private boolean shouldTick = false;
+
     public OcelotRush1Power(PowerType<?> type, LivingEntity entity, int cooldownDuration, HudRender hudRender, Consumer<Entity> activeFunction) {
         super(type, entity, cooldownDuration, hudRender, activeFunction);
+    }
+
+    @Override
+    public boolean shouldTick() {
+        return shouldTick;
     }
 
     @Override
     public void onUse() {
         if(canUse() && (triggerCondition == null || triggerCondition.test(this.entity))) {
             this.skillRemainTick = skillMaxTick;
-            this.setTicking();
+            this.shouldTick = true;
             Vector3f vec = new Vector3f(0, 0, movementSpeedX);
             Space.LOCAL.toGlobal(vec, this.entity);
             this.entity.addVelocity(vec.x, vec.y, vec.z);
@@ -71,7 +78,7 @@ public class OcelotRush1Power extends ActiveCooldownPower {
     public void tick() {
         if (this.entity.getWorld() instanceof ServerWorld serverWorld) {
             if (this.skillRemainTick <= 0) {
-                this.setTicking(false);
+                this.shouldTick = false;
                 return;
             }
             if (this.skillTimer >= smallExplosionTickRate) {
@@ -103,7 +110,7 @@ public class OcelotRush1Power extends ActiveCooldownPower {
             this.skillTimer++;
             if (this.entity.isOnGround() || !this.entity.getWorld().getBlockState(this.entity.getBlockPos()).isAir()) {
                 this.skillRemainTick = 0;
-                this.setTicking(false);
+                this.shouldTick = false;
                 // 只有在着陆时才会大爆炸
                 if (this.entity.isOnGround()) {
                     // 大爆炸

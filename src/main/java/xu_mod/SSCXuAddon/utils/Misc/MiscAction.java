@@ -33,7 +33,7 @@ public class MiscAction {
                 entity.lastDamageTaken = 0;
             }
             entity.damage(explosionOwner.getDamageSources().explosion(explosionOwner, Owner), distanceMultiplier * ExtraDamage + BaseDamage);
-            entity.takeKnockback(KnockPower * distanceMultiplier, direction.x, direction.z);
+            entity.takeKnockback(KnockPower * distanceMultiplier, -direction.x, -direction.z);
         }
         if (explosionOwner.getWorld() instanceof ServerWorld serverWorld) {
             serverWorld.spawnParticles(ParticleTypes.SPLASH, explosionPos.x, explosionPos.y, explosionPos.z, ParticleCount, Range * 0.5f, Range * 0.1f, Range * 0.5f, 0.2f);

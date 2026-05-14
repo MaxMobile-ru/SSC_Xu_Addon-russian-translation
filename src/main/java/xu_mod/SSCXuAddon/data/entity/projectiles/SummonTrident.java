@@ -10,6 +10,7 @@ import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.hit.BlockHitResult;
@@ -66,6 +67,7 @@ public class SummonTrident extends PersistentProjectileEntity {
         } else {
             MiscAction.WaterExplosion(this, this, this.getOwner(), 3f, 4f, 4f, 1.2f, 24, true, true);
         }
+        this.getWorld().playSound(this.getX(), this.getY(), this.getZ(), SoundEvents.ENTITY_WITHER_BREAK_BLOCK, SoundCategory.PLAYERS, 1.0f, 1.0f, false);
         this.kill();
     }
 

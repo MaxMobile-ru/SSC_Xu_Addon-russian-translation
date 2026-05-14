@@ -34,11 +34,13 @@ public class Init_Apoli {
 
         // Skill Power
         Init_Apoli.registerPower(OcelotRush1Power.createFactory());
+        AxolotlPower.registerPower(Init_Apoli::registerPower);
     }
 
     private static void init_Condition() {
         LeveledManaPower.registerConditions(Init_Apoli::registerEntityCondition);
         SomeRandomConditionAndAction.registerConditions(Init_Apoli::registerEntityCondition);
+        AxolotlPower.registerConditions(Init_Apoli::registerEntityCondition);
     }
 
     private static void init_Action() {
@@ -48,6 +50,7 @@ public class Init_Apoli {
         SomeRandomConditionAndAction.registerActions(Init_Apoli::registerEntityAction, Init_Apoli::registerBIEntityAction);
         FireRingAction.registerActions(Init_Apoli::registerEntityAction, Init_Apoli::registerBIEntityAction);
         ShootBloodThornAction.registerActions(Init_Apoli::registerEntityAction, Init_Apoli::registerBIEntityAction);
+        AxolotlPower.registerActions(Init_Apoli::registerEntityAction, Init_Apoli::registerBIEntityAction);
     }
 
 
