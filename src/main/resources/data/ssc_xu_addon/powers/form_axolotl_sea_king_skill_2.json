@@ -1,0 +1,34 @@
+{
+  "type": "apoli:active_self",
+  "condition": {
+    "type": "shape-shifter-curse:has_mana",
+    "mana": 60
+  },
+  "entity_action": {
+    "type": "apoli:if_else",
+    "condition": {
+      "type": "ssc_xu_addon:can_explosion_virtual_scepter"
+    },
+    "if_action": {
+      "type": "ssc_xu_addon:explosion_virtual_scepter",
+      "success_action": {
+        "type": "shape-shifter-curse:consume_mana",
+        "mana": 60
+      }
+    },
+    "else_action": {
+      "type": "ssc_xu_addon:charge_scepter",
+      "success_action": {
+        "type": "shape-shifter-curse:consume_mana",
+        "mana": 60
+      }
+    }
+  },
+  "cooldown": 200,
+  "hud_render": {
+    "should_render": false
+  },
+  "key": {
+    "key": "key.origins.secondary_active"
+  }
+}

@@ -1,5 +1,6 @@
 package xu_mod.SSCXuAddon.powers;
 
+import io.github.apace100.apoli.Apoli;
 import io.github.apace100.apoli.data.ApoliDataTypes;
 import io.github.apace100.apoli.power.Active;
 import io.github.apace100.apoli.power.ActiveCooldownPower;
@@ -12,9 +13,11 @@ import io.github.apace100.apoli.util.Space;
 import io.github.apace100.calio.data.SerializableData;
 import io.github.apace100.calio.data.SerializableDataTypes;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Ownable;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.TridentItem;
@@ -24,6 +27,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.Hand;
 import net.minecraft.util.Pair;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
@@ -32,6 +36,7 @@ import net.onixary.shapeShifterCurseFabric.mana.ManaUtils;
 import org.joml.Vector3f;
 import xu_mod.SSCXuAddon.SSCXuAddon;
 import xu_mod.SSCXuAddon.data.item.tools.SeaScepter;
+import xu_mod.SSCXuAddon.init.Init_Item;
 import xu_mod.SSCXuAddon.utils.Misc.ExplosionBehaviorExceptBreakBlock;
 import xu_mod.SSCXuAddon.utils.Misc.MiscAction;
 
@@ -184,15 +189,47 @@ public class AxolotlPower {
                 SSCXuAddon.identifier("charge_scepter"),
                 new SerializableData()
                         .add("value", SerializableDataTypes.INT, 5)
-                        .add("over_charge", SerializableDataTypes.BOOLEAN, true),
+                        .add("over_charge", SerializableDataTypes.BOOLEAN, true)
+                        .add("success_action", ApoliDataTypes.ENTITY_ACTION, null),
                 (data, e) -> {
                     if (e instanceof PlayerEntity player) {
                         ItemStack stack = player.getMainHandStack();
+                        ActionFactory<Entity>.Instance action = data.get("success_action");
                         if (!(stack.getItem() instanceof SeaScepter)) {
                             stack = player.getOffHandStack();
                         }
-                        if (stack.getItem() instanceof SeaScepter) {
+                        if (stack.getItem() instanceof SeaScepter seaScepter && !seaScepter.isVirtual) {
                             SeaScepter.charge(stack, player.getWorld(), data.get("value"), data.get("over_charge"));
+                            if (action != null) {
+                                action.accept(player);
+                            }
+                            return;
+                        }
+                        stack = player.getMainHandStack();
+                        if (stack.isEmpty() || (stack.getItem() instanceof SeaScepter seaScepter && seaScepter.isVirtual)) {
+                            ItemStack virtualStack = new ItemStack(Init_Item.SEA_SCEPTER_VIRTUAL);
+                            player.setStackInHand(Hand.MAIN_HAND, virtualStack);
+                            if (action != null) {
+                                action.accept(player);
+                            }
+                            return;
+                        }
+                    }
+                }
+        ));
+        ActionRegister.accept(new ActionFactory<>(
+                SSCXuAddon.identifier("explosion_virtual_scepter"),
+                new SerializableData()
+                        .add("success_action", ApoliDataTypes.ENTITY_ACTION, null),
+                (data, e) -> {
+                    if (e instanceof PlayerEntity player) {
+                        ItemStack stack = player.getMainHandStack();
+                        if (stack.getItem() instanceof SeaScepter seaScepter && seaScepter.isVirtual) {
+                            seaScepter.selfExplosion(stack, player.getWorld(), player, EquipmentSlot.MAINHAND);
+                            if (data.get("success_action") != null) {
+                                ActionFactory<Entity>.Instance action = data.get("success_action");
+                                action.accept(player);
+                            }
                         }
                     }
                 }
@@ -200,8 +237,16 @@ public class AxolotlPower {
     }
 
     public static void registerConditions(Consumer<ConditionFactory<Entity>> ConditionRegister) {
-
+        ConditionRegister.accept(new ConditionFactory<>(
+                SSCXuAddon.identifier("can_explosion_virtual_scepter"),
+                new SerializableData(),
+                (data, e) -> {
+                    if (e instanceof PlayerEntity player) {
+                        ItemStack stack = player.getMainHandStack();
+                        return stack.getItem() instanceof SeaScepter seaScepter && seaScepter.isVirtual;
+                    }
+                    return false;
+                }
+        ));
     }
-
-
 }
