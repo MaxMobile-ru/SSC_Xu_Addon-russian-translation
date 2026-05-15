@@ -78,8 +78,7 @@ public class AxolotlPower {
 
         private long skillRemainTick = 0;
 
-        // TODO 仅测试用 发布前一定得记得改
-        public float manaCost = 0f;
+        public float manaCost = 80f;
 
         public boolean shouldTick = false;
 

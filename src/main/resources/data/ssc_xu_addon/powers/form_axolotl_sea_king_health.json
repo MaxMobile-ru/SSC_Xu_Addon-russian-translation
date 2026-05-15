@@ -1,0 +1,138 @@
+{
+  "type": "origins:multiple",
+  "hp1": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "name": "wet health 1",
+      "attribute": "minecraft:generic.max_health",
+      "value": 2.0,
+      "operation": "addition"
+    },
+    "tick_rate": 20,
+    "condition": {
+      "type": "shape-shifter-curse:has_mana_percent",
+      "mana_percent": 0.9
+    }
+  },
+  "hp2": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "name": "wet health 2",
+      "attribute": "minecraft:generic.max_health",
+      "value": 2.0,
+      "operation": "addition"
+    },
+    "tick_rate": 20,
+    "condition": {
+      "type": "shape-shifter-curse:has_mana_percent",
+      "mana_percent": 0.8
+    }
+  },
+  "hp3": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "name": "wet health 3",
+      "attribute": "minecraft:generic.max_health",
+      "value": 2.0,
+      "operation": "addition"
+    },
+    "tick_rate": 20,
+    "condition": {
+      "type": "shape-shifter-curse:has_mana_percent",
+      "mana_percent": 0.7
+    }
+  },
+  "hp4": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "name": "wet health 4",
+      "attribute": "minecraft:generic.max_health",
+      "value": 2.0,
+      "operation": "addition"
+    },
+    "tick_rate": 20,
+    "condition": {
+      "type": "shape-shifter-curse:has_mana_percent",
+      "mana_percent": 0.6
+    }
+  },
+  "hp5": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "name": "wet health 5",
+      "attribute": "minecraft:generic.max_health",
+      "value": 2.0,
+      "operation": "addition"
+    },
+    "tick_rate": 20,
+    "condition": {
+      "type": "shape-shifter-curse:has_mana_percent",
+      "mana_percent": 0.5
+    }
+  },
+  "hp6": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "name": "wet health 6",
+      "attribute": "minecraft:generic.max_health",
+      "value": 2.0,
+      "operation": "addition"
+    },
+    "tick_rate": 20,
+    "condition": {
+      "type": "shape-shifter-curse:has_mana_percent",
+      "mana_percent": 0.4
+    }
+  },
+  "hp7": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "name": "wet health 7",
+      "attribute": "minecraft:generic.max_health",
+      "value": 2.0,
+      "operation": "addition"
+    },
+    "tick_rate": 20,
+    "condition": {
+      "type": "shape-shifter-curse:has_mana_percent",
+      "mana_percent": 0.3
+    }
+  },
+  "hp8": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "name": "wet health 8",
+      "attribute": "minecraft:generic.max_health",
+      "value": 2.0,
+      "operation": "addition"
+    },
+    "tick_rate": 20,
+    "condition": {
+      "type": "shape-shifter-curse:has_mana_percent",
+      "mana_percent": 0.2
+    }
+  },
+  "hp9": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "name": "wet health 9",
+      "attribute": "minecraft:generic.max_health",
+      "value": 2.0,
+      "operation": "addition"
+    },
+    "tick_rate": 20,
+    "condition": {
+      "type": "shape-shifter-curse:has_mana_percent",
+      "mana_percent": 0.1
+    }
+  },
+  "hpb": {
+    "type": "origins:attribute",
+    "modifier": {
+      "name": "wet health base",
+      "attribute": "minecraft:generic.max_health",
+      "value": -10,
+      "operation": "addition"
+    }
+  }
+}
