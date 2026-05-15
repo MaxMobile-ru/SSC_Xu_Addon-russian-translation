@@ -1,6 +1,7 @@
 package xu_mod.SSCXuAddon.init;
 
 import io.github.apace100.apoli.component.PowerHolderComponent;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Pair;
@@ -52,6 +53,11 @@ public class Init_ManaType {
     public static Identifier MC_InExhaustion = ManaRegistries.registerManaConditionType(
             SSCXuAddon.identifier("in_exhaustion"),
             (player) -> Utils.exhaustionTime.getOrDefault(player.getUuid(), 0) > 0
+    );
+
+    public static Identifier MC_InWater = ManaRegistries.registerManaConditionType(
+            SSCXuAddon.identifier("in_water"),
+            Entity::isTouchingWater
     );
 
     // 正常 500/5
@@ -227,7 +233,36 @@ public class Init_ManaType {
             }))
     );
 
-
+    public static Identifier AxolotlWaterResource = ManaRegistries.registerManaType(
+            SSCXuAddon.identifier("axolotl_water_resource"),
+            new ManaUtils.ModifierList(
+                    new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
+                            SSCXuAddon.identifier("base_value"),
+                            new Pair<Identifier, ManaUtils.Modifier>(
+                                    ManaRegistries.MC_AlwaysTrue,
+                                    new ManaUtils.Modifier(240d, 1.0d, 0d)
+                            )
+                    )
+            ),
+            new ManaUtils.ModifierList(
+                    new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
+                            SSCXuAddon.identifier("base_value"),
+                            new Pair<Identifier, ManaUtils.Modifier>(
+                                    ManaRegistries.MC_AlwaysTrue,
+                                    new ManaUtils.Modifier(-0.025d, 1.0d, 0d)  // -0.5 per sec  480sec->8min to empty
+                            )
+                    ),
+                    // TODO 还差炎热环境或地狱(读群系获取)
+                    new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
+                            SSCXuAddon.identifier("in_water_regan"),
+                            new Pair<Identifier, ManaUtils.Modifier>(
+                                    MC_InWater,
+                                    new ManaUtils.Modifier(0.425d, 1.0d, 0d)  // +8.5 per sec   30sec to fill
+                            )
+                    )
+            ),
+            ManaRegistries.EMPTY_MANA_HANDLER
+    );
 
     public static void init() {
     }
