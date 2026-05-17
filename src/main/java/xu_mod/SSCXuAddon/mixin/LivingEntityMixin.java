@@ -11,14 +11,16 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.util.Pair;
 import net.minecraft.world.World;
+import net.onixary.shapeShifterCurseFabric.util.Accessory.AccessoryUtils;
+import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import xu_mod.SSCXuAddon.data.item.trinket.AccessoryUtil;
 import xu_mod.SSCXuAddon.data.item.trinket.NineLiveCharm;
 import xu_mod.SSCXuAddon.init.Init_Apoli;
 import xu_mod.SSCXuAddon.init.Init_Item;
@@ -26,7 +28,9 @@ import xu_mod.SSCXuAddon.powers.AllayPower;
 import xu_mod.SSCXuAddon.powers.LeveledManaModifyDamageDealtPower;
 import xu_mod.SSCXuAddon.powers.SpeedDamageBoostPower;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Mixin(LivingEntity.class)
 public class LivingEntityMixin {
@@ -86,15 +90,17 @@ public class LivingEntityMixin {
         }
         if (!cir.getReturnValue()) {
             if ((Object)this instanceof PlayerEntity player) {
-                List<ItemStack> nineLiveCharm = AccessoryUtil.findAccessory(player, "auto", (itemStack -> {return itemStack.getItem() instanceof NineLiveCharm; }));
-                if (nineLiveCharm == null || nineLiveCharm.isEmpty()) {
+                Map<Pair<@Nullable String, String>, List<ItemStack>> accessoryMap = AccessoryUtils.getEntitySlots(player, "auto");
+                if (accessoryMap == null) {
                     return;
                 }
-                for (ItemStack itemStack : nineLiveCharm) {
-                    if (NineLiveCharm.CanTrigger(player, itemStack)) {
-                        NineLiveCharm.OnTrigger(player, itemStack);
-                        cir.setReturnValue(true);
-                        return;
+                for (List<ItemStack> itemStacks : accessoryMap.values()) {
+                    for (ItemStack itemStack : itemStacks) {
+                        if (itemStack.getItem() instanceof NineLiveCharm && NineLiveCharm.CanTrigger(player, itemStack)) {
+                            NineLiveCharm.OnTrigger(player, itemStack);
+                            cir.setReturnValue(true);
+                            return;
+                        }
                     }
                 }
             }
