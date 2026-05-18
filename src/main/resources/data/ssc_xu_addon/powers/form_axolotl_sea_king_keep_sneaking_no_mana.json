@@ -1,0 +1,13 @@
+{
+    "type": "shape-shifter-curse:keep_sneaking",
+    "condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type": "shape-shifter-curse:has_mana",
+                "mana": 1,
+                "inverted": true
+            }
+        ]
+    }
+}

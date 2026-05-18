@@ -240,7 +240,7 @@ public class Init_ManaType {
                             SSCXuAddon.identifier("base_value"),
                             new Pair<Identifier, ManaUtils.Modifier>(
                                     ManaRegistries.MC_AlwaysTrue,
-                                    new ManaUtils.Modifier(240d, 1.0d, 0d)
+                                    new ManaUtils.Modifier(300d, 1.0d, 0d)
                             )
                     )
             ),
@@ -249,15 +249,15 @@ public class Init_ManaType {
                             SSCXuAddon.identifier("base_value"),
                             new Pair<Identifier, ManaUtils.Modifier>(
                                     ManaRegistries.MC_AlwaysTrue,
-                                    new ManaUtils.Modifier(-0.025d, 1.0d, 0d)  // -0.5 per sec  480sec->8min to empty
+                                    new ManaUtils.Modifier(-0.025d, 1.0d, 0d)  // -0.5 per sec  600sec->10min to empty
                             )
                     ),
-                    // TODO 还差炎热环境或地狱(读群系获取)
+                    // TODO 还差炎热环境或地狱(读群系获取) 大约消耗翻倍
                     new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
                             SSCXuAddon.identifier("in_water_regan"),
                             new Pair<Identifier, ManaUtils.Modifier>(
                                     MC_InWater,
-                                    new ManaUtils.Modifier(0.425d, 1.0d, 0d)  // +8.5 per sec   30sec to fill
+                                    new ManaUtils.Modifier(0.525d, 1.0d, 0d)  // +10.5 per sec   30sec to fill
                             )
                     )
             ),

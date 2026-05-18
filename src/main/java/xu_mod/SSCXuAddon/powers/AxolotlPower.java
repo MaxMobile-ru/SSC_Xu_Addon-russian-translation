@@ -1,8 +1,6 @@
 package xu_mod.SSCXuAddon.powers;
 
-import io.github.apace100.apoli.Apoli;
 import io.github.apace100.apoli.data.ApoliDataTypes;
-import io.github.apace100.apoli.power.Active;
 import io.github.apace100.apoli.power.ActiveCooldownPower;
 import io.github.apace100.apoli.power.PowerType;
 import io.github.apace100.apoli.power.factory.PowerFactory;
@@ -17,31 +15,23 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Ownable;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.TridentItem;
-import net.minecraft.network.packet.s2c.play.ExplosionS2CPacket;
-import net.minecraft.particle.ParticleTypes;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Pair;
-import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.explosion.Explosion;
 import net.onixary.shapeShifterCurseFabric.mana.ManaUtils;
 import org.joml.Vector3f;
 import xu_mod.SSCXuAddon.SSCXuAddon;
 import xu_mod.SSCXuAddon.data.item.tools.SeaScepter;
 import xu_mod.SSCXuAddon.init.Init_Item;
-import xu_mod.SSCXuAddon.utils.Misc.ExplosionBehaviorExceptBreakBlock;
 import xu_mod.SSCXuAddon.utils.Misc.MiscAction;
 
 import java.util.function.Consumer;
-import java.util.function.Predicate;
 
 public class AxolotlPower {
     // 改一下结构 使用内嵌Power 让power文件夹简洁一点

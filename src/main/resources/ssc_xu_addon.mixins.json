@@ -9,7 +9,8 @@
 		"ProjectileEntityMixin",
 		"SmallFireBallEntityMixin",
 		"VillagerEntityMixin",
-		"PlayerEntityMixin"
+		"PlayerEntityMixin",
+		"StatusEffectUtilMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

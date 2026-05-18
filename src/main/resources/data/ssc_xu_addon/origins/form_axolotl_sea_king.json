@@ -11,7 +11,17 @@
     "ssc_xu_addon:form_axolotl_sea_king_skill_1",
     "ssc_xu_addon:form_axolotl_sea_king_skill_2",
     "ssc_xu_addon:form_axolotl_sea_king_health",
-
+    "ssc_xu_addon:water_breathing",
+    "ssc_xu_addon:form_axolotl_sea_king_sprinting_cost_mana",
+    "ssc_xu_addon:form_axolotl_sea_king_sprinting_sneaking_water_explode",
+    "ssc_xu_addon:form_axolotl_sea_king_sprinting_jump",
+    "ssc_xu_addon:form_axolotl_sea_king_sprinting_jump_high",
+    "ssc_xu_addon:form_axolotl_sea_king_sprinting_attack",
+    "ssc_xu_addon:form_axolotl_sea_king_particle",
+    "ssc_xu_addon:form_axolotl_sea_king_keep_sneaking_no_mana",
+    "ssc_xu_addon:form_axolotl_sea_king_sneaking_speed",
+    "ssc_xu_addon:form_axolotl_sea_king_air_from_potion",
+    "ssc_xu_addon:form_axolotl_sea_king_air_from_splash_potions",
 
     "origins:water_vision",
     "origins:aqua_affinity",
@@ -21,20 +31,9 @@
     "shape-shifter-curse:form_axolotl_3_crawling",
     "shape-shifter-curse:form_axolotl_keep_sneaking_when_head_collide",
     "shape-shifter-curse:form_disable_head_armor",
-
-
-    "shape-shifter-curse:form_axolotl_3_water_breathing",
     "shape-shifter-curse:form_axolotl_3_slipperiness",
-    "shape-shifter-curse:form_axolotl_3_sneaking_speed",
     "shape-shifter-curse:form_axolotl_3_sprinting_speed",
-    "shape-shifter-curse:form_axolotl_3_sprinting_cost_oxygen",
-    "shape-shifter-curse:form_axolotl_3_sprinting_sneaking_water_explode",
-    "shape-shifter-curse:form_axolotl_3_sprinting_jump",
-    "shape-shifter-curse:form_axolotl_3_sprinting_jump_high",
-    "shape-shifter-curse:form_axolotl_3_sprinting_attack",
     "shape-shifter-curse:form_axolotl_3_sprint_step_height",
-    "shape-shifter-curse:form_axolotl_3_particle",
-    "shape-shifter-curse:form_axolotl_3_keep_sneaking_no_air",
     "shape-shifter-curse:form_axolotl_3_ground_speed_down",
     "shape-shifter-curse:form_axolotl_3_always_swimming",
     "shape-shifter-curse:form_axolotl_1_swim_speed",
@@ -43,9 +42,7 @@
     "shape-shifter-curse:form_axolotl_2_water_spurt",
     "shape-shifter-curse:form_axolotl_2_falling_protection",
     "shape-shifter-curse:jump_out_water",
-    "shape-shifter-curse:form_axolotl_0_new_puff_speed_down",
-    "origins:air_from_potions",
-    "shape-shifter-curse:air_from_splash_potions"
+    "shape-shifter-curse:form_axolotl_0_new_puff_speed_down"
   ],
   "icon": {
     "item": "minecraft:player_head"
