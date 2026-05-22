@@ -13,6 +13,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
@@ -62,10 +63,11 @@ public class SeaScepter extends SwordItem {
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         int charge = getChargeValue(stack);
         if (charge > 0 || this.isVirtual) {
-            target.lastDamageTaken = 0;
-            target.damage(attacker.getDamageSources().magic(), charge > this.maxCharge ? 8.0f : 4.0f);
+            target.timeUntilRegen = 0;
+            target.lastDamageTaken = 0.0f;
+            target.damage(attacker.getDamageSources().magic(), 4.0f);
             if (charge > this.maxCharge) {
-                MiscAction.WaterExplosion(target, attacker, attacker, 2.0d, 3.0f, 3.0f, 0.5f, 8, true, false);
+                MiscAction.WaterExplosion(target, attacker, attacker, 2d, 4.0f, 2.0f, 0.5f, 8, true, false);
             }
             setChargeValue(stack, charge - 1);
             if (charge < 1 && this.isVirtual) {
@@ -142,11 +144,11 @@ public class SeaScepter extends SwordItem {
     public void selfExplosion(ItemStack stack, World world, LivingEntity user, EquipmentSlot hand) {
         // 只有虚拟的有爆炸触发 但是还是写上正常版本的自爆代码吧
         if (this.isVirtual) {
-            MiscAction.WaterExplosion(user, user, user, 3.75f, 6f, 12f, 1.25f, 24, true, true);
+            MiscAction.WaterExplosion(user, user, user, 4f, 8f, 15f, 2.0f, 24, true, true);
             world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.PLAYERS, 1.0f, 1.0f);
             stack.damage(1000000, user, (e) -> e.sendEquipmentBreakStatus(hand));
         } else {
-            MiscAction.WaterExplosion(user, user, user, 4f, 6f, 18f, 1.5f, 24, true, true);
+            MiscAction.WaterExplosion(user, user, user, 4.5f, 8f, 24f, 2.75f, 24, true, true);
             world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.PLAYERS, 1.0f, 1.0f);
             setChargeValue(stack, 0);
         }
@@ -154,6 +156,8 @@ public class SeaScepter extends SwordItem {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.translatable("item.ssc_xu_addon.sea_scepter.tooltip", getChargeValue(stack), this.maxCharge));
+        int charge = getChargeValue(stack);
+        int maxCharge = this.maxCharge;
+        tooltip.add(Text.translatable("item.ssc_xu_addon.sea_scepter.tooltip", charge, maxCharge).formatted(charge <= maxCharge ? Formatting.AQUA : Formatting.DARK_AQUA));
     }
 }

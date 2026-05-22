@@ -63,9 +63,9 @@ public class SummonTrident extends PersistentProjectileEntity {
 
     public void selfExplosion() {
         if (Tier == 2) {
-            MiscAction.WaterExplosion(this, this, this.getOwner(), 3f, 5f, 5f, 2.0f, 24, true, true);
+            MiscAction.WaterExplosion(this, this, this.getOwner(), 4f, 8f, 8f, 2.5f, 24, true, true);
         } else {
-            MiscAction.WaterExplosion(this, this, this.getOwner(), 3f, 4f, 4f, 1.2f, 24, true, true);
+            MiscAction.WaterExplosion(this, this, this.getOwner(), 4f, 6f, 6f, 1.8f, 24, true, true);
         }
         this.getWorld().playSound(this.getX(), this.getY(), this.getZ(), SoundEvents.ENTITY_WITHER_BREAK_BLOCK, SoundCategory.PLAYERS, 1.0f, 1.0f, false);
         this.kill();
@@ -141,11 +141,13 @@ public class SummonTrident extends PersistentProjectileEntity {
         return;
     }
 
+    @Override
     public void readCustomDataFromNbt(NbtCompound nbt) {
         super.readCustomDataFromNbt(nbt);
         this.Tier = nbt.getInt("Tier");
     }
 
+    @Override
     public void writeCustomDataToNbt(NbtCompound nbt) {
         super.writeCustomDataToNbt(nbt);
         nbt.putInt("Tier", Tier);

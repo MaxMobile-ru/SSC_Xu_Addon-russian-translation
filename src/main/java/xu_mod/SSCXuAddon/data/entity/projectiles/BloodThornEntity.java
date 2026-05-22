@@ -133,6 +133,7 @@ public class BloodThornEntity extends PersistentProjectileEntity {
             player.onAttacking(entity);
         }
         if (entity instanceof LivingEntity livingEntity) {
+            livingEntity.timeUntilRegen = 0;
             livingEntity.lastDamageTaken = 0.0f;  // 取消无敌帧
             if (livingEntity.damage(damageSource, damage)) {
 

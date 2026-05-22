@@ -85,6 +85,7 @@ public class SpaceGem extends Item {
                     }
                     world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.BLOCK_ENDER_CHEST_OPEN, SoundCategory.PLAYERS, 1.0F, 1.0F);
                 } else {  // 10点虚空伤害
+                    player.timeUntilRegen = 0;
                     player.lastDamageTaken = 0.0f;
                     player.damage(player.getWorld().getDamageSources().outOfWorld(), 10);
                     world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.BLOCK_PORTAL_TRAVEL, SoundCategory.PLAYERS, 0.25F, 1F);

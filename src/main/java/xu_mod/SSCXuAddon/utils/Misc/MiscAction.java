@@ -17,7 +17,7 @@ public class MiscAction {
         if (targetEntity == null) {
             targetEntity = explosionOwner;
         }
-        Vec3d explosionPos = explosionOwner.getPos();
+        Vec3d explosionPos = targetEntity.getPos();
         @Nullable Entity finalOwner = Owner;
         for (LivingEntity entity : explosionOwner.getWorld().getEntitiesByClass(LivingEntity.class, targetEntity.getBoundingBox().expand(Range), e -> e != explosionOwner && e != finalOwner)) {
             Vec3d direction = entity.getPos().subtract(explosionPos);
@@ -30,6 +30,7 @@ public class MiscAction {
                 distanceMultiplier -= (float) (distance / Range);
             }
             if (ForceDamage) {
+                entity.timeUntilRegen = 0;
                 entity.lastDamageTaken = 0;
             }
             entity.damage(explosionOwner.getDamageSources().explosion(explosionOwner, Owner), distanceMultiplier * ExtraDamage + BaseDamage);

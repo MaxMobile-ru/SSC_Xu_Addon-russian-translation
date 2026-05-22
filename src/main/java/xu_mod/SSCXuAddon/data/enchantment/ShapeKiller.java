@@ -77,9 +77,12 @@ public class ShapeKiller extends Enchantment {
         float DamageModifier = getEntityDamageModifier(target);
         if (DamageModifier > 0.0f && target instanceof LivingEntity livingEntity) {
             float ldt = livingEntity.lastDamageTaken;
+            int tur = livingEntity.timeUntilRegen;
+            livingEntity.timeUntilRegen = 0;
             livingEntity.lastDamageTaken = 0.0f;
             livingEntity.damage(target.getDamageSources().magic(), level * DamageModifier);
             livingEntity.lastDamageTaken = ldt;
+            livingEntity.timeUntilRegen = tur;
             livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, (int)(level * DamageModifier * 8), 3));
         }
     }
