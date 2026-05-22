@@ -17,16 +17,18 @@ public class DefaultResourceBarRender implements IManaRender {
     public final boolean overrideInstinctBar;
     public final boolean enableTextDisplay;
     public final boolean enableNumberDisplay;
+    public final int TextColor;
 
-    public DefaultResourceBarRender(Identifier barTexture, boolean overrideInstinctBar, boolean enableTextDisplay, boolean enableNumberDisplay) {
+    public DefaultResourceBarRender(Identifier barTexture, boolean overrideInstinctBar, boolean enableTextDisplay, boolean enableNumberDisplay, int TextColor) {
         this.barTexture = barTexture;
         this.overrideInstinctBar = overrideInstinctBar;
         this.enableTextDisplay = enableTextDisplay;
         this.enableNumberDisplay = enableNumberDisplay;
+        this.TextColor = TextColor;
     }
 
     public DefaultResourceBarRender(Identifier barTexture) {
-        this(barTexture, false, true, true);
+        this(barTexture, false, true, true, 0xFFFFFFFF);
     }
 
     @Override
@@ -75,7 +77,7 @@ public class DefaultResourceBarRender implements IManaRender {
                 }
             }
             Text manaText = Text.literal(manaString.toString());
-            context.drawText(minecraftClient.textRenderer, manaText, x, y - 8, 0xFFCC0000, false);
+            context.drawText(minecraftClient.textRenderer, manaText, x, y - 8, TextColor, false);
         }
     }
 }

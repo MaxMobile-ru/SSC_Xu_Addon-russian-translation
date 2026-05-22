@@ -1,0 +1,43 @@
+{
+  "type": "origins:multiple",
+  "extra_damage": {
+    "type": "origins:modify_damage_taken",
+    "modifier": {
+      "name": "reduce damage taken",
+      "value": 0.75,
+      "operation": "multiply_base"
+    },
+    "condition": {
+      "type": "shape-shifter-curse:has_mana_percent",
+      "mana_percent": 0.3,
+      "inverted": true
+    }
+  },
+  "consume_mana": {
+    "type": "origins:modify_damage_taken",
+    "self_action": {
+      "type": "shape-shifter-curse:consume_mana",
+      "mana": 4
+    },
+    "condition": {
+      "type": "shape-shifter-curse:has_mana_percent",
+      "mana_percent": 0.3
+    }
+  },
+  "reduce_mana": {
+    "type": "origins:modify_damage_taken",
+    "modifier": {
+      "name": "reduce damage taken",
+      "value": -0.3,
+      "operation": "multiply_base"
+    },
+    "self_action": {
+      "type": "shape-shifter-curse:consume_mana",
+      "mana": 4
+    },
+    "condition": {
+      "type": "shape-shifter-curse:has_mana_percent",
+      "mana_percent": 0.7
+    }
+  }
+}

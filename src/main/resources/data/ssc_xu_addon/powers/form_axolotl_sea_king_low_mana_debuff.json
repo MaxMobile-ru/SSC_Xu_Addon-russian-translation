@@ -1,0 +1,116 @@
+{
+  "type": "origins:multiple",
+  "20_attack_damage": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "attribute": "minecraft:generic.attack_damage",
+      "name": "mana_low_debuff",
+      "operation": "multiply_base",
+      "value": -0.2
+    },
+    "tick_rate": 20,
+    "condition": {
+      "type": "shape-shifter-curse:has_mana_percent",
+      "mana_percent": 0.2,
+      "inverted": true
+    }
+  },
+  "20_exhaustion": {
+    "type": "origins:modify_exhaustion",
+    "modifier": {
+      "name": "Increased exhaustion",
+      "operation": "multiply_base",
+      "value": 1.0
+    },
+    "condition": {
+      "type": "shape-shifter-curse:has_mana_percent",
+      "mana_percent": 0.2,
+      "inverted": true
+    }
+  },
+  "10_attack_damage": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "attribute": "minecraft:generic.attack_damage",
+      "name": "mana_low_debuff",
+      "operation": "multiply_base",
+      "value": -0.2
+    },
+    "tick_rate": 20,
+    "condition": {
+      "type": "shape-shifter-curse:has_mana_percent",
+      "mana_percent": 0.1,
+      "inverted": true
+    }
+  },
+  "10_exhaustion": {
+    "type": "origins:modify_exhaustion",
+    "modifier": {
+      "name": "Increased exhaustion",
+      "operation": "multiply_base",
+      "value": 1.0
+    },
+    "condition": {
+      "type": "shape-shifter-curse:has_mana_percent",
+      "mana_percent": 0.1,
+      "inverted": true
+    }
+  },
+  "5_attack_damage": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "attribute": "minecraft:generic.attack_damage",
+      "name": "mana_low_debuff",
+      "operation": "multiply_base",
+      "value": -0.1
+    },
+    "tick_rate": 20,
+    "condition": {
+      "type": "shape-shifter-curse:has_mana_percent",
+      "mana_percent": 0.05,
+      "inverted": true
+    }
+  },
+  "5_attack_speed": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "attribute": "minecraft:generic.attack_speed",
+      "name": "mana_low_debuff",
+      "operation": "multiply_base",
+      "value": -0.5
+    },
+    "tick_rate": 20,
+    "condition": {
+      "type": "shape-shifter-curse:has_mana_percent",
+      "mana_percent": 0.05,
+      "inverted": true
+    }
+  },
+  "5_exhaustion": {
+    "type": "origins:modify_exhaustion",
+    "modifier": {
+      "name": "Increased exhaustion",
+      "operation": "multiply_base",
+      "value": 1.0
+    },
+    "condition": {
+      "type": "shape-shifter-curse:has_mana_percent",
+      "mana_percent": 0.05,
+      "inverted": true
+    }
+  },
+  "0_damage": {
+    "type": "origins:action_over_time",
+    "entity_action": {
+      "type": "origins:damage",
+      "amount": 1,
+      "damage_type": "minecraft:drown"
+    },
+    "interval": 40,
+    "condition": {
+      "type": "shape-shifter-curse:has_mana_percent",
+      "mana_percent": 0.001,
+      "inverted": true
+    }
+  }
+}

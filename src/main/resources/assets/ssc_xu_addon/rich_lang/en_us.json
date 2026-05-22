@@ -275,6 +275,8 @@
   "item.ssc_xu_addon.magic_conch.message.9": ["It is said that a cat might carry a trinket that can prevent death. Hard to know if the tale is true."],
   "item.ssc_xu_addon.magic_conch.message.10": ["The magic of the Space Gem might allow the Allay, who already possesses spatial abilities, to create even larger storage spaces."],
 
+  "item.ssc_xu_addon.sea_scepter.tooltip": "Charge Value: %s / %s",
+
   "message.ssc_xu_addon.special_form.unfinish": ["The item in your hand could transform your current form, but that form does not yet exist in this world. Perhaps you could try again after a future update."],
 
   "text.autoconfig.ssc_xu_addon_custom.title": "SSC Xu Addon - Player Custom Config",

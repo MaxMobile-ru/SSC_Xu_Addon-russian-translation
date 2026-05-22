@@ -22,6 +22,8 @@
     "ssc_xu_addon:form_axolotl_sea_king_sneaking_speed",
     "ssc_xu_addon:form_axolotl_sea_king_air_from_potion",
     "ssc_xu_addon:form_axolotl_sea_king_air_from_splash_potions",
+    "ssc_xu_addon:form_axolotl_sea_king_defence",
+    "ssc_xu_addon:form_axolotl_sea_king_low_mana_debuff",
 
     "origins:water_vision",
     "origins:aqua_affinity",
