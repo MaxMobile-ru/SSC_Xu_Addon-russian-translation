@@ -32,6 +32,7 @@ public class Init_Apoli {
         Init_Apoli.registerPower(AllayPower.createFactory());
         Init_Apoli.registerPower(SpeedDamageBoostPower.createFactory());
         Init_Apoli.registerPower(JumpClashPower.createFactory());
+        Init_Apoli.registerPower(ManaAttributePro.createFactory());
 
         // Skill Power
         Init_Apoli.registerPower(OcelotRush1Power.createFactory());

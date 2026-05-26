@@ -1,0 +1,20 @@
+{
+  "type":"origins:multiple",
+  "max_mana": {
+    "type": "shape-shifter-curse:mana_attribute",
+    "modifierID": "ssc_xu_addon:axolotl_sea_king_accessory_2_1",
+    "max_mana_modifier": {
+      "multiply": 0.25
+    },
+    "player_side": true
+  },
+  "regen": {
+    "type": "ssc_xu_addon:mana_attribute",
+    "modifierID": "ssc_xu_addon:axolotl_sea_king_accessory_2_2",
+    "conditionID": "ssc_xu_addon:in_water",
+    "regen_mana_modifier": {
+      "add": 0.5
+    },
+    "player_side": true
+  }
+}

@@ -60,6 +60,13 @@ public class Init_ManaType {
             Entity::isTouchingWater
     );
 
+    public static Identifier MC_IsHot = ManaRegistries.registerManaConditionType(
+            SSCXuAddon.identifier("is_hot"),
+            (player) -> {
+                return player.getPos().getY() > 0 && player.getWorld().getBiome(player.getBlockPos()).value().getTemperature() > 1.2;
+            }
+    );
+
     // 正常 500/5
     // 夜晚 500/4
     // 诅咒之月白天 500/3
@@ -255,7 +262,13 @@ public class Init_ManaType {
                                     new ManaUtils.Modifier(-0.025d, 1.0d, 0d)  // -0.5 per sec  600sec->10min to empty
                             )
                     ),
-                    // TODO 还差炎热环境或地狱(读群系获取) 大约消耗翻倍
+                    new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
+                            SSCXuAddon.identifier("hot_biome"),
+                            new Pair<Identifier, ManaUtils.Modifier>(
+                                    MC_IsHot,
+                                    new ManaUtils.Modifier(-0.025d, 1.0d, 0d)  // -0.5 per sec + base_value = -1 per sec 300sec->5min to empty
+                            )
+                    ),
                     new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
                             SSCXuAddon.identifier("in_water_regan"),
                             new Pair<Identifier, ManaUtils.Modifier>(
