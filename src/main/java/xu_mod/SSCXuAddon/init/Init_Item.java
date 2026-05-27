@@ -26,6 +26,7 @@ import xu_mod.SSCXuAddon.data.item.tools.BloodClaw;
 import xu_mod.SSCXuAddon.data.item.tools.SeaScepter;
 import xu_mod.SSCXuAddon.data.item.tools.SpaceBag;
 import xu_mod.SSCXuAddon.data.item.tools.StableSpaceGem;
+import xu_mod.SSCXuAddon.data.item.trinket.MoistureKeptCharm;
 import xu_mod.SSCXuAddon.data.item.trinket.NineLiveCharm;
 import xu_mod.SSCXuAddon.data.item.trinket.TrinketWithToolTip;
 
@@ -61,6 +62,7 @@ public class Init_Item {
     public static final Item SEA_SCEPTER = register("sea_scepter", new SeaScepter(ToolMaterials.DIAMOND, 4, -2.9f, new Item.Settings().maxCount(1), 10, 10, false));
     public static final Item SEA_SCEPTER_VIRTUAL = register("sea_scepter_virtual", new SeaScepter(ToolMaterials.DIAMOND, 4, -2.9f, new Item.Settings().maxCount(1), 0, 5, true));
     public static final Item SEA_BLESSED_RING = register("sea_blessed_ring", new TrinketWithToolTip(new Item.Settings().maxCount(1), Text.translatable("item.ssc_xu_addon.sea_blessed_ring.tooltip").formatted(Formatting.YELLOW)));
+    public static final Item MOISTURE_KEPT_CHARM = register("moisture_kept_charm", new MoistureKeptCharm(new Item.Settings().maxCount(1)));
 
     // 火焰宝石 大地宝石 超级神圣金苹果
     public static final Item FIRE_GEM = register("fire_gem", new FireGem(new Item.Settings().maxCount(64)));
@@ -99,6 +101,7 @@ public class Init_Item {
                 entries.add(SEA_SCEPTER);
                 entries.add(SEA_SCEPTER_VIRTUAL);
                 entries.add(SEA_BLESSED_RING);
+                entries.add(MOISTURE_KEPT_CHARM);
 
                 entries.add(UNSTABLE_HOLY_APPLE);
                 entries.add(STABLE_HOLY_APPLE);

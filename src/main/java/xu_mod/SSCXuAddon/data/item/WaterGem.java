@@ -55,13 +55,14 @@ public class WaterGem extends Item {
         if (user instanceof PlayerEntity player && !world.isClient) {
             PlayerFormBase form = RegPlayerFormComponent.PLAYER_FORM.get(user).getCurrentForm();
             if (RegPlayerForms.AXOLOTL_3.equals(form)) {
-                 // player.sendMessage(Text.translatable("message.ssc_xu_addon.item.water_gem.special_form").formatted(Formatting.YELLOW), false);
-                 // TransformManager.handleDirectTransform(player, Init_Form.AXOLOTL_SEA, false);
-                player.sendMessage(Text.translatable("message.ssc_xu_addon.special_form.unfinish").formatted(Formatting.YELLOW), false);
+                player.sendMessage(Text.translatable("message.ssc_xu_addon.item.water_gem.special_form").formatted(Formatting.YELLOW), false);
+                TransformManager.handleDirectTransform(player, Init_Form.AxolotlSeaKing, false);
             }
-            // else if (Init_Form.AXOLOTL_SEA.equals(form)) {
-            //     player.getItemCooldownManager().set(this, 600);
-            // }
+            else if (Init_Form.AxolotlSeaKing.equals(form)) {
+                ManaUtils.gainPlayerMana(player, 10000);
+                ManaUtils.gainPlayerManaWithTime(player, 1, 300);
+                player.getItemCooldownManager().set(this, 600);
+            }
             // 环境适应力
             player.addStatusEffect(new StatusEffectInstance(StatusEffects.WATER_BREATHING, 12000, 0, false, true));
             player.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 12000, 0, false, true));
