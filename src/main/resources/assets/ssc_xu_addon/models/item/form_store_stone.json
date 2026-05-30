@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "ssc_xu_addon:item/form_stone_empty"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "ssc_xu_addon:form_stone_full": 1
+      },
+      "model": "ssc_xu_addon:item/form_store_stone_full"
+    }
+  ]
+}

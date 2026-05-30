@@ -83,7 +83,7 @@ public class SeaScepter extends SwordItem {
     }
 
     public int getMaxUseTime(ItemStack stack) {
-        return 24;
+        return 15;
     }
 
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {

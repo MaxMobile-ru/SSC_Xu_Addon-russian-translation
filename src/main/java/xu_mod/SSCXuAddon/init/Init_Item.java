@@ -1,16 +1,13 @@
 package xu_mod.SSCXuAddon.init;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.*;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.entry.ItemEntry;
-import net.minecraft.loot.function.LootFunctionTypes;
 import net.minecraft.loot.function.SetCountLootFunction;
-import net.minecraft.loot.provider.number.BinomialLootNumberProvider;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.registry.Registries;
@@ -18,14 +15,10 @@ import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
-import net.onixary.shapeShifterCurseFabric.ShapeShifterCurseFabric;
 import net.onixary.shapeShifterCurseFabric.util.EnchantmentUtils;
 import xu_mod.SSCXuAddon.SSCXuAddon;
 import xu_mod.SSCXuAddon.data.item.*;
-import xu_mod.SSCXuAddon.data.item.tools.BloodClaw;
-import xu_mod.SSCXuAddon.data.item.tools.SeaScepter;
-import xu_mod.SSCXuAddon.data.item.tools.SpaceBag;
-import xu_mod.SSCXuAddon.data.item.tools.StableSpaceGem;
+import xu_mod.SSCXuAddon.data.item.tools.*;
 import xu_mod.SSCXuAddon.data.item.trinket.MoistureKeptCharm;
 import xu_mod.SSCXuAddon.data.item.trinket.NineLiveCharm;
 import xu_mod.SSCXuAddon.data.item.trinket.TrinketWithToolTip;
@@ -70,6 +63,9 @@ public class Init_Item {
     public static final Item WATER_GEM = register("water_gem", new WaterGem(new Item.Settings().maxCount(64)));
     public static final Item SUPER_HOLY_APPLE = register("super_holy_apple", new SuperHolyApple(new Item.Settings().food(new FoodComponent.Builder().alwaysEdible().hunger(4).saturationModifier(1.2f).build()).maxCount(64)));
 
+    // 形态储存宝石
+    public static final Item FORM_STORE_STONE = register("form_store_stone", new FormStoreStone(new Item.Settings().maxCount(1)));
+
     // 魔法海螺
     public static final Item MAGIC_CONCH = register("magic_conch", new MagicConch(new Item.Settings().maxCount(1)));
 
@@ -106,6 +102,7 @@ public class Init_Item {
                 entries.add(UNSTABLE_HOLY_APPLE);
                 entries.add(STABLE_HOLY_APPLE);
                 entries.add(SUPER_HOLY_APPLE);
+                entries.add(FORM_STORE_STONE);
 
                 entries.add(BLOOD_GEM);
                 entries.add(EMERALD_ESSENCE);

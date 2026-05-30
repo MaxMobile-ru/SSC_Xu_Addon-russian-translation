@@ -6,6 +6,7 @@ public class Init {
     public static void init() {
         Init_EntityRenderer.init();
         Init_ManaTypeRender.init();
+        Init_ModelPredicateProvider.init();
         ModPacketsClient.register();
     }
 }

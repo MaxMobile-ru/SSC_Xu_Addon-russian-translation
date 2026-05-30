@@ -327,7 +327,13 @@
     "You move slower on loose, powdery ground.\n",
     "You can only gain energy from meat-based foods."
   ],
-  "codex.form.ssc_xu_addon.axolotl_sea_king.instincts": [""],
+  "codex.form.ssc_xu_addon.axolotl_sea_king.instincts": [
+    ""
+  ],
+
+  "item.ssc_xu_addon.form_store_stone": ["幻形石"],
+  "item.ssc_xu_addon.form_store_stone.tooltip.1": ["右键与幻形石交换形态：为空时存储你的形态，有形态时获取其中形态。"],
+  "item.ssc_xu_addon.form_store_stone.tooltip.2": "当前形态: %s",
 
   "message.ssc_xu_addon.special_form.unfinish": ["The item in your hand could transform your current form, but that form does not yet exist in this world. Perhaps you could try again after a future update."],
 
