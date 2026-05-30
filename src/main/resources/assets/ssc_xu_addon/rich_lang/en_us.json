@@ -335,6 +335,11 @@
   "item.ssc_xu_addon.form_store_stone.tooltip.1": ["右键与幻形石交换形态：为空时存储你的形态，有形态时获取其中形态。"],
   "item.ssc_xu_addon.form_store_stone.tooltip.2": "当前形态: %s",
 
+  "enchantment.ssc_xu_addon.shape_killer": ["Shapeshifter Killer"],
+  "enchantment.ssc_xu_addon.shape_killer.tooltip": ["Deals extra damage to shapeshifters."],
+  "enchantment.ssc_xu_addon.shape_protection": ["Shapeshifter Protection"],
+  "enchantment.ssc_xu_addon.shape_protection.tooltip": ["Reduces damage taken from shapeshifters."],
+
   "message.ssc_xu_addon.special_form.unfinish": ["The item in your hand could transform your current form, but that form does not yet exist in this world. Perhaps you could try again after a future update."],
 
   "text.ssc_xu_addon.config.title": "SSC Xu Addon - Config",
