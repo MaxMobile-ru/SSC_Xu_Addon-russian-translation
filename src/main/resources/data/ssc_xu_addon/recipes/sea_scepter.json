@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AAB",
+    " CA",
+    "D A"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:prismarine_shard"
+    },
+    "B": {
+      "item": "ssc_xu_addon:water_gem"
+    },
+    "C": {
+      "item": "minecraft:trident"
+    },
+    "D": {
+      "item": "minecraft:prismarine_crystals"
+    }
+  },
+  "result": {
+    "item": "ssc_xu_addon:sea_scepter",
+    "count": 1
+  }
+}

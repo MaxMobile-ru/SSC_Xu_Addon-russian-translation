@@ -4,7 +4,7 @@
     "type": "shape-shifter-curse:mana_attribute",
     "modifierID": "ssc_xu_addon:axolotl_sea_king_accessory_2_1",
     "max_mana_modifier": {
-      "multiply": 0.25
+      "multiply": 1.25
     },
     "player_side": true
   },

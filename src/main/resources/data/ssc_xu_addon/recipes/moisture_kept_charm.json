@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "ADA",
+    " C "
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:gold_ingot"
+    },
+    "B": {
+      "item": "shape-shifter-curse:moondust_crystal_shard"
+    },
+    "C": {
+      "item": "ssc_xu_addon:water_gem"
+    },
+    "D": {
+      "item": "minecraft:sponge"
+    }
+  },
+  "result": {
+    "item": "ssc_xu_addon:moisture_kept_charm",
+    "count": 1
+  }
+}

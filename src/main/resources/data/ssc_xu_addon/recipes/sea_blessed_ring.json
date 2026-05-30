@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " B ",
+    "ACA",
+    " A "
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:gold_ingot"
+    },
+    "B": {
+      "item": "ssc_xu_addon:water_gem"
+    },
+    "C": {
+      "item": "shape-shifter-curse:moondust_crystal_shard"
+    }
+  },
+  "result": {
+    "item": "ssc_xu_addon:sea_blessed_ring",
+    "count": 1
+  }
+}
