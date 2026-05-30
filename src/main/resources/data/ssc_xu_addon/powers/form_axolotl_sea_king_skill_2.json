@@ -12,15 +12,35 @@
     "if_action": {
       "type": "ssc_xu_addon:explosion_virtual_scepter",
       "success_action": {
-        "type": "shape-shifter-curse:consume_mana",
-        "mana": 60
+        "type": "apoli:and",
+        "actions": [
+          {
+            "type": "shape-shifter-curse:consume_mana",
+            "mana": 60
+          },
+          {
+            "type": "apoli:play_sound",
+            "sound": "entity.evoker.prepare_summon",
+            "volume": 0.5
+          }
+        ]
       }
     },
     "else_action": {
       "type": "ssc_xu_addon:charge_scepter",
       "success_action": {
-        "type": "shape-shifter-curse:consume_mana",
-        "mana": 60
+        "type": "apoli:and",
+        "actions": [
+          {
+            "type": "shape-shifter-curse:consume_mana",
+            "mana": 60
+          },
+          {
+            "type": "apoli:play_sound",
+            "sound": "block.enchantment_table.use",
+            "volume": 0.5
+          }
+        ]
       }
     }
   },

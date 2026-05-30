@@ -276,7 +276,7 @@
   "item.ssc_xu_addon.sea_blessed_ring": ["海佑之戒"],
   "item.ssc_xu_addon.sea_blessed_ring.tooltip": ["[美西螈(深海王子)形态]获得额外的水资源条上限(+25%)，并且获得额外的水中水资源条回复速率(+10/s)。"],
   "item.ssc_xu_addon.moisture_kept_charm": ["保湿护符"],
-  "item.ssc_xu_addon.moisture_kept_charm.tooltip": ["[美西螈(深海王子)形态]当水资源条小于50%时，消耗自身充能，以每秒2点的速度恢复水资源条。当佩戴者浸入水中时自动充能。"],
+  "item.ssc_xu_addon.moisture_kept_charm.tooltip": ["[美西螈(深海王子)形态]当水资源条小于55%时，消耗自身充能，以每秒2点的速度恢复水资源条。当佩戴者浸入水中时自动充能。"],
   "item.ssc_xu_addon.moisture_kept_charm.count": "充能值: %s / %s",
 
   "message.ssc_xu_addon.item.water_gem.special_form": "你吸收的潮汐宝石中的魔力，你变化成了新的形态。",
@@ -324,6 +324,7 @@
 
   "message.ssc_xu_addon.special_form.unfinish": ["你手上的物品能让你当前的形态变化，不过这个世界上还没有那个形态，或许可以等一下之后的更新后再来试试。"],
 
+  "text.ssc_xu_addon.config.title": "SSC Xu Addon - 配置",
   "text.autoconfig.ssc_xu_addon_custom.title": "SSC Xu Addon - 玩家自定义配置",
   "text.autoconfig.ssc_xu_addon_custom.option.enableFakeBlindPower": "启用 Power 失明效果",
   "text.autoconfig.ssc_xu_addon_server.title": "SSC Xu Addon - 服务器配置",

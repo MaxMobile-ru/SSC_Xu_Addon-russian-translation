@@ -275,10 +275,62 @@
   "item.ssc_xu_addon.magic_conch.message.9": ["It is said that a cat might carry a trinket that can prevent death. Hard to know if the tale is true."],
   "item.ssc_xu_addon.magic_conch.message.10": ["The magic of the Space Gem might allow the Allay, who already possesses spatial abilities, to create even larger storage spaces."],
 
-  "item.ssc_xu_addon.sea_scepter.tooltip": "Charge Value: %s / %s",
+  "item.ssc_xu_addon.sea_scepter": ["Sea King Scepter"],
+  "item.ssc_xu_addon.sea_scepter_virtual": ["Sea King Scepter (Illusion)"],
+  "item.ssc_xu_addon.sea_scepter.tooltip": "Charge: %s / %s",
+  "item.ssc_xu_addon.sea_blessed_ring": ["Sea-Blessed Ring"],
+  "item.ssc_xu_addon.sea_blessed_ring.tooltip": ["[Axolotl (Sea Prince) Form] Grants additional Water Magic capacity (+25%) and increased Water Magic regeneration while in water (+10/s)."],
+  "item.ssc_xu_addon.moisture_kept_charm": ["Moisture-Kept Charm"],
+  "item.ssc_xu_addon.moisture_kept_charm.tooltip": ["[Axolotl (Sea Prince) Form] When Water Magic is below 55%, consumes its own charge to restore Water Magic at 2 points per second. Automatically charges when the wearer is submerged in water."],
+  "item.ssc_xu_addon.moisture_kept_charm.count": "Charge: %s / %s",
+
+  "message.ssc_xu_addon.item.water_gem.special_form": "You absorb the magic from the Water Gem and transform into a new form.",
+
+  "codex.form.ssc_xu_addon.axolotl_sea_king.name": ["Axolotl (Sea Prince)"],
+  "codex.form.ssc_xu_addon.axolotl_sea_king.title": [
+    "\nYou have absorbed the magic from the Water Gem and learned to harness the water magic of nature. However, due to overuse of water magic, you fall into a weakened state when lacking magic.",
+    "\n\nExclusive accessories/tools: [Sea King Scepter] [Sea-Blessed Ring] [Moisture-Kept Charm] [Fountain Belt]"
+  ],
+  "codex.form.ssc_xu_addon.axolotl_sea_king.appearance": [
+    "You have embedded some Water Gems on your body to enhance water magic.\n",
+    "The further-grown tail has become the main structure of your body, adorned with developed fin membranes that allow swift underwater movement.\n",
+    "Your blunt-clawed limbs have grown even shorter and are now positioned more toward the front of your torso. When standing still, you can only maintain an upright posture with the support of your tail.\n",
+    "Your skin is now entirely covered in pale, scale-less tissue. Thanks to the water-storing feathery structure, your skin remains perpetually moist.\n\n",
+    "Two new clusters of gill filaments extend from the top of your head. Beyond supplying vital oxygen, you sense they grant you some power to perceive and manipulate water currents..."
+  ],
+  "codex.form.ssc_xu_addon.axolotl_sea_king.pros": [
+    "You now have a Water Magic bar, which can be replenished by submerging in water, or consuming water bottles or any potions.\n\n",
+    "You can breathe freely underwater, and your body grants hydrokinetic abilities:\n",
+    "While sprinting, you enter 'Wave-Step' state: speed increases and you can automatically step up 1-block heights, but turning becomes harder.\n",
+    "While in 'Wave-Step', you can expend Water Magic to channel water-based powers:\n",
+    "Press Active Skill (1): When not holding the Sea King Scepter, release a large-area water explosion. When holding it, release [Water Spike] – dash forward, triggering small water explosions during flight and a large water explosion upon landing.\n",
+    "Press Active Skill (2): Release [Water Shaping]. When not holding the Sea King Scepter, obtain a virtual Sea King Scepter that cannot be charged. When holding it, overcharge the scepter. When the scepter's charge exceeds its limit, attacks deal additional magic damage. You can also right-click to summon a water trident, causing a medium water explosion at the target location. When holding the virtual scepter, detonate it to cause a large water explosion.\n",
+    "Expend a small amount of Water Magic to press the jump key to propel yourself forward with a water current.\n",
+    "Expend a moderate amount of Water Magic to knock enemies back greatly with your attacks.\n",
+    "Expend a larger amount of Water Magic to press the sneak key to release a small-area water explosion. This effect does not break blocks.\n\n",
+    "You move very swiftly in water currents. When fully submerged, you automatically enter sprint-swimming mode and no longer consume extra hunger.\n",
+    "You do not sink underwater. Press the sprint key to propel yourself forward while in water.\n",
+    "When surfacing, you can leap out of the water.\n",
+    "You can see more clearly underwater and break blocks without hindrance.\n",
+    "When you have Water Magic, you regenerate lost health over time.\n",
+    "While sneaking, you enter a natural crawling stance, allowing you to quickly pass through narrow spaces.\n",
+    "Raw fish provides more hunger saturation."
+  ],
+  "codex.form.ssc_xu_addon.axolotl_sea_king.cons": [
+    "Your body structure is no longer suited for normal walking. When not in 'Wave-Step' state, your movement becomes quite sluggish.\n",
+    "Water Magic is the source of your strength. Your maximum health decreases as your Water Magic drops; when Water Magic is depleted, you cannot support your body's weight and can only crawl slowly on the ground.\n",
+    "Due to long-term over-reliance on magic, your body is quite frail, taking 75% more damage. However, when your Water Magic is above 30%, your body automatically consumes Water Magic to offset this extra damage.\n",
+    "When your Water Magic falls below 20%, 10%, and 5%, your attack power gradually decreases, and your hunger consumption increases accordingly.\n",
+    "When your Water Magic reaches zero, you will continuously take suffocation damage.\n\n",
+    "You can no longer equip helmets.\n",
+    "You move slower on loose, powdery ground.\n",
+    "You can only gain energy from meat-based foods."
+  ],
+  "codex.form.ssc_xu_addon.axolotl_sea_king.instincts": [""],
 
   "message.ssc_xu_addon.special_form.unfinish": ["The item in your hand could transform your current form, but that form does not yet exist in this world. Perhaps you could try again after a future update."],
 
+  "text.ssc_xu_addon.config.title": "SSC Xu Addon - Config",
   "text.autoconfig.ssc_xu_addon_custom.title": "SSC Xu Addon - Player Custom Config",
   "text.autoconfig.ssc_xu_addon_custom.option.enableFakeBlindPower": "Enable Power Blindness Effect",
   "text.autoconfig.ssc_xu_addon_server.title": "SSC Xu Addon - Server Config",

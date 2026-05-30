@@ -19,7 +19,7 @@ import java.util.List;
 
 public class MoistureKeptCharm extends AccessoryItem {
     public int MaxManaStore = 300;
-    public float ManaRegenStartPercent = 0.5f;
+    public float ManaRegenStartPercent = 0.55f;
     public int ManaRegenRate = 2;
     public int ManaRegenInWater = 5;
     public static final String StoreManaTag = "axolotl_mana_store";

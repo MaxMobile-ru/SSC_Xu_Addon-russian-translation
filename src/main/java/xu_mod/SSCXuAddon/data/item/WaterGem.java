@@ -62,12 +62,13 @@ public class WaterGem extends Item {
                 ManaUtils.gainPlayerMana(player, 10000);
                 ManaUtils.gainPlayerManaWithTime(player, 1, 300);
                 player.getItemCooldownManager().set(this, 600);
+            } else {
+                // 环境适应力
+                player.addStatusEffect(new StatusEffectInstance(StatusEffects.WATER_BREATHING, 12000, 0, false, true));
+                player.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 12000, 0, false, true));
+                player.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 12000, 0, false, true));
+                player.getItemCooldownManager().set(this, 600);
             }
-            // 环境适应力
-            player.addStatusEffect(new StatusEffectInstance(StatusEffects.WATER_BREATHING, 12000, 0, false, true));
-            player.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 12000, 0, false, true));
-            player.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 12000, 0, false, true));
-            player.getItemCooldownManager().set(this, 600);
             if (!player.getAbilities().creativeMode) {
                 stack.decrement(1);
             }

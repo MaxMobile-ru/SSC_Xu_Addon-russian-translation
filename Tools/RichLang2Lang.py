@@ -61,8 +61,8 @@ def ProcessRichLangFile(FilePath: str, OutputPath: str) -> bool:
 
 
 if __name__ == "__main__":
-	RichTextPath = "./rich_lang"
-	OutputPath = "./lang"
+	RichTextPath = "../src/main/resources/assets/ssc_xu_addon/rich_lang"
+	OutputPath = "../src/main/resources/assets/ssc_xu_addon/lang"
 	if not os.path.isdir(RichTextPath):
 		logging.error(f"{RichTextPath} Not Found Or Is Not A Folder.")
 		sys.exit()
