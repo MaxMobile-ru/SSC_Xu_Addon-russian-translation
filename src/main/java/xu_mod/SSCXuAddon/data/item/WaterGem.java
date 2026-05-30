@@ -79,5 +79,6 @@ public class WaterGem extends Item {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         tooltip.add(Text.translatable("item.ssc_xu_addon.water_gem.tooltip").formatted(Formatting.YELLOW));
+        tooltip.add(Text.translatable("item.ssc_xu_addon.water_gem.tooltip.2").formatted(Formatting.YELLOW));
     }
 }

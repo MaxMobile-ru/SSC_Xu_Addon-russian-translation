@@ -162,7 +162,7 @@ public class Init_Item {
                             .with(ItemEntry.builder(Items.AIR).weight(6).quality(-1));
                     tableBuilder.pool(poolBuilder);
                 }
-                // 还有魔法海螺
+                // 还有魔法海螺 潮汐宝石
                 if (id.equals(new Identifier("minecraft", "chests/buried_treasure"))) {
                     LootPool.Builder poolBuilder = LootPool.builder()
                             .rolls(ConstantLootNumberProvider.create(1))
@@ -171,8 +171,28 @@ public class Init_Item {
                     tableBuilder.pool(poolBuilder);
                     poolBuilder = LootPool.builder()
                             .rolls(ConstantLootNumberProvider.create(1))
+                            .with(ItemEntry.builder(Init_Item.WATER_GEM).weight(4).quality(1).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(3, 5))))
+                            .with(ItemEntry.builder(Items.AIR).weight(6).quality(-1));
+                    tableBuilder.pool(poolBuilder);
+                    poolBuilder = LootPool.builder()
+                            .rolls(ConstantLootNumberProvider.create(1))
                             .with(ItemEntry.builder(Init_Item.MAGIC_CONCH).weight(2).quality(1).apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1))))
                             .with(ItemEntry.builder(Items.AIR).weight(12).quality(-1));
+                    tableBuilder.pool(poolBuilder);
+                }
+                // 潮汐宝石
+                if (id.equals(new Identifier("minecraft", "chests/underwater_ruin_small"))) {
+                    LootPool.Builder poolBuilder = LootPool.builder()
+                            .rolls(ConstantLootNumberProvider.create(1))
+                            .with(ItemEntry.builder(Init_Item.WATER_GEM).weight(1).quality(1).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 2))))
+                            .with(ItemEntry.builder(Items.AIR).weight(9).quality(-1));
+                    tableBuilder.pool(poolBuilder);
+                }
+                if (id.equals(new Identifier("minecraft", "chests/underwater_ruin_big"))) {
+                    LootPool.Builder poolBuilder = LootPool.builder()
+                            .rolls(ConstantLootNumberProvider.create(1))
+                            .with(ItemEntry.builder(Init_Item.WATER_GEM).weight(2).quality(1).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2, 3))))
+                            .with(ItemEntry.builder(Items.AIR).weight(8).quality(-1));
                     tableBuilder.pool(poolBuilder);
                 }
             });

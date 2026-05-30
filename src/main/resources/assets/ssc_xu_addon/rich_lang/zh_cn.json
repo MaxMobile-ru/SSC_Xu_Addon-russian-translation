@@ -248,6 +248,7 @@
   "item.ssc_xu_addon.ground_gem.tooltip.2": ["或许可以在地下矿道和藏宝图宝藏中找到。"],
   "item.ssc_xu_addon.water_gem": ["潮汐宝石"],
   "item.ssc_xu_addon.water_gem.tooltip": ["大量的水魔力被黄金以一种神秘的方式保存着，吸收这些魔力会短暂获得水下呼吸的能力。并让身上产生一个水膜，使自身免疫火焰，水膜中的魔力也能持续治疗吸收者。"],
+  "item.ssc_xu_addon.water_gem.tooltip.2": ["或许可以在海底废墟和藏宝图宝藏中找到。"],
   "item.ssc_xu_addon.super_holy_apple": ["超级神圣金苹果"],
   "message.ssc_xu_addon.item.super_holy_apple.effect": ["你身上的诅咒被超级神圣金苹果中的魔力给去除了。由于那股诅咒过于强力，超级神圣金苹果中的魔力在祛除完诅咒后所剩无几。"],
   "message.ssc_xu_addon.item.super_holy_apple.effect_failed": ["超级神圣金苹果的魔力量不足以将你身上的诅咒混合着使你变形的魔力全部去除，两股魔力冲突带来的反噬产生的巨大的爆炸。或许应该先用神圣金苹果还原为初始形态再尝试去除诅咒？"],

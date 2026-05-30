@@ -253,6 +253,7 @@
   "item.ssc_xu_addon.ground_gem.tooltip.2": ["It might be found in underground mineshafts or buried treasure."],
   "item.ssc_xu_addon.water_gem": ["Water Gem"],
   "item.ssc_xu_addon.water_gem.tooltip": ["Vast water magic is preserved within this gold in a mysterious manner. Absorbing it grants temporary water breathing and forms a watery membrane around you, granting fire immunity. The magic within the membrane also provides a steady healing effect."],
+  "item.ssc_xu_addon.water_gem.tooltip.2": ["It might be found in ocean ruins or buried treasure."],
   "item.ssc_xu_addon.super_holy_apple": ["Super Holy Apple"],
   "message.ssc_xu_addon.item.super_holy_apple.effect": ["The curse upon you has been lifted by the magic of the Super Holy Apple. However, after purging such a potent curse, little of the apple's magic remains."],
   "message.ssc_xu_addon.item.super_holy_apple.effect_failed": ["The Super Holy Apple's magic was insufficient to purge the curse intertwined with your transformation magic. The conflicting forces caused a massive explosion. Perhaps you should revert to your original form with a Holy Golden Apple before attempting to remove the curse?"],
