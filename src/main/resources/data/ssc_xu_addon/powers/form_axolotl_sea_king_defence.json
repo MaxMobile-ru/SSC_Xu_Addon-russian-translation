@@ -16,8 +16,10 @@
   "consume_mana": {
     "type": "origins:modify_damage_taken",
     "self_action": {
-      "type": "shape-shifter-curse:consume_mana",
-      "mana": 4
+      "type": "ssc_xu_addon:consume_mana_with_cooldown",
+      "mana": 4,
+      "cooldown_id": "ssc_xu_addon:form_axolotl_sea_king_defence",
+      "cooldown": 10
     },
     "condition": {
       "type": "shape-shifter-curse:has_mana_percent",
@@ -32,8 +34,10 @@
       "operation": "multiply_base"
     },
     "self_action": {
-      "type": "shape-shifter-curse:consume_mana",
-      "mana": 4
+      "type": "ssc_xu_addon:consume_mana_with_cooldown",
+      "mana": 4,
+      "cooldown_id": "ssc_xu_addon:form_axolotl_sea_king_defence",
+      "cooldown": 10
     },
     "condition": {
       "type": "shape-shifter-curse:has_mana_percent",

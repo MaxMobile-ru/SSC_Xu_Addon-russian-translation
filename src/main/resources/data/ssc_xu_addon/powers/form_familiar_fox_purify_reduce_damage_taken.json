@@ -8,8 +8,10 @@
       "operation": "multiply_base"
     },
     "self_action": {
-      "type": "ssc_xu_addon:consume_mana_percent",
-      "mana_percent": 0.02
+      "type": "ssc_xu_addon:consume_mana_percent_with_cooldown",
+      "mana_percent": 0.02,
+      "cooldown_id": "ssc_xu_addon:form_familiar_fox_purify_reduce_damage_taken_1",
+      "cooldown": 10
     },
     "condition": {
       "type": "ssc_xu_addon:is_mana_level",
@@ -24,8 +26,10 @@
       "operation": "multiply_base"
     },
     "self_action": {
-      "type": "ssc_xu_addon:consume_mana_percent",
-      "mana_percent": 0.05
+      "type": "ssc_xu_addon:consume_mana_percent_with_cooldown",
+      "mana_percent": 0.05,
+      "cooldown_id": "ssc_xu_addon:form_familiar_fox_purify_reduce_damage_taken_2",
+      "cooldown": 10
     },
     "condition": {
       "type": "ssc_xu_addon:is_mana_level",
@@ -40,8 +44,10 @@
       "operation": "multiply_base"
     },
     "self_action": {
-      "type": "ssc_xu_addon:consume_mana_percent",
-      "mana_percent": 0.12
+      "type": "ssc_xu_addon:consume_mana_percent_with_cooldown",
+      "mana_percent": 0.12,
+      "cooldown_id": "ssc_xu_addon:form_familiar_fox_purify_reduce_damage_taken_3",
+      "cooldown": 10
     },
     "condition": {
       "type": "ssc_xu_addon:is_mana_level",

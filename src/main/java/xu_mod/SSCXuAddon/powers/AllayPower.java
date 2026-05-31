@@ -26,6 +26,10 @@ public class AllayPower extends Power {
     public float DamageDealtManaGainModifier;
     public float DamageTakenManaGainModifier;
 
+    public final int cooldown = 10;
+    public long lastTriggerCooldown = -cooldown;
+    public float lastValue = 0;
+
     public AllayPower(PowerType<?> type, LivingEntity entity, Boolean ReverseManaPercent, float DamageDealtModifier, float DamageTakenModifier, float DamageDealtManaGainModifier, float DamageTakenManaGainModifier) {
         super(type, entity);
         this.ReverseManaPercent = ReverseManaPercent;
@@ -57,15 +61,25 @@ public class AllayPower extends Power {
             return amount;
         }
         if (this.entity instanceof PlayerEntity player) {
+            long nowTime = player.getWorld().getTime();
+            if (nowTime - lastTriggerCooldown > cooldown) {
+                lastValue = 0.0f;
+            }
+            float finalDamage = Math.max(0.0f, amount - lastValue);
+
             double ManaPercent = ManaUtils.getPlayerManaPercent(player, 0);
             if (ReverseManaPercent) {
                 ManaPercent = 1 - ManaPercent;
             }
             float Modifier = 1.0f + ((float) ManaPercent * DamageTakenModifier);
-            if (DamageTakenManaGainModifier > 0) {
-                ManaUtils.gainPlayerMana(player, DamageTakenManaGainModifier * amount);
-            } else if (DamageTakenManaGainModifier < 0) {
-                ManaUtils.consumePlayerMana(player, -DamageTakenManaGainModifier * amount);
+            if (finalDamage > 0.0f) {
+                if (DamageTakenManaGainModifier > 0) {
+                    ManaUtils.gainPlayerMana(player, DamageTakenManaGainModifier * finalDamage);
+                } else if (DamageTakenManaGainModifier < 0) {
+                    ManaUtils.consumePlayerMana(player, -DamageTakenManaGainModifier * finalDamage);
+                }
+                lastValue = amount;
+                lastTriggerCooldown = nowTime;
             }
             return amount * Modifier;
         }
