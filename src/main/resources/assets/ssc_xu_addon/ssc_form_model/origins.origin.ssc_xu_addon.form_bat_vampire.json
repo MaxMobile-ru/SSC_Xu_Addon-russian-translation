@@ -9,7 +9,7 @@
   "model": "ssc_xu_addon:geo/form/form_bat_vampire.geo.json",
   "texture": "ssc_xu_addon:textures/form/form_bat_vampire/form_bat_vampire.png",
   "texture_mask": "ssc_xu_addon:textures/form/form_bat_vampire/form_bat_vampire_colormask.png",
-  "fullbrightTexture": "ssc_xu_addon:textures/form/form_bat_vampire/form_bat_vampire_emissive_overlay.png",
+  "fullbright_texture": "ssc_xu_addon:textures/form/form_bat_vampire/form_bat_vampire_emissive_overlay.png",
   "hidden": [
     "leftArm",
     "rightArm",
