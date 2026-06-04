@@ -220,7 +220,8 @@
     "You produce no footstep sounds and take no fall damage\n",
     "Fresh raw meat provides greater satiation\n",
     "Your physiology grants strong immunity to both hunger and poison effects\n",
-    "Creepers and Phantoms will actively avoid you\n"
+    "Creepers and Phantoms will actively avoid you\n",
+    "You can automatically consume meat-based food from the \"extra hand\" slot."
   ],
   "codex.form.ssc_xu_addon.ocelot_jungle.cons": [
     "Your power comes from physical bursts and is limited by your Stamina.\n",
