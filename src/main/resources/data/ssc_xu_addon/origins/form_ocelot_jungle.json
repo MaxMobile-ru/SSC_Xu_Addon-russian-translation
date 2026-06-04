@@ -39,7 +39,8 @@
     "ssc_xu_addon:form_ocelot_jungle_env_buff",
     "ssc_xu_addon:form_ocelot_jungle_jump_far",
     "ssc_xu_addon:form_ocelot_jungle_jump_high",
-    "ssc_xu_addon:form_ocelot_jungle_clash"
+    "ssc_xu_addon:form_ocelot_jungle_clash",
+    "ssc_xu_addon:form_ocelot_jungle_auto_feed"
 
   ],
   "icon": {

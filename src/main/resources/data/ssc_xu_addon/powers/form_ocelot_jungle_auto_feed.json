@@ -1,0 +1,19 @@
+{
+  "type": "ssc_xu_addon:auto_feed",
+  "can_over_eat": true,
+  "below_hunger": 8,
+  "item_condition": {
+    "type": "origins:or",
+    "conditions": [
+      {
+        "type": "origins:ingredient",
+        "ingredient": {
+          "tag": "origins:meat"
+        }
+      },
+      {
+        "type": "origins:meat"
+      }
+    ]
+  }
+}
