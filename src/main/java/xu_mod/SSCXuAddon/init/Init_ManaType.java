@@ -60,10 +60,24 @@ public class Init_ManaType {
             Entity::isTouchingWater
     );
 
+    public static Identifier MC_InRain = ManaRegistries.registerManaConditionType(
+            SSCXuAddon.identifier("in_rain"),
+            (player) -> {
+                return player.getWorld().hasRain(player.getVehicle() instanceof BoatEntity ? (BlockPos.ofFloored(player.getX(), (double) Math.round(player.getY()), player.getZ())).up() : BlockPos.ofFloored(player.getX(), (double) Math.round(player.getY()), player.getZ()));
+            }
+    );
+
     public static Identifier MC_IsHot = ManaRegistries.registerManaConditionType(
             SSCXuAddon.identifier("is_hot"),
             (player) -> {
                 return player.getPos().getY() > 0 && player.getWorld().getBiome(player.getBlockPos()).value().getTemperature() > 1.2;
+            }
+    );
+
+    public static Identifier MC_IsCreative = ManaRegistries.registerManaConditionType(
+            SSCXuAddon.identifier("is_creative"),
+            (player) -> {
+                return player.isCreative() && Init_Config.serverConfig.creativeInfinityMana;
             }
     );
 
@@ -103,8 +117,14 @@ public class Init_ManaType {
                                     MC_IsCursedMoonDay,
                                     new ManaUtils.Modifier(-0.10d, 1.0d, 0d)  // -2 per sec
                             )
+                    ),
+                    new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
+                            SSCXuAddon.identifier("creative"),
+                            new Pair<Identifier, ManaUtils.Modifier>(
+                                    MC_IsCreative,
+                                    new ManaUtils.Modifier(0d, 1.0d, 1000d)  // +20000 per sec
+                            )
                     )
-
             ),
             new ManaHandler().setOnServerManaEmpty(((manaComponent, player) -> {
                 PowerHolderComponent.getPowers(player, LeveledManaPower.class).forEach(power -> power.SetManaLevel(0));
@@ -154,6 +174,13 @@ public class Init_ManaType {
                                     MC_UnderSun,
                                     new ManaUtils.Modifier(-0.050d, 1.0d, 0d)  // -1.0 per sec
                             )
+                    ),
+                    new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
+                            SSCXuAddon.identifier("creative"),
+                            new Pair<Identifier, ManaUtils.Modifier>(
+                                    MC_IsCreative,
+                                    new ManaUtils.Modifier(0d, 1.0d, 1000d)  // +20000 per sec
+                            )
                     )
             ),
             new ManaHandler().setOnServerManaEmpty(((manaComponent, player) -> {
@@ -182,6 +209,13 @@ public class Init_ManaType {
                             new Pair<Identifier, ManaUtils.Modifier>(
                                     ManaRegistries.MC_AlwaysTrue,
                                     new ManaUtils.Modifier(-0.1d, 1.0d, 0d)  // -2 per sec
+                            )
+                    ),
+                    new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
+                            SSCXuAddon.identifier("creative"),
+                            new Pair<Identifier, ManaUtils.Modifier>(
+                                    MC_IsCreative,
+                                    new ManaUtils.Modifier(0d, 1.0d, -1000d)  // -20000 per sec
                             )
                     )
             ),
@@ -224,6 +258,13 @@ public class Init_ManaType {
                             new Pair<Identifier, ManaUtils.Modifier>(
                                     MC_InExhaustion,
                                     new ManaUtils.Modifier(0, 0.0d, 0d)
+                            )
+                    ),
+                    new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
+                            SSCXuAddon.identifier("creative"),
+                            new Pair<Identifier, ManaUtils.Modifier>(
+                                    MC_IsCreative,
+                                    new ManaUtils.Modifier(0d, 1.0d, 1000d)  // +20000 per sec
                             )
                     )
             ),
@@ -274,6 +315,20 @@ public class Init_ManaType {
                             new Pair<Identifier, ManaUtils.Modifier>(
                                     MC_InWater,
                                     new ManaUtils.Modifier(0.525d, 1.0d, 0d)  // +10.5 per sec   30sec to fill
+                            )
+                    ),
+                    new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
+                            SSCXuAddon.identifier("in_rain"),
+                            new Pair<Identifier, ManaUtils.Modifier>(
+                                    MC_InRain,
+                                    new ManaUtils.Modifier(0.525d, 1.0d, 0d)  // +2.5 per sec
+                            )
+                    ),
+                    new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
+                            SSCXuAddon.identifier("creative"),
+                            new Pair<Identifier, ManaUtils.Modifier>(
+                                    MC_IsCreative,
+                                    new ManaUtils.Modifier(0d, 1.0d, 1000d)  // +20000 per sec
                             )
                     )
             ),

@@ -135,5 +135,6 @@
     "text.autoconfig.ssc_xu_addon_custom.title": "SSC Xu Addon - 玩家自定义配置",
     "text.autoconfig.ssc_xu_addon_custom.option.enableFakeBlindPower": "启用 Power 失明效果",
     "text.autoconfig.ssc_xu_addon_server.title": "SSC Xu Addon - 服务器配置",
-    "text.autoconfig.ssc_xu_addon_server.option.enableSpaceBag": "启用空间袋"
+    "text.autoconfig.ssc_xu_addon_server.option.enableSpaceBag": "启用空间袋",
+    "text.autoconfig.ssc_xu_addon_server.option.creativeInfinityMana": "创造模式无限魔力(仅拓展)"
 }

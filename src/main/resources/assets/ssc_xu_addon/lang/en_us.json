@@ -135,5 +135,6 @@
     "text.autoconfig.ssc_xu_addon_custom.title": "SSC Xu Addon - Player Custom Config",
     "text.autoconfig.ssc_xu_addon_custom.option.enableFakeBlindPower": "Enable Power Blindness Effect",
     "text.autoconfig.ssc_xu_addon_server.title": "SSC Xu Addon - Server Config",
-    "text.autoconfig.ssc_xu_addon_server.option.enableSpaceBag": "Enable Space Bag"
+    "text.autoconfig.ssc_xu_addon_server.option.enableSpaceBag": "Enable Space Bag",
+    "text.autoconfig.ssc_xu_addon_server.option.creativeInfinityMana": "Creative Mode Infinite Mana (Addon Only)"
 }

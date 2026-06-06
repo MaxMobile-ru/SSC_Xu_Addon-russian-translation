@@ -12,4 +12,8 @@ public class ServerConfig implements ConfigData {
     @ConfigEntry.Category("General")
     @Comment("Enable space bag item. Default: true")
     public boolean enableSpaceBag = true;
+
+    @ConfigEntry.Category("General")
+    @Comment("Creative Infinity Mana. Default: false")
+    public boolean creativeInfinityMana = false;
 }
