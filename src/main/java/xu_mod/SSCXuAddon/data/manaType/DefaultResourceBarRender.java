@@ -11,15 +11,22 @@ import net.onixary.shapeShifterCurseFabric.mana.ManaUtils;
 import net.onixary.shapeShifterCurseFabric.util.UIPositionUtils;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.function.Function;
+import java.util.function.Supplier;
+
 public class DefaultResourceBarRender implements IManaRender {
     private static final MinecraftClient minecraftClient = MinecraftClient.getInstance();
     public final Identifier barTexture;
     public final boolean overrideInstinctBar;
     public final boolean enableTextDisplay;
     public final boolean enableNumberDisplay;
-    public final int TextColor;
+    public final Supplier<Integer> TextColor;
 
-    public DefaultResourceBarRender(Identifier barTexture, boolean overrideInstinctBar, boolean enableTextDisplay, boolean enableNumberDisplay, int TextColor) {
+    public static final Function<Integer, Supplier<Integer>> TextColorSupplierBuilder = (color) -> {
+        return () -> color;
+    };
+
+    public DefaultResourceBarRender(Identifier barTexture, boolean overrideInstinctBar, boolean enableTextDisplay, boolean enableNumberDisplay, Supplier<Integer> TextColor) {
         this.barTexture = barTexture;
         this.overrideInstinctBar = overrideInstinctBar;
         this.enableTextDisplay = enableTextDisplay;
@@ -27,8 +34,12 @@ public class DefaultResourceBarRender implements IManaRender {
         this.TextColor = TextColor;
     }
 
+    public DefaultResourceBarRender(Identifier barTexture, boolean overrideInstinctBar, boolean enableTextDisplay, boolean enableNumberDisplay, int TextColor) {
+        this(barTexture, overrideInstinctBar, enableTextDisplay, enableNumberDisplay, TextColorSupplierBuilder.apply(TextColor));
+    }
+
     public DefaultResourceBarRender(Identifier barTexture) {
-        this(barTexture, false, true, true, 0xFFFFFFFF);
+        this(barTexture, false, true, true, TextColorSupplierBuilder.apply(0xFFFFFFFF));
     }
 
     @Override
@@ -77,7 +88,7 @@ public class DefaultResourceBarRender implements IManaRender {
                 }
             }
             Text manaText = Text.literal(manaString.toString());
-            context.drawText(minecraftClient.textRenderer, manaText, x, y - 8, TextColor, false);
+            context.drawText(minecraftClient.textRenderer, manaText, x, y - 8, TextColor.get(), false);
         }
     }
 }
