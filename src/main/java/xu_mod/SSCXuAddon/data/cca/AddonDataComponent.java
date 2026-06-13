@@ -15,15 +15,9 @@ public class AddonDataComponent implements AutoSyncedComponent {
     private final HashMap<Identifier, Long> cooldownData = new HashMap<>();
     private int manaLevel = 1;
 
-    // 每当受到 当前生命值/5 以上的伤害时 消耗1层护盾 减少 当前生命值/5 + shieldStrength数的伤害 之后再将伤害进行计算
-    // 示例值: 护盾戒指
-    // shieldMax += 3
-    // shieldStrength += 5
-    // 假设受到10点伤害 当前血量为20 则消耗1层护盾 减少(20 / 5) + 5 = 9点伤害 受到1点伤害 小于 (20 / 5) 停止计算 最终伤害为1 消耗1层护盾
-    // 假设受到20点伤害 当前血量为20 则先消耗1层护盾 减少(20 / 5) + 5 = 9点伤害 受到11点伤害 再消耗1层护盾 减少(20 / 5) + 5 = 9点伤害 受到2点伤害 小于 (20 / 5) 停止计算 最终伤害为2 消耗2层护盾
-    private int shieldCount = 0;  // 护盾数量
-    private int shieldMax = 0;  // 护盾最大值
-    private int shieldStrength = 0;  // 护盾强度
+    public int shieldCount = 0;  // 护盾数量
+    public int shieldMax = 0;  // 护盾最大值
+    public int shieldStrength = 0;  // 护盾强度
 
     private static final int SpaceBagSlotCount = 27;
     private SimpleInventory SpaceBag = new SimpleInventory(SpaceBagSlotCount);
@@ -84,6 +78,15 @@ public class AddonDataComponent implements AutoSyncedComponent {
             this.SpaceBag = new SimpleInventory(SpaceBagSlotCount);
             Inventories.readNbt(nbtCompound.getCompound("spaceBag"), SpaceBag.stacks);
         }
+        if (nbtCompound.contains("shieldCount")) {
+            this.shieldCount = nbtCompound.getInt("shieldCount");
+        }
+        if (nbtCompound.contains("shieldMax")) {
+            this.shieldMax = nbtCompound.getInt("shieldMax");
+        }
+        if (nbtCompound.contains("shieldStrength")) {
+            this.shieldStrength = nbtCompound.getInt("shieldStrength");
+        }
     }
 
     @Override
@@ -95,6 +98,9 @@ public class AddonDataComponent implements AutoSyncedComponent {
         NbtCompound spaceBagCompound = new NbtCompound();
         Inventories.writeNbt(spaceBagCompound, SpaceBag.stacks);
         nbtCompound.put("spaceBag", spaceBagCompound);
+        nbtCompound.putInt("shieldCount", shieldCount);
+        nbtCompound.putInt("shieldMax", shieldMax);
+        nbtCompound.putInt("shieldStrength", shieldStrength);
     }
 
     /*
