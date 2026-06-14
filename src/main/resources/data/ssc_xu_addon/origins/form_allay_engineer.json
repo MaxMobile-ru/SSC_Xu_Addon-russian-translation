@@ -14,8 +14,8 @@
     "shape-shifter-curse:form_allay_sp_sound_hurt",
     "shape-shifter-curse:form_allay_sp_sound_key",
     "shape-shifter-curse:form_allay_sp_slipperiness",
-    "origins:velvet_paws",
-    "origins:slow_falling",
+    "shape-shifter-curse:velvet_paws",
+    "shape-shifter-curse:slow_falling",
 
     "ssc_xu_addon:form_allay_engineer_mana_bar",
     "ssc_xu_addon:form_allay_engineer_power",
