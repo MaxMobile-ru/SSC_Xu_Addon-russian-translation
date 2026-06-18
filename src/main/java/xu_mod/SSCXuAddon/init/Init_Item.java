@@ -21,6 +21,7 @@ import xu_mod.SSCXuAddon.data.item.*;
 import xu_mod.SSCXuAddon.data.item.tools.*;
 import xu_mod.SSCXuAddon.data.item.trinket.MoistureKeptCharm;
 import xu_mod.SSCXuAddon.data.item.trinket.NineLiveCharm;
+import xu_mod.SSCXuAddon.data.item.trinket.ShieldRing;
 import xu_mod.SSCXuAddon.data.item.trinket.TrinketWithToolTip;
 
 public class Init_Item {
@@ -72,6 +73,7 @@ public class Init_Item {
     // 通用饰品
     public static final Item CHARM_OF_NINE_LIVE = register("charm_of_nine_live", new NineLiveCharm(new Item.Settings().maxCount(1).maxDamage(8)));
     public static final Item CHARM_OF_BLOOD_THIRST = register("charm_of_blood_thirst", new TrinketWithToolTip(new Item.Settings().maxCount(1), Text.translatable("item.ssc_xu_addon.charm_of_blood_thirst.tooltip").formatted(Formatting.YELLOW)));
+    public static final Item SHIELD_RING = register("shield_ring", new ShieldRing(new Item.Settings().maxCount(1)));
 
     // 单独画一个 Icon 没有灵感 还是用魔法海螺作为 Icon 或者之后我重绘神圣金苹果(不是太好看 我觉得现在的图标就魔法海螺好看点)或整点什么终极物品后再换吧
     public static final ItemGroup SSC_XU_ADDON_GROUP = FabricItemGroup.builder()
