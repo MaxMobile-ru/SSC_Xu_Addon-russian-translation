@@ -334,6 +334,7 @@
 
   "item.ssc_xu_addon.shield_ring": ["Shield Ring"],
   "item.ssc_xu_addon.shield_ring.tooltip": ["A ring made with the energy of Earth Gems, capable of forming a shield to block damage."],
+  "item.ssc_xu_addon.shield_ring.tooltip2": ["Cannot regenerate shield for 15 seconds after it is consumed."],
   "message.ssc_xu_addon.max_shield_count.p": "+ %s Shield Capacity",
   "message.ssc_xu_addon.max_shield_count.n": "- %s Shield Capacity",
   "message.ssc_xu_addon.shield_strength.p": "+ %s Shield Strength",

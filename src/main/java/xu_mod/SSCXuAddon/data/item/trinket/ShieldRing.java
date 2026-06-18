@@ -43,6 +43,9 @@ public class ShieldRing extends AccessoryItem {
                         5
                 )
         );
+        ShieldUtils.onShieldBreakCallBack.add(
+                player -> player.getItemCooldownManager().set(Init_Item.SHIELD_RING, 300)
+        );
     }
 
     public ShieldRing(Settings settings) {
@@ -79,5 +82,6 @@ public class ShieldRing extends AccessoryItem {
         tooltip.add(Text.translatable("message.ssc_xu_addon.max_shield_count.p", 3).formatted(Formatting.BLUE));
         tooltip.add(Text.translatable("message.ssc_xu_addon.shield_strength.p", 5).formatted(Formatting.BLUE));
         tooltip.add(Text.translatable("message.ssc_xu_addon.shield_regen.tooltip.p", 1, 10).formatted(Formatting.BLUE));
+        tooltip.add(Text.translatable("item.ssc_xu_addon.shield_ring.tooltip2").formatted(Formatting.BLUE));
     }
 }

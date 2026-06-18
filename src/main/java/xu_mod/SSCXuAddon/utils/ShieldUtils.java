@@ -9,6 +9,7 @@ import xu_mod.SSCXuAddon.init.Init_CCA;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 // Common Side
@@ -16,6 +17,7 @@ public class ShieldUtils {
     // Server Side
     public static List<Pair<Predicate<PlayerEntity>, Integer>> maxShieldCountModifiers = new ArrayList<>();
     public static List<Pair<Predicate<PlayerEntity>, Integer>> ShieldStrengthModifiers = new ArrayList<>();
+    public static List<Consumer<PlayerEntity>> onShieldBreakCallBack = new ArrayList<>();
 
     public static int getShieldCount(@Nullable PlayerEntity player) {
         if (player == null) return 0;
@@ -63,6 +65,7 @@ public class ShieldUtils {
             float shieldBlockDamage = playerHealthPerFive + shieldStrength;
             nowDamage = Math.max(0, nowDamage - shieldBlockDamage);
             shieldCount --;
+            onShieldBreakCallBack.forEach(callBack -> callBack.accept(player));
         }
         addonData.shieldCount = shieldCount;
         Init_CCA.AddonData.sync(player);

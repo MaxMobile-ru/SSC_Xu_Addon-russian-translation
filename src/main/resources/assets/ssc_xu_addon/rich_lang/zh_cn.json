@@ -326,6 +326,7 @@
 
   "item.ssc_xu_addon.shield_ring": ["护盾戒指"],
   "item.ssc_xu_addon.shield_ring.tooltip": ["使用大地宝石中的能量制作的戒指，可以凝聚出护盾来抵挡伤害。"],
+  "item.ssc_xu_addon.shield_ring.tooltip2": ["消耗护盾后15s内无法回复护盾"],
   "message.ssc_xu_addon.max_shield_count.p": "+ %s 护盾上限",
   "message.ssc_xu_addon.max_shield_count.n": "- %s 护盾上限",
   "message.ssc_xu_addon.shield_strength.p": "+ %s 护盾强度",
