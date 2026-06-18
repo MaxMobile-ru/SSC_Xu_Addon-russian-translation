@@ -324,6 +324,15 @@
     ""
   ],
 
+  "item.ssc_xu_addon.shield_ring": ["护盾戒指"],
+  "item.ssc_xu_addon.shield_ring.tooltip": ["使用大地宝石中的能量制作的戒指，可以凝聚出护盾来抵挡伤害。"],
+  "message.ssc_xu_addon.max_shield_count.p": "+ %s 护盾上限",
+  "message.ssc_xu_addon.max_shield_count.n": "- %s 护盾上限",
+  "message.ssc_xu_addon.shield_strength.p": "+ %s 护盾强度",
+  "message.ssc_xu_addon.shield_strength.n": "+ %s 护盾强度",
+  "message.ssc_xu_addon.shield_regen.tooltip.p": "回复 %s 护盾每 %s 秒",
+  "message.ssc_xu_addon.shield_regen.tooltip.n": "消耗 %s 护盾每 %s 秒",
+
   "item.ssc_xu_addon.form_store_stone": ["幻形石"],
   "item.ssc_xu_addon.form_store_stone.tooltip.1": ["右键与幻形石交换形态：为空时存储你的形态，有形态时获取其中形态。"],
   "item.ssc_xu_addon.form_store_stone.tooltip.2": "当前形态: %s",

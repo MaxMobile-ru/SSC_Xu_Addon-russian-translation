@@ -100,6 +100,7 @@ public class Init_Item {
                 entries.add(SEA_SCEPTER_VIRTUAL);
                 entries.add(SEA_BLESSED_RING);
                 entries.add(MOISTURE_KEPT_CHARM);
+                entries.add(SHIELD_RING);
 
                 entries.add(UNSTABLE_HOLY_APPLE);
                 entries.add(STABLE_HOLY_APPLE);

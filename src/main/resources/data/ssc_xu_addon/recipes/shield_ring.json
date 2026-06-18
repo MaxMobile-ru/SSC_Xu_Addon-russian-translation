@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "BCB",
+    " B "
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "B": {
+      "item": "minecraft:iron_ingot"
+    },
+    "C": {
+      "item": "ssc_xu_addon:ground_gem"
+    }
+  },
+  "result": {
+    "item": "ssc_xu_addon:shield_ring",
+    "count": 1
+  }
+}

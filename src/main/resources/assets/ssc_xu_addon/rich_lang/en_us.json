@@ -332,9 +332,18 @@
     ""
   ],
 
-  "item.ssc_xu_addon.form_store_stone": ["幻形石"],
-  "item.ssc_xu_addon.form_store_stone.tooltip.1": ["右键与幻形石交换形态：为空时存储你的形态，有形态时获取其中形态。"],
-  "item.ssc_xu_addon.form_store_stone.tooltip.2": "当前形态: %s",
+  "item.ssc_xu_addon.shield_ring": ["Shield Ring"],
+  "item.ssc_xu_addon.shield_ring.tooltip": ["A ring made with the energy of Earth Gems, capable of forming a shield to block damage."],
+  "message.ssc_xu_addon.max_shield_count.p": "+ %s Shield Capacity",
+  "message.ssc_xu_addon.max_shield_count.n": "- %s Shield Capacity",
+  "message.ssc_xu_addon.shield_strength.p": "+ %s Shield Strength",
+  "message.ssc_xu_addon.shield_strength.n": "+ %s Shield Strength",
+  "message.ssc_xu_addon.shield_regen.tooltip.p": "Restore %s shield every %s seconds",
+  "message.ssc_xu_addon.shield_regen.tooltip.n": "Consume %s shield every %s seconds",
+
+  "item.ssc_xu_addon.form_store_stone": ["Transmutation Stone"],
+  "item.ssc_xu_addon.form_store_stone.tooltip.1": ["Right-click to swap forms with the Transmutation Stone: When empty, stores your current form. When full, grants its stored form."],
+  "item.ssc_xu_addon.form_store_stone.tooltip.2": "Current form: %s",
 
   "enchantment.ssc_xu_addon.shape_killer": ["Shapeshifter Killer"],
   "enchantment.ssc_xu_addon.shape_killer.tooltip": ["Deals extra damage to shapeshifters."],

@@ -49,7 +49,15 @@ public class ShieldRing extends AccessoryItem {
         super(settings);
     }
 
-    // TODO 回复护盾代码
+    @Override
+    public void accessoryTick(ItemStack stack, LivingEntity accessoryOwner, SlotData slotData) {
+        if (accessoryOwner instanceof PlayerEntity player) {
+            if (!player.getItemCooldownManager().isCoolingDown(Init_Item.SHIELD_RING)) {
+                ShieldUtils.addShield(player, 1);
+                player.getItemCooldownManager().set(Init_Item.SHIELD_RING, 200);
+            }
+        }
+    }
 
     @Override
     public void onEquip(ItemStack stack, LivingEntity accessoryOwner, SlotData slotData) {
@@ -70,5 +78,6 @@ public class ShieldRing extends AccessoryItem {
         tooltip.add(Text.translatable("item.ssc_xu_addon.shield_ring.tooltip").formatted(Formatting.YELLOW));
         tooltip.add(Text.translatable("message.ssc_xu_addon.max_shield_count.p", 3).formatted(Formatting.BLUE));
         tooltip.add(Text.translatable("message.ssc_xu_addon.shield_strength.p", 5).formatted(Formatting.BLUE));
+        tooltip.add(Text.translatable("message.ssc_xu_addon.shield_regen.tooltip.p", 1, 10).formatted(Formatting.BLUE));
     }
 }
