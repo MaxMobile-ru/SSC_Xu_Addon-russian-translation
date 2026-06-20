@@ -1,14 +1,14 @@
 package xu_mod.SSCXuAddon.data.entity.minion;
 
-import net.minecraft.entity.EntityData;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnReason;
-import net.minecraft.entity.Tameable;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.SpiderEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -16,10 +16,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.ServerConfigHandler;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.random.Random;
-import net.minecraft.world.EntityView;
-import net.minecraft.world.LocalDifficulty;
-import net.minecraft.world.ServerWorldAccess;
-import net.minecraft.world.World;
+import net.minecraft.world.*;
 import net.onixary.shapeShifterCurseFabric.ShapeShifterCurseFabric;
 import net.onixary.shapeShifterCurseFabric.minion.IMinion;
 import net.onixary.shapeShifterCurseFabric.minion.IPlayerEntityMinion;
@@ -53,6 +50,19 @@ public class SpiderMinion extends SpiderEntity implements IMinion<SpiderMinion>,
             this.setLeftHanded(false);
         }
         return entityData;
+    }
+
+
+    public static DefaultAttributeContainer.Builder createWolfMinionAttributes() {
+        // 由于有承伤机制 得大砍血量 设定上是刺客型生物
+        // 速度0.40 +33.4%
+        // 生命8 -50%
+        // 攻击3 +50%
+        // 4秒中毒2 1点吸血
+        return MobEntity.createMobAttributes()
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.40)
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 8.0)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 3.0);
     }
 
     @Override
@@ -146,7 +156,11 @@ public class SpiderMinion extends SpiderEntity implements IMinion<SpiderMinion>,
     }
 
     public double getMinionDisappearRange() {
-        return 1024.0d;  // 32格外自动消失 如果不需要这个功能可以填Double.MAX_VALUE 如果没有让召唤物强制传送功能必须要设置一个合理的值 否则召唤物可能会卸载
+        return 1024.0d;
+    }
+
+    public int getMinionMaxAge() {
+        return 2400;  // 2 * 60 * 20 = 2 min
     }
 
     public boolean shouldExist() {
@@ -163,6 +177,9 @@ public class SpiderMinion extends SpiderEntity implements IMinion<SpiderMinion>,
         if (this.squaredDistanceTo(owner) > this.getMinionDisappearRange()) {
             return false;
         }
+        if (this.age >= this.getMinionMaxAge()) {
+            return false;
+        }
         if (owner instanceof IPlayerEntityMinion iPlayerEntityMinion) {
             return iPlayerEntityMinion.shape_shifter_curse$minionExist(this.getMinionTypeID(), this.getUuid());
         }
@@ -173,7 +190,7 @@ public class SpiderMinion extends SpiderEntity implements IMinion<SpiderMinion>,
     public void tick() {
         super.tick();
         if (!this.shouldExist()) {
-            this.setHealth(0.0f);  // 自动死亡
+            this.setHealth(0.0f);
         }
     }
 
@@ -185,5 +202,27 @@ public class SpiderMinion extends SpiderEntity implements IMinion<SpiderMinion>,
         }
         this.setOwner(null);
         super.onDeath(source);
+    }
+
+    @Override
+    public EntityDimensions getDimensions(EntityPose pose) {
+        return EntityDimensions.fixed(0.7f, 0.45f);
+    }
+
+    @Override
+    public float getActiveEyeHeight(EntityPose pose, EntityDimensions dimensions) {
+        return 0.45F;
+    }
+
+    public boolean tryAttack(Entity target) {
+        if (super.tryAttack(target)) {
+            if (target instanceof LivingEntity) {
+                ((LivingEntity)target).addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 80, 1), this);
+            }
+            this.heal(1);
+            return true;
+        } else {
+            return false;
+        }
     }
 }

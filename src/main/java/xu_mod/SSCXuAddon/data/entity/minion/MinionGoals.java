@@ -10,7 +10,6 @@ import net.minecraft.entity.ai.pathing.EntityNavigation;
 import net.minecraft.entity.ai.pathing.MobNavigation;
 import net.minecraft.entity.ai.pathing.PathNodeType;
 import net.minecraft.entity.mob.MobEntity;
-import net.minecraft.entity.passive.TameableEntity;
 import net.onixary.shapeShifterCurseFabric.minion.IMinion;
 
 import java.util.EnumSet;
@@ -23,8 +22,8 @@ public class MinionGoals {
         private LivingEntity attacker;
         private int lastAttackedTime;
 
-        public Minion_TrackOwnerAttackerGoal(IMinion<?> tameable) {
-            super((MobEntity) tameable, false);
+        public Minion_TrackOwnerAttackerGoal(IMinion<? extends MobEntity> tameable) {
+            super(tameable.getSelf(), false);
             this.tameable = tameable;
             this.tameableEntity = (LivingEntity) tameable;
             this.setControls(EnumSet.of(Control.TARGET));
@@ -59,15 +58,15 @@ public class MinionGoals {
     }
 
     public static class Minion_AttackWithOwnerGoal extends TrackTargetGoal {
-        private final LivingEntity tameableEntity;
+        private final MobEntity tameableEntity;
         private final IMinion<?> tameable;
         private LivingEntity attacking;
         private int lastAttackTime;
 
-        public Minion_AttackWithOwnerGoal(IMinion<?> tameable) {
-            super((MobEntity) tameable, false);
+        public Minion_AttackWithOwnerGoal(IMinion<? extends MobEntity> tameable) {
+            super(tameable.getSelf(), false);
             this.tameable = tameable;
-            this.tameableEntity = (LivingEntity) tameable;
+            this.tameableEntity = tameable.getSelf();
             this.setControls(EnumSet.of(Control.TARGET));
         }
 
@@ -110,9 +109,9 @@ public class MinionGoals {
         private final float minDistance;
         private float oldWaterPathfindingPenalty;
 
-        public Minion_FollowOwnerGoalNoTP(IMinion<?> tameable, double speed, float minDistance, float maxDistance, boolean leavesAllowed) {
+        public Minion_FollowOwnerGoalNoTP(IMinion<? extends MobEntity> tameable, double speed, float minDistance, float maxDistance, boolean leavesAllowed) {
             this.tameable = tameable;
-            this.tameableEntity = (MobEntity) tameable;
+            this.tameableEntity = tameable.getSelf();
             this.speed = speed;
             this.navigation = this.tameableEntity.getNavigation();
             this.minDistance = minDistance;
