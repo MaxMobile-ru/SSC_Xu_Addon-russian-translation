@@ -11,9 +11,12 @@ import net.minecraft.entity.ai.pathing.MobNavigation;
 import net.minecraft.entity.ai.pathing.PathNodeType;
 import net.minecraft.entity.mob.MobEntity;
 import net.onixary.shapeShifterCurseFabric.minion.IMinion;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.EnumSet;
 import java.util.Objects;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
 public class MinionGoals {
     public static class Minion_TrackOwnerAttackerGoal extends TrackTargetGoal {
@@ -21,12 +24,14 @@ public class MinionGoals {
         private final IMinion<?> tameable;
         private LivingEntity attacker;
         private int lastAttackedTime;
+        private @Nullable Predicate<LivingEntity> condition = null;
 
-        public Minion_TrackOwnerAttackerGoal(IMinion<? extends MobEntity> tameable) {
+        public Minion_TrackOwnerAttackerGoal(IMinion<? extends MobEntity> tameable, @Nullable Predicate<LivingEntity> condition) {
             super(tameable.getSelf(), false);
             this.tameable = tameable;
             this.tameableEntity = (LivingEntity) tameable;
             this.setControls(EnumSet.of(Control.TARGET));
+            this.condition = condition;
         }
 
         public LivingEntity getOwner() {
@@ -34,6 +39,9 @@ public class MinionGoals {
         }
 
         public boolean canStart() {
+            if (this.condition != null && !this.condition.test(this.tameableEntity)) {
+                return false;
+            }
             LivingEntity livingEntity = this.getOwner();
             if (livingEntity == null) {
                 return false;
@@ -62,12 +70,14 @@ public class MinionGoals {
         private final IMinion<?> tameable;
         private LivingEntity attacking;
         private int lastAttackTime;
+        private @Nullable Predicate<LivingEntity> condition = null;
 
-        public Minion_AttackWithOwnerGoal(IMinion<? extends MobEntity> tameable) {
+        public Minion_AttackWithOwnerGoal(IMinion<? extends MobEntity> tameable, @Nullable Predicate<LivingEntity> condition) {
             super(tameable.getSelf(), false);
             this.tameable = tameable;
             this.tameableEntity = tameable.getSelf();
             this.setControls(EnumSet.of(Control.TARGET));
+            this.condition = condition;
         }
 
         public LivingEntity getOwner() {
@@ -75,6 +85,9 @@ public class MinionGoals {
         }
 
         public boolean canStart() {
+            if (this.condition != null && !this.condition.test(this.tameableEntity)) {
+                return false;
+            }
             LivingEntity livingEntity = this.getOwner();
             if (livingEntity == null) {
                 return false;

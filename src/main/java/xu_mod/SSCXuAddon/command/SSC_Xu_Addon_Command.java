@@ -5,12 +5,18 @@ import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.minecraft.command.argument.EntityArgumentType;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.Vec3d;
 import net.onixary.shapeShifterCurseFabric.mana.ManaUtils;
 import net.onixary.shapeShifterCurseFabric.mana.RegManaComponent;
+import net.onixary.shapeShifterCurseFabric.minion.MinionRegister;
+import xu_mod.SSCXuAddon.data.entity.minion.SpiderMinion;
 import xu_mod.SSCXuAddon.data.entity.projectiles.BloodThornEntity;
 import xu_mod.SSCXuAddon.data.entity.projectiles.SummonTrident;
 import xu_mod.SSCXuAddon.init.Init_Entity;
@@ -73,10 +79,14 @@ public class SSC_Xu_Addon_Command {
     }
 
     private static int test(CommandContext<ServerCommandSource> commandContext) throws CommandSyntaxException {
-        PlayerEntity owner = commandContext.getSource().getPlayer();
+        ServerPlayerEntity owner = commandContext.getSource().getPlayer();
         if (owner != null) {
-            SummonTrident project = new SummonTrident(owner, 2f, new Vec3d(0d,0d,0d));
-            owner.getWorld().spawnEntity(project);
+            SpiderMinion spider = MinionRegister.SpawnMinion(Init_Entity.SPIDER_MINION, (ServerWorld) owner.getWorld(), owner.getBlockPos(), owner);
+            // 攻击会隐形 为了测试方便 加个发光 正常召唤没有发光
+            if (spider != null) {
+                spider.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 1000000, 0, false, false, false));
+            }
+            owner.getWorld().spawnEntity(spider);
         }
         return 0;
     }

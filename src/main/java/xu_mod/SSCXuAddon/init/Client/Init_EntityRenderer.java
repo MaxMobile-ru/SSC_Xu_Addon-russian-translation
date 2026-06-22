@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import xu_mod.SSCXuAddon.SSCXuAddon;
+import xu_mod.SSCXuAddon.data.entity.minion.SpiderMinionRenderer;
 import xu_mod.SSCXuAddon.data.entity.projectiles.BloodThornEntItyRenderer;
 import xu_mod.SSCXuAddon.data.entity.projectiles.SummonTridentModel;
 import xu_mod.SSCXuAddon.data.entity.projectiles.SummonTridentRenderer;
@@ -19,6 +20,7 @@ public class Init_EntityRenderer {
         EntityRendererRegistry.register(Init_Entity.BLOOD_THORN, BloodThornEntItyRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(SUMMON_TRIDENT_LAYER, SummonTridentModel::getTexturedModelData);
         EntityRendererRegistry.register(Init_Entity.SUMMON_TRIDENT, SummonTridentRenderer::new);
+        EntityRendererRegistry.register(Init_Entity.SPIDER_MINION, SpiderMinionRenderer::new);
     }
 
     public static void init() {}

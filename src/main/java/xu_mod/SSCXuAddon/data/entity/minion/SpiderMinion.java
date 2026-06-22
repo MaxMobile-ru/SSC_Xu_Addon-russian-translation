@@ -6,13 +6,17 @@ import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.mob.SpiderEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.server.ServerConfigHandler;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.random.Random;
@@ -25,10 +29,11 @@ import xu_mod.SSCXuAddon.SSCXuAddon;
 
 import java.util.Optional;
 import java.util.UUID;
+import java.util.function.Predicate;
 
 public class SpiderMinion extends SpiderEntity implements IMinion<SpiderMinion>, Tameable {
     public static final Identifier minionID = SSCXuAddon.identifier("spider_minion");
-    public static TrackedData<Optional<UUID>> OWNER_UUID;
+    public static TrackedData<Optional<UUID>> OWNER_UUID = DataTracker.registerData(SpiderMinion.class, TrackedDataHandlerRegistry.OPTIONAL_UUID);;
 
     @Override
     public void initDataTracker() {
@@ -52,15 +57,14 @@ public class SpiderMinion extends SpiderEntity implements IMinion<SpiderMinion>,
         return entityData;
     }
 
-
-    public static DefaultAttributeContainer.Builder createWolfMinionAttributes() {
+    public static DefaultAttributeContainer.Builder createMobAttributes() {
         // 由于有承伤机制 得大砍血量 设定上是刺客型生物
-        // 速度0.40 +33.4%
+        // 速度0.45 +50%
         // 生命8 -50%
         // 攻击3 +50%
-        // 4秒中毒2 1点吸血
+        // 4秒中毒2 2点吸血 2秒隐身(隐身时远离所有实体) 50%让被攻击者丢失攻击目标
         return MobEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.40)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.45)
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 8.0)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 3.0);
     }
@@ -68,14 +72,15 @@ public class SpiderMinion extends SpiderEntity implements IMinion<SpiderMinion>,
     @Override
     protected void initGoals() {
         this.goalSelector.add(1, new SwimGoal(this));
-        this.goalSelector.add(2, new PounceAtTargetGoal(this, 0.4F));
-        this.goalSelector.add(3, new MeleeAttackGoal(this, 1.0, true));
-        this.goalSelector.add(4, new MinionGoals.Minion_FollowOwnerGoalNoTP(this, 1.0, 10.0F, 2.0F, false));
-        this.goalSelector.add(5, new WanderAroundFarGoal(this, 0.8));
-        this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
-        this.goalSelector.add(6, new LookAroundGoal(this));
-        this.targetSelector.add(1, new MinionGoals.Minion_TrackOwnerAttackerGoal(this));
-        this.targetSelector.add(2, new MinionGoals.Minion_AttackWithOwnerGoal(this));
+        this.goalSelector.add(2, new FleeEntityGoalEX<MobEntity>(this, MobEntity.class, 3.0F, 0.5d, 0.7d, EntityPredicates.EXCEPT_CREATIVE_OR_SPECTATOR::test, entity -> entity.hasStatusEffect(StatusEffects.INVISIBILITY)));
+        this.goalSelector.add(3, new PounceAtTargetGoal(this, 0.4F));
+        this.goalSelector.add(4, new MeleeAttackGoal(this, 1.0, true));
+        this.goalSelector.add(5, new MinionGoals.Minion_FollowOwnerGoalNoTP(this, 1.0, 10.0F, 2.0F, false));
+        this.goalSelector.add(6, new WanderAroundFarGoal(this, 0.8));
+        this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
+        this.goalSelector.add(7, new LookAroundGoal(this));
+        this.targetSelector.add(1, new MinionGoals.Minion_TrackOwnerAttackerGoal(this, (entity -> !entity.hasStatusEffect(StatusEffects.INVISIBILITY))));
+        this.targetSelector.add(2, new MinionGoals.Minion_AttackWithOwnerGoal(this, (entity -> !entity.hasStatusEffect(StatusEffects.INVISIBILITY))));
     }
 
     @Override
@@ -85,13 +90,18 @@ public class SpiderMinion extends SpiderEntity implements IMinion<SpiderMinion>,
         }
         else {
             ShapeShifterCurseFabric.LOGGER.error("PlayerEntity is not IPlayerEntityMinion, It Shouldn't Happen!");
-            this.setHealth(0.0f);   // 自动死亡
+            this.setHealth(0.0f);
         }
     }
 
     @Override
     public void setOwner(PlayerEntity playerEntity) {
+        if (playerEntity == null) {
+            this.setOwnerUuid(null);
+            return;
+        }
         this.setOwnerUuid(playerEntity.getUuid());
+        return;
     }
 
     @Override
@@ -216,13 +226,31 @@ public class SpiderMinion extends SpiderEntity implements IMinion<SpiderMinion>,
 
     public boolean tryAttack(Entity target) {
         if (super.tryAttack(target)) {
-            if (target instanceof LivingEntity) {
-                ((LivingEntity)target).addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 80, 1), this);
+            this.addStatusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, 40, 0), this);
+            if (target instanceof LivingEntity livingEntity) {
+                livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 80, 1), this);
+                if (this.getRandom().nextFloat() > 0.50 && target instanceof MobEntity mobEntity) {
+                    mobEntity.setTarget(null);
+                }
             }
-            this.heal(1);
+            this.heal(2);
             return true;
         } else {
             return false;
+        }
+    }
+
+    public static class FleeEntityGoalEX<T extends LivingEntity> extends FleeEntityGoal<T> {
+        Predicate<LivingEntity> canStartSelector;
+
+        public FleeEntityGoalEX(PathAwareEntity mob, Class<T> fleeFromType, float distance, double slowSpeed, double fastSpeed, Predicate<LivingEntity> inclusionSelector, Predicate<LivingEntity> canStartSelector) {
+            super(mob, fleeFromType, (entity) -> true, distance, slowSpeed, fastSpeed, inclusionSelector);
+            this.canStartSelector = canStartSelector;
+        }
+
+        @Override
+        public boolean canStart() {
+            return this.canStartSelector.test(this.mob) && super.canStart();
         }
     }
 }
