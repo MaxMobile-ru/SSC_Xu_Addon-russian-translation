@@ -21,7 +21,7 @@
       {
         "type": "apoli:ingredient",
         "ingredient": {
-          "tag": "apoli:ignore_diet"
+          "tag": "origins:ignore_diet"
         },
         "inverted": true
       },
