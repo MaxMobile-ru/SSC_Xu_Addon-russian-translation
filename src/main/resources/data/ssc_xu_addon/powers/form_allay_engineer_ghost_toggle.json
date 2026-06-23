@@ -1,5 +1,5 @@
 {
-  "type": "origins:toggle",
+  "type": "apoli:toggle",
   "active_by_default": false,
   "retain_state": false,
   "key": {

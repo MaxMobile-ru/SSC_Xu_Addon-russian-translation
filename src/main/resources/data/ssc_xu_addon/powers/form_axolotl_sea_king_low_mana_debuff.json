@@ -1,7 +1,7 @@
 {
-  "type": "origins:multiple",
+  "type": "apoli:multiple",
   "20_attack_damage": {
-    "type": "origins:conditioned_attribute",
+    "type": "apoli:conditioned_attribute",
     "modifier": {
       "attribute": "minecraft:generic.attack_damage",
       "name": "mana_low_debuff",
@@ -16,7 +16,7 @@
     }
   },
   "20_exhaustion": {
-    "type": "origins:modify_exhaustion",
+    "type": "apoli:modify_exhaustion",
     "modifier": {
       "name": "Increased exhaustion",
       "operation": "multiply_base",
@@ -29,7 +29,7 @@
     }
   },
   "10_attack_damage": {
-    "type": "origins:conditioned_attribute",
+    "type": "apoli:conditioned_attribute",
     "modifier": {
       "attribute": "minecraft:generic.attack_damage",
       "name": "mana_low_debuff",
@@ -44,7 +44,7 @@
     }
   },
   "10_exhaustion": {
-    "type": "origins:modify_exhaustion",
+    "type": "apoli:modify_exhaustion",
     "modifier": {
       "name": "Increased exhaustion",
       "operation": "multiply_base",
@@ -57,7 +57,7 @@
     }
   },
   "5_attack_damage": {
-    "type": "origins:conditioned_attribute",
+    "type": "apoli:conditioned_attribute",
     "modifier": {
       "attribute": "minecraft:generic.attack_damage",
       "name": "mana_low_debuff",
@@ -72,7 +72,7 @@
     }
   },
   "5_attack_speed": {
-    "type": "origins:conditioned_attribute",
+    "type": "apoli:conditioned_attribute",
     "modifier": {
       "attribute": "minecraft:generic.attack_speed",
       "name": "mana_low_debuff",
@@ -87,7 +87,7 @@
     }
   },
   "5_exhaustion": {
-    "type": "origins:modify_exhaustion",
+    "type": "apoli:modify_exhaustion",
     "modifier": {
       "name": "Increased exhaustion",
       "operation": "multiply_base",
@@ -100,9 +100,9 @@
     }
   },
   "0_damage": {
-    "type": "origins:action_over_time",
+    "type": "apoli:action_over_time",
     "entity_action": {
-      "type": "origins:damage",
+      "type": "apoli:damage",
       "amount": 1,
       "damage_type": "minecraft:drown"
     },

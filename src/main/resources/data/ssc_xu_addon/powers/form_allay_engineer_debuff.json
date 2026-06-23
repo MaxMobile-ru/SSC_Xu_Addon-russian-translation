@@ -1,22 +1,22 @@
 {
-  "type": "origins:multiple",
+  "type": "apoli:multiple",
   "low_mining": {
-    "type": "origins:modify_break_speed",
+    "type": "apoli:modify_break_speed",
     "modifier": {
       "operation": "multiply_base",
       "value": -0.25
     }
   },
   "cost_mana": {
-    "type": "origins:action_over_time",
+    "type": "apoli:action_over_time",
     "entity_action": {
-      "type": "origins:damage",
+      "type": "apoli:damage",
       "amount": 1,
       "damage_type": "minecraft:out_of_world"
     },
     "interval": 20,
     "condition": {
-      "type": "origins:and",
+      "type": "apoli:and",
       "conditions": [
         {
           "type": "shape-shifter-curse:has_mana_percent",

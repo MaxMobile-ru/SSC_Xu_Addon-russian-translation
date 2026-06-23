@@ -1,7 +1,7 @@
 {
-    "type": "origins:multiple",
+    "type": "apoli:multiple",
     "normal": {
-        "type": "origins:conditioned_attribute",
+        "type": "apoli:conditioned_attribute",
         "modifier": {
             "attribute": "minecraft:generic.movement_speed",
             "operation": "addition",
@@ -10,16 +10,16 @@
         },
         "tick_rate": 1,
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
-                    "type": "origins:fluid_height",
+                    "type": "apoli:fluid_height",
                     "fluid": "minecraft:water",
                     "comparison": "<=",
                     "compare_to": 0
                 },
                 {
-                    "type": "origins:food_level",
+                    "type": "apoli:food_level",
                     "comparison": ">=",
                     "compare_to": 6
                 }
@@ -27,7 +27,7 @@
         }
     },
     "sprint": {
-        "type": "origins:conditioned_attribute",
+        "type": "apoli:conditioned_attribute",
         "modifier": {
             "attribute": "minecraft:generic.movement_speed",
             "operation": "addition",
@@ -36,19 +36,19 @@
         },
         "tick_rate": 1,
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
-                    "type": "origins:fluid_height",
+                    "type": "apoli:fluid_height",
                     "fluid": "minecraft:water",
                     "comparison": "<=",
                     "compare_to": 0
                 },
                 {
-                    "type": "origins:sprinting"
+                    "type": "apoli:sprinting"
                 },
                 {
-                    "type": "origins:food_level",
+                    "type": "apoli:food_level",
                     "comparison": ">=",
                     "compare_to": 6
                 }

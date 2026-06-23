@@ -1,7 +1,7 @@
 {
-  "type": "origins:action_over_time",
+  "type": "apoli:action_over_time",
   "entity_action": {
-    "type": "origins:apply_effect",
+    "type": "apoli:apply_effect",
     "effects": [
       {
         "effect": "minecraft:mining_fatigue",
@@ -22,7 +22,7 @@
   },
   "interval": 10,
   "condition": {
-    "type": "origins:fluid_height",
+    "type": "apoli:fluid_height",
     "fluid": "minecraft:water",
     "comparison": ">",
     "compare_to": 0

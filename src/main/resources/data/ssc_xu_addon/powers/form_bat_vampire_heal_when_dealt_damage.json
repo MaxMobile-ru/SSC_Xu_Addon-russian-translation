@@ -1,26 +1,26 @@
 {
-  "type": "origins:self_action_on_hit",
+  "type": "apoli:self_action_on_hit",
   "entity_action": {
-    "type": "origins:and",
+    "type": "apoli:and",
     "actions": [
       {
         "type": "shape-shifter-curse:gain_mana",
         "mana": 20
       },
       {
-        "type": "origins:heal",
+        "type": "apoli:heal",
         "amount": 0.25
       }
     ]
   },
   "condition": {
-    "type": "origins:or",
+    "type": "apoli:or",
     "conditions": [
       {
-        "type": "origins:inventory",
+        "type": "apoli:inventory",
         "process_mode": "items",
         "item_condition": {
-          "type": "origins:ingredient",
+          "type": "apoli:ingredient",
           "ingredient": {
             "item": "ssc_xu_addon:blood_claw"
           }

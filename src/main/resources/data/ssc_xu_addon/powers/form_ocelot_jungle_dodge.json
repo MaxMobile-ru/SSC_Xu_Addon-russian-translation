@@ -5,10 +5,10 @@
   "dodge_speed": 2,
   "cooldown": 20,
   "entity_condition": {
-    "type": "origins:and",
+    "type": "apoli:and",
     "conditions": [
       {
-        "type": "origins:on_block"
+        "type": "apoli:on_block"
       },
       {
         "type": "shape-shifter-curse:has_mana_percent",
@@ -17,7 +17,7 @@
     ]
   },
   "action": {
-    "type": "origins:play_sound",
+    "type": "apoli:play_sound",
     "sound": "minecraft:entity.goat.long_jump"
   }
 }

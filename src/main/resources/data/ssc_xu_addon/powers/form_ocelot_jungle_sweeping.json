@@ -1,5 +1,5 @@
 {
-  "type": "origins:multiple",
+  "type": "apoli:multiple",
   "sweeping": {
     "type": "shape-shifter-curse:always_sweeping",
     "condition": {
@@ -8,9 +8,9 @@
     }
   },
   "cost": {
-    "type": "origins:self_action_on_hit",
+    "type": "apoli:self_action_on_hit",
     "entity_action": {
-      "type": "origins:and",
+      "type": "apoli:and",
       "actions": [
         {
           "type": "shape-shifter-curse:consume_mana",

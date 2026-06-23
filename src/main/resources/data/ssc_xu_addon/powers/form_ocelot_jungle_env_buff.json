@@ -1,5 +1,5 @@
 {
-  "type": "origins:multiple",
+  "type": "apoli:multiple",
   "mana_regen": {
     "type": "shape-shifter-curse:conditioned_mana_attribute",
     "modifierID": "jungle_mana_regen",
@@ -7,12 +7,12 @@
       "multiply": 1.25
     },
     "condition": {
-      "type": "origins:and",
+      "type": "apoli:and",
       "conditions": [
         {
-          "type": "origins:biome",
+          "type": "apoli:biome",
           "condition": {
-            "type": "origins:in_tag",
+            "type": "apoli:in_tag",
             "tag": "minecraft:is_jungle"
           }
         }
@@ -20,7 +20,7 @@
     }
   },
   "speed": {
-    "type": "origins:conditioned_attribute",
+    "type": "apoli:conditioned_attribute",
     "modifier": {
       "attribute": "minecraft:generic.movement_speed",
       "operation": "multiply_base",
@@ -29,12 +29,12 @@
     },
     "tick_rate": 20,
     "condition": {
-      "type": "origins:and",
+      "type": "apoli:and",
       "conditions": [
         {
-          "type": "origins:biome",
+          "type": "apoli:biome",
           "condition": {
-            "type": "origins:in_tag",
+            "type": "apoli:in_tag",
             "tag": "minecraft:is_jungle"
           }
         }

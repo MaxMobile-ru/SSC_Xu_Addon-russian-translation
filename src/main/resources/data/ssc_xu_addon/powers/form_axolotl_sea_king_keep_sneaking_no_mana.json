@@ -1,7 +1,7 @@
 {
     "type": "shape-shifter-curse:keep_sneaking",
     "condition": {
-        "type": "origins:and",
+        "type": "apoli:and",
         "conditions": [
             {
                 "type": "shape-shifter-curse:has_mana",

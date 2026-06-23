@@ -1,5 +1,5 @@
 {
-  "type":"origins:multiple",
+  "type":"apoli:multiple",
   "max_mana": {
     "type": "shape-shifter-curse:mana_attribute",
     "modifierID": "ssc_xu_addon:axolotl_sea_king_accessory_2_1",

@@ -1,5 +1,5 @@
 {
-  "type": "origins:conditioned_attribute",
+  "type": "apoli:conditioned_attribute",
   "modifier": {
     "name": "half health",
     "attribute": "minecraft:generic.max_health",

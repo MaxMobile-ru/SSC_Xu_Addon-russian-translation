@@ -1,5 +1,5 @@
 {
-  "type": "origins:multiple",
+  "type": "apoli:multiple",
   "level_1": {
     "type": "ssc_xu_addon:mana_to_food",
     "min_food_value": 18,

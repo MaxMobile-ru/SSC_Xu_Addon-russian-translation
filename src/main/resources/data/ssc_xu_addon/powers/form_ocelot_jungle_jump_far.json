@@ -1,24 +1,24 @@
 {
     "type": "shape-shifter-curse:action_on_jump",
     "entity_action": {
-        "type": "origins:add_velocity",
+        "type": "apoli:add_velocity",
         "z": 0.4,
         "space": "local"
     },
     "entity_condition": {
-        "type": "origins:and",
+        "type": "apoli:and",
         "conditions": [
             {
-                "type": "origins:sprinting"
+                "type": "apoli:sprinting"
             },
             {
-                "type": "origins:fluid_height",
+                "type": "apoli:fluid_height",
                 "fluid": "minecraft:water",
                 "comparison": "<=",
                 "compare_to": 0
             },
             {
-                "type": "origins:on_block"
+                "type": "apoli:on_block"
             },
             {
                 "type": "ssc_xu_addon:is_exhaustion",

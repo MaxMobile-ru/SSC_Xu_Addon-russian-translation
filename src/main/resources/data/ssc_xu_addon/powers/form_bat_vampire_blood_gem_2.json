@@ -1,14 +1,14 @@
 {
-  "type": "origins:action_on_item_use",
+  "type": "apoli:action_on_item_use",
   "entity_action": {
-    "type": "origins:and",
+    "type": "apoli:and",
     "actions": [
       {
         "type": "ssc_xu_addon:gain_mana_percent",
         "mana_percent": 0.2
       },
       {
-        "type": "origins:apply_effect",
+        "type": "apoli:apply_effect",
         "effects": [
           {
             "effect": "minecraft:strength",
@@ -40,7 +40,7 @@
     ]
   },
   "item_condition": {
-    "type": "origins:ingredient",
+    "type": "apoli:ingredient",
     "ingredient": {
       "item": "ssc_xu_addon:blood_gem"
     }

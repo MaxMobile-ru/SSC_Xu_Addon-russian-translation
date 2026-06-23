@@ -54,7 +54,7 @@
     "should_render": false
   },
   "condition": {
-    "type": "origins:and",
+    "type": "apoli:and",
     "conditions": [
       {
         "type": "shape-shifter-curse:has_mana_percent",

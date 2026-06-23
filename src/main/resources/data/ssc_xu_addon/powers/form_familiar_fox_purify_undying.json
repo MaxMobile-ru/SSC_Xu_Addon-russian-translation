@@ -51,7 +51,7 @@
     "should_render": false
   },
   "condition": {
-    "type": "origins:and",
+    "type": "apoli:and",
     "conditions": [
       {
         "type": "ssc_xu_addon:is_mana_level",

@@ -3,16 +3,16 @@
   "can_over_eat": true,
   "below_hunger": 8,
   "item_condition": {
-    "type": "origins:or",
+    "type": "apoli:or",
     "conditions": [
       {
-        "type": "origins:ingredient",
+        "type": "apoli:ingredient",
         "ingredient": {
-          "tag": "origins:meat"
+          "tag": "apoli:meat"
         }
       },
       {
-        "type": "origins:meat"
+        "type": "apoli:meat"
       }
     ]
   }

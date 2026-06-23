@@ -1,5 +1,5 @@
 {
-  "type": "origins:multiple",
+  "type": "apoli:multiple",
   "debuff": {
     "type": "shape-shifter-curse:apply_effect",
     "status_effects": [
@@ -19,35 +19,35 @@
       }
     ],
     "condition": {
-      "type": "origins:exposed_to_sun"
+      "type": "apoli:exposed_to_sun"
     }
   },
   "damage": {
-    "type": "origins:action_over_time",
+    "type": "apoli:action_over_time",
     "entity_action": {
-      "type": "origins:damage",
+      "type": "apoli:damage",
       "amount": 0.5,
       "damage_type": "minecraft:in_fire"
     },
     "interval": 40,
     "condition": {
-      "type": "origins:exposed_to_sun"
+      "type": "apoli:exposed_to_sun"
     }
   },
   "double_damage_taken": {
-    "type": "origins:modify_damage_taken",
+    "type": "apoli:modify_damage_taken",
     "modifier": {
       "name": "add damage taken",
       "value": 0.5,
       "operation": "multiply_base"
     },
     "damage_condition": {
-      "type": "origins:in_tag",
+      "type": "apoli:in_tag",
       "tag": "minecraft:is_fire",
       "inverted": true
     },
     "condition": {
-      "type": "origins:exposed_to_sun"
+      "type": "apoli:exposed_to_sun"
     }
   }
 }

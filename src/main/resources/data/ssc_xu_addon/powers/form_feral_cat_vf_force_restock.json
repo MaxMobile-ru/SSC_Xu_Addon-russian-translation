@@ -1,28 +1,28 @@
 {
-  "type": "origins:active_self",
+  "type": "apoli:active_self",
   "entity_action": {
-    "type": "origins:and",
+    "type": "apoli:and",
     "actions": [
       {
-        "type": "origins:selector_action",
+        "type": "apoli:selector_action",
         "selector": "@e[distance=0..16,limit=1,sort=random,type=minecraft:villager]",
         "bientity_action": {
-          "type": "origins:and",
+          "type": "apoli:and",
           "actions": [
             {
               "type": "ssc_xu_addon:add_gossip_trade",
               "value": 25
             },
             {
-              "type": "origins:target_action",
+              "type": "apoli:target_action",
               "action": {
-                "type": "origins:and",
+                "type": "apoli:and",
                 "actions": [
                   {
                     "type": "ssc_xu_addon:restock_trade"
                   },
                   {
-                    "type": "origins:spawn_particles",
+                    "type": "apoli:spawn_particles",
                     "particle": "minecraft:happy_villager",
                     "count": 8,
                     "speed": 0.0,
@@ -40,7 +40,7 @@
         }
       },
       {
-        "type": "origins:play_sound",
+        "type": "apoli:play_sound",
         "sound": "block.enchantment_table.use",
         "volume": 0.5
       },

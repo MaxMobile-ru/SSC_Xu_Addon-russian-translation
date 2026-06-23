@@ -1,7 +1,7 @@
 {
-  "type": "origins:multiple",
+  "type": "apoli:multiple",
   "lv1": {
-    "type": "origins:conditioned_attribute",
+    "type": "apoli:conditioned_attribute",
     "modifier": {
       "attribute": "minecraft:generic.movement_speed",
       "operation": "addition",
@@ -10,10 +10,10 @@
     },
     "tick_rate": 5,
     "condition": {
-      "type": "origins:and",
+      "type": "apoli:and",
       "conditions": [
         {
-          "type": "origins:sprinting"
+          "type": "apoli:sprinting"
         },
         {
           "type": "ssc_xu_addon:sprinting_time",
@@ -24,17 +24,17 @@
     }
   },
   "lv1_cost": {
-    "type": "origins:action_over_time",
+    "type": "apoli:action_over_time",
     "entity_action": {
       "type": "shape-shifter-curse:consume_mana",
       "mana": 1
     },
     "interval": 20,
     "condition": {
-      "type": "origins:and",
+      "type": "apoli:and",
       "conditions": [
         {
-          "type": "origins:sprinting"
+          "type": "apoli:sprinting"
         },
         {
           "type": "ssc_xu_addon:sprinting_time",
@@ -50,7 +50,7 @@
     }
   },
   "lv2": {
-    "type": "origins:conditioned_attribute",
+    "type": "apoli:conditioned_attribute",
     "modifier": {
       "attribute": "minecraft:generic.movement_speed",
       "operation": "addition",
@@ -59,10 +59,10 @@
     },
     "tick_rate": 5,
     "condition": {
-      "type": "origins:and",
+      "type": "apoli:and",
       "conditions": [
         {
-          "type": "origins:sprinting"
+          "type": "apoli:sprinting"
         },
         {
           "type": "ssc_xu_addon:sprinting_time",
@@ -73,17 +73,17 @@
     }
   },
   "lv2_cost": {
-    "type": "origins:action_over_time",
+    "type": "apoli:action_over_time",
     "entity_action": {
       "type": "shape-shifter-curse:consume_mana",
       "mana": 2
     },
     "interval": 20,
     "condition": {
-      "type": "origins:and",
+      "type": "apoli:and",
       "conditions": [
         {
-          "type": "origins:sprinting"
+          "type": "apoli:sprinting"
         },
         {
           "type": "ssc_xu_addon:sprinting_time",
@@ -99,7 +99,7 @@
     }
   },
   "lv3": {
-    "type": "origins:conditioned_attribute",
+    "type": "apoli:conditioned_attribute",
     "modifier": {
       "attribute": "minecraft:generic.movement_speed",
       "operation": "addition",
@@ -108,10 +108,10 @@
     },
     "tick_rate": 5,
     "condition": {
-      "type": "origins:and",
+      "type": "apoli:and",
       "conditions": [
         {
-          "type": "origins:sprinting"
+          "type": "apoli:sprinting"
         },
         {
           "type": "ssc_xu_addon:sprinting_time",
@@ -122,17 +122,17 @@
     }
   },
   "lv3_cost": {
-    "type": "origins:action_over_time",
+    "type": "apoli:action_over_time",
     "entity_action": {
       "type": "shape-shifter-curse:consume_mana",
       "mana": 3
     },
     "interval": 20,
     "condition": {
-      "type": "origins:and",
+      "type": "apoli:and",
       "conditions": [
         {
-          "type": "origins:sprinting"
+          "type": "apoli:sprinting"
         },
         {
           "type": "ssc_xu_addon:sprinting_time",
@@ -148,7 +148,7 @@
     }
   },
   "lv4": {
-    "type": "origins:conditioned_attribute",
+    "type": "apoli:conditioned_attribute",
     "modifier": {
       "attribute": "minecraft:generic.movement_speed",
       "operation": "addition",
@@ -157,10 +157,10 @@
     },
     "tick_rate": 5,
     "condition": {
-      "type": "origins:and",
+      "type": "apoli:and",
       "conditions": [
         {
-          "type": "origins:sprinting"
+          "type": "apoli:sprinting"
         },
         {
           "type": "ssc_xu_addon:sprinting_time",
@@ -171,17 +171,17 @@
     }
   },
   "lv4_cost": {
-    "type": "origins:action_over_time",
+    "type": "apoli:action_over_time",
     "entity_action": {
       "type": "shape-shifter-curse:consume_mana",
       "mana": 4
     },
     "interval": 20,
     "condition": {
-      "type": "origins:and",
+      "type": "apoli:and",
       "conditions": [
         {
-          "type": "origins:sprinting"
+          "type": "apoli:sprinting"
         },
         {
           "type": "ssc_xu_addon:sprinting_time",
@@ -197,7 +197,7 @@
     }
   },
   "lv5": {
-    "type": "origins:conditioned_attribute",
+    "type": "apoli:conditioned_attribute",
     "modifier": {
       "attribute": "minecraft:generic.movement_speed",
       "operation": "addition",
@@ -206,10 +206,10 @@
     },
     "tick_rate": 5,
     "condition": {
-      "type": "origins:and",
+      "type": "apoli:and",
       "conditions": [
         {
-          "type": "origins:sprinting"
+          "type": "apoli:sprinting"
         },
         {
           "type": "ssc_xu_addon:sprinting_time",
@@ -220,17 +220,17 @@
     }
   },
   "lv5_cost": {
-    "type": "origins:action_over_time",
+    "type": "apoli:action_over_time",
     "entity_action": {
       "type": "shape-shifter-curse:consume_mana",
       "mana": 5
     },
     "interval": 20,
     "condition": {
-      "type": "origins:and",
+      "type": "apoli:and",
       "conditions": [
         {
-          "type": "origins:sprinting"
+          "type": "apoli:sprinting"
         },
         {
           "type": "ssc_xu_addon:sprinting_time",
@@ -245,16 +245,16 @@
     "step_height_scale": 2.0,
     "affect_sneak": false,
     "condition": {
-      "type": "origins:and",
+      "type": "apoli:and",
       "conditions": [
         {
-          "type": "origins:sprinting"
+          "type": "apoli:sprinting"
         }
       ]
     }
   },
   "no_sprinting": {
-    "type": "origins:prevent_sprinting",
+    "type": "apoli:prevent_sprinting",
     "condition": {
       "type": "ssc_xu_addon:is_exhaustion"
     }

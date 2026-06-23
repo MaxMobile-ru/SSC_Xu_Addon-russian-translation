@@ -1,7 +1,7 @@
 {
-  "type": "origins:multiple",
+  "type": "apoli:multiple",
   "extra_damage": {
-    "type": "origins:modify_damage_taken",
+    "type": "apoli:modify_damage_taken",
     "modifier": {
       "name": "reduce damage taken",
       "value": 0.75,
@@ -14,7 +14,7 @@
     }
   },
   "consume_mana": {
-    "type": "origins:modify_damage_taken",
+    "type": "apoli:modify_damage_taken",
     "self_action": {
       "type": "ssc_xu_addon:consume_mana_with_cooldown",
       "mana": 4,
@@ -27,7 +27,7 @@
     }
   },
   "reduce_mana": {
-    "type": "origins:modify_damage_taken",
+    "type": "apoli:modify_damage_taken",
     "modifier": {
       "name": "reduce damage taken",
       "value": -0.3,

@@ -1,7 +1,7 @@
 {
-  "type": "origins:multiple",
+  "type": "apoli:multiple",
   "boost_attack_damage_1": {
-    "type": "origins:attribute",
+    "type": "apoli:attribute",
     "modifier": {
       "name": "2 extra damage",
       "attribute": "minecraft:generic.attack_damage",
@@ -10,7 +10,7 @@
     }
   },
   "boost_attack_damage_2": {
-    "type": "origins:modify_damage_dealt",
+    "type": "apoli:modify_damage_dealt",
     "modifier": {
       "name": "Extra 10 percent damage",
       "operation": "multiply_base",
@@ -18,7 +18,7 @@
     }
   },
   "boost_attack_speed": {
-    "type": "origins:attribute",
+    "type": "apoli:attribute",
     "modifier": {
       "name": "Extra attack speed",
       "attribute": "minecraft:generic.attack_speed",
@@ -27,7 +27,7 @@
     }
   },
   "boost_speed": {
-    "type": "origins:attribute",
+    "type": "apoli:attribute",
     "modifier": {
       "name": "Extra speed",
       "attribute": "minecraft:generic.movement_speed",
@@ -36,7 +36,7 @@
     }
   },
   "low_health": {
-    "type": "origins:attribute",
+    "type": "apoli:attribute",
     "modifier": {
       "name": "4 health reduction",
       "attribute": "minecraft:generic.max_health",
@@ -45,7 +45,7 @@
     }
   },
   "low_defense": {
-    "type": "origins:attribute",
+    "type": "apoli:attribute",
     "modifier": {
       "name": "Extra speed",
       "attribute": "minecraft:generic.armor",
@@ -54,7 +54,7 @@
     }
   },
   "high_damage_taken": {
-    "type": "origins:modify_damage_taken",
+    "type": "apoli:modify_damage_taken",
     "modifier": {
       "name": "reduce damage taken",
       "value": 0.25,

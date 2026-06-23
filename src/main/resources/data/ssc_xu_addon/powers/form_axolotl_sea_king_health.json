@@ -1,7 +1,7 @@
 {
-  "type": "origins:multiple",
+  "type": "apoli:multiple",
   "hp1": {
-    "type": "origins:conditioned_attribute",
+    "type": "apoli:conditioned_attribute",
     "modifier": {
       "name": "wet health 1",
       "attribute": "minecraft:generic.max_health",
@@ -15,7 +15,7 @@
     }
   },
   "hp2": {
-    "type": "origins:conditioned_attribute",
+    "type": "apoli:conditioned_attribute",
     "modifier": {
       "name": "wet health 2",
       "attribute": "minecraft:generic.max_health",
@@ -29,7 +29,7 @@
     }
   },
   "hp3": {
-    "type": "origins:conditioned_attribute",
+    "type": "apoli:conditioned_attribute",
     "modifier": {
       "name": "wet health 3",
       "attribute": "minecraft:generic.max_health",
@@ -43,7 +43,7 @@
     }
   },
   "hp4": {
-    "type": "origins:conditioned_attribute",
+    "type": "apoli:conditioned_attribute",
     "modifier": {
       "name": "wet health 4",
       "attribute": "minecraft:generic.max_health",
@@ -57,7 +57,7 @@
     }
   },
   "hp5": {
-    "type": "origins:conditioned_attribute",
+    "type": "apoli:conditioned_attribute",
     "modifier": {
       "name": "wet health 5",
       "attribute": "minecraft:generic.max_health",
@@ -71,7 +71,7 @@
     }
   },
   "hp6": {
-    "type": "origins:conditioned_attribute",
+    "type": "apoli:conditioned_attribute",
     "modifier": {
       "name": "wet health 6",
       "attribute": "minecraft:generic.max_health",
@@ -85,7 +85,7 @@
     }
   },
   "hp7": {
-    "type": "origins:conditioned_attribute",
+    "type": "apoli:conditioned_attribute",
     "modifier": {
       "name": "wet health 7",
       "attribute": "minecraft:generic.max_health",
@@ -99,7 +99,7 @@
     }
   },
   "hp8": {
-    "type": "origins:conditioned_attribute",
+    "type": "apoli:conditioned_attribute",
     "modifier": {
       "name": "wet health 8",
       "attribute": "minecraft:generic.max_health",
@@ -113,7 +113,7 @@
     }
   },
   "hp9": {
-    "type": "origins:conditioned_attribute",
+    "type": "apoli:conditioned_attribute",
     "modifier": {
       "name": "wet health 9",
       "attribute": "minecraft:generic.max_health",
@@ -127,7 +127,7 @@
     }
   },
   "hpb": {
-    "type": "origins:attribute",
+    "type": "apoli:attribute",
     "modifier": {
       "name": "wet health base",
       "attribute": "minecraft:generic.max_health",

@@ -1,7 +1,7 @@
 {
-  "type": "origins:multiple",
+  "type": "apoli:multiple",
   "level_1": {
-    "type": "origins:modify_damage_taken",
+    "type": "apoli:modify_damage_taken",
     "modifier": {
       "name": "reduce damage taken",
       "value": -0.30,
@@ -19,7 +19,7 @@
     }
   },
   "level_2": {
-    "type": "origins:modify_damage_taken",
+    "type": "apoli:modify_damage_taken",
     "modifier": {
       "name": "reduce damage taken",
       "value": -0.50,
@@ -37,7 +37,7 @@
     }
   },
   "level_3": {
-    "type": "origins:modify_damage_taken",
+    "type": "apoli:modify_damage_taken",
     "modifier": {
       "name": "reduce damage taken",
       "value": -1.0,

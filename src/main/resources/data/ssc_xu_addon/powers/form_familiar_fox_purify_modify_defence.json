@@ -1,7 +1,7 @@
 {
-  "type": "origins:multiple",
+  "type": "apoli:multiple",
   "level_0": {
-    "type": "origins:conditioned_attribute",
+    "type": "apoli:conditioned_attribute",
     "modifier": {
       "name": "Reduced defence",
       "attribute": "minecraft:generic.armor",
@@ -15,7 +15,7 @@
     "tick_rate": 20
   },
   "level_1": {
-    "type": "origins:conditioned_attribute",
+    "type": "apoli:conditioned_attribute",
     "modifier": {
       "name": "Reduced defence",
       "attribute": "minecraft:generic.armor",
@@ -29,7 +29,7 @@
     "tick_rate": 20
   },
   "level_2": {
-    "type": "origins:conditioned_attribute",
+    "type": "apoli:conditioned_attribute",
     "modifier": {
       "name": "Boost defence",
       "attribute": "minecraft:generic.armor",
@@ -43,7 +43,7 @@
     "tick_rate": 20
   },
   "level_3": {
-    "type": "origins:conditioned_attribute",
+    "type": "apoli:conditioned_attribute",
     "modifier": {
       "name": "Boost defence",
       "attribute": "minecraft:generic.armor",

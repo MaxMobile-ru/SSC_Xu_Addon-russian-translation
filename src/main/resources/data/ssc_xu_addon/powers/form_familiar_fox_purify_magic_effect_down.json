@@ -1,5 +1,5 @@
 {
-  "type": "origins:multiple",
+  "type": "apoli:multiple",
   "instant_health": {
     "type": "shape-shifter-curse:modify_instant_health_scale",
     "scale": 0.25

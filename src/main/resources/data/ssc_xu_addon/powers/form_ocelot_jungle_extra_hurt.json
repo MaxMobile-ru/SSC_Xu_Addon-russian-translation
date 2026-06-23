@@ -1,7 +1,7 @@
 {
-  "type": "origins:multiple",
+  "type": "apoli:multiple",
   "eh1": {
-    "type": "origins:modify_damage_taken",
+    "type": "apoli:modify_damage_taken",
     "modifier": {
       "name": "add damage taken",
       "value": 0.25,
@@ -14,7 +14,7 @@
     }
   },
   "eh2": {
-    "type": "origins:modify_damage_taken",
+    "type": "apoli:modify_damage_taken",
     "modifier": {
       "name": "reduce damage taken",
       "value": 0.25,
@@ -27,7 +27,7 @@
     }
   },
   "eh3": {
-    "type": "origins:modify_damage_taken",
+    "type": "apoli:modify_damage_taken",
     "modifier": {
       "name": "reduce damage taken",
       "value": 0.25,
@@ -40,7 +40,7 @@
     }
   },
   "eh4": {
-    "type": "origins:modify_damage_taken",
+    "type": "apoli:modify_damage_taken",
     "modifier": {
       "name": "reduce damage taken",
       "value": 0.25,
@@ -53,7 +53,7 @@
     }
   },
   "eh5": {
-    "type": "origins:modify_damage_taken",
+    "type": "apoli:modify_damage_taken",
     "modifier": {
       "name": "reduce damage taken",
       "value": 0.50,
@@ -64,7 +64,7 @@
     }
   },
   "low_def": {
-    "type": "origins:attribute",
+    "type": "apoli:attribute",
     "modifier": {
       "name": "armor debuff",
       "attribute": "minecraft:generic.armor",

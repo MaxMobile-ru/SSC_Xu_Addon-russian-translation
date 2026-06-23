@@ -1,7 +1,7 @@
 {
-  "type": "origins:multiple",
+  "type": "apoli:multiple",
   "food_exhaustion": {
-    "type": "origins:modify_exhaustion",
+    "type": "apoli:modify_exhaustion",
     "modifier": {
       "name": "Increased exhaustion",
       "operation": "multiply_base",

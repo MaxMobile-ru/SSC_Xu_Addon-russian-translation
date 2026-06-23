@@ -86,24 +86,24 @@
     }
   },
   "ghost": {
-    "type": "origins:phasing",
+    "type": "apoli:phasing",
     "blacklist": false,
     "block_condition": {
-      "type": "origins:constant",
+      "type": "apoli:constant",
       "value": true
     },
     "render_type": "blindness",
     "view_distance": 24,
     "phase_down_condition": {
-      "type": "origins:and",
+      "type": "apoli:and",
       "conditions": [
         {
-          "type": "origins:sneaking"
+          "type": "apoli:sneaking"
         }
       ]
     },
     "condition": {
-      "type": "origins:power_active",
+      "type": "apoli:power_active",
       "power": "ssc_xu_addon:form_allay_engineer_ghost_toggle"
     }
   }

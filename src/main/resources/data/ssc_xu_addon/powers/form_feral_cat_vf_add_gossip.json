@@ -1,7 +1,7 @@
 {
-  "type": "origins:action_over_time",
+  "type": "apoli:action_over_time",
   "entity_action": {
-    "type": "origins:selector_action",
+    "type": "apoli:selector_action",
     "selector": "@e[distance=0..16,limit=1,sort=random,type=minecraft:villager]",
     "bientity_action": {
       "type": "ssc_xu_addon:add_gossip_extra",

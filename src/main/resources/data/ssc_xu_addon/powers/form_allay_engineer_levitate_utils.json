@@ -1,17 +1,17 @@
 {
-    "type": "origins:multiple",
+    "type": "apoli:multiple",
     "cost_mana": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "entity_action": {
             "type": "shape-shifter-curse:gain_mana",
             "mana": 2
         },
         "interval": 10,
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
-                    "type": "origins:power_active",
+                    "type": "apoli:power_active",
                     "power": "ssc_xu_addon:form_allay_engineer_levitate"
                 },
                 {
@@ -23,7 +23,7 @@
         }
     },
     "fly_boost": {
-        "type": "origins:conditioned_attribute",
+        "type": "apoli:conditioned_attribute",
         "modifier": {
             "attribute": "minecraft:generic.movement_speed",
             "operation": "multiply_total",
@@ -32,10 +32,10 @@
         },
         "tick_rate": 1,
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
-                    "type": "origins:power_active",
+                    "type": "apoli:power_active",
                     "power": "ssc_xu_addon:form_allay_engineer_levitate"
                 },
                 {
@@ -47,13 +47,13 @@
         }
     },
     "low_mining": {
-        "type": "origins:modify_break_speed",
+        "type": "apoli:modify_break_speed",
         "modifier": {
             "operation": "multiply_base",
             "value": -0.5
         },
         "condition": {
-            "type": "origins:power_active",
+            "type": "apoli:power_active",
             "power": "ssc_xu_addon:form_allay_engineer_levitate"
         }
     }

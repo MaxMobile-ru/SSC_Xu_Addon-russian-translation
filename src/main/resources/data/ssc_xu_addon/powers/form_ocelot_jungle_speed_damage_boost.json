@@ -3,9 +3,9 @@
   "speed_to_damage_radio": 20.0,
   "knockback_radio": 4.0,
   "on_hit_action": {
-    "type": "origins:actor_action",
+    "type": "apoli:actor_action",
     "action": {
-      "type": "origins:and",
+      "type": "apoli:and",
       "actions": [
         {
           "type": "ssc_xu_addon:add_sprinting_time",
@@ -19,10 +19,10 @@
     }
   },
   "condition": {
-    "type": "origins:and",
+    "type": "apoli:and",
     "conditions": [
       {
-        "type": "origins:sprinting"
+        "type": "apoli:sprinting"
       },
       {
         "type": "ssc_xu_addon:is_exhaustion",

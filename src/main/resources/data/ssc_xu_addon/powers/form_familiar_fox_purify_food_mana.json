@@ -1,7 +1,7 @@
 {
-  "type": "origins:multiple",
+  "type": "apoli:multiple",
   "level_1_food": {
-    "type": "origins:modify_food",
+    "type": "apoli:modify_food",
     "entity_action": {
       "type": "shape-shifter-curse:gain_mana_with_time",
       "mana": 2,
@@ -9,14 +9,14 @@
     },
     "always_edible": true,
     "item_condition": {
-      "type": "origins:ingredient",
+      "type": "apoli:ingredient",
       "ingredient": {
         "tag": "ssc_xu_addon:ffp_food_1"
       }
     }
   },
   "level_2_food": {
-    "type": "origins:modify_food",
+    "type": "apoli:modify_food",
     "entity_action": {
       "type": "shape-shifter-curse:gain_mana_with_time",
       "mana": 5,
@@ -24,14 +24,14 @@
     },
     "always_edible": true,
     "item_condition": {
-      "type": "origins:ingredient",
+      "type": "apoli:ingredient",
       "ingredient": {
         "tag": "ssc_xu_addon:ffp_food_2"
       }
     }
   },
   "level_3_food": {
-    "type": "origins:modify_food",
+    "type": "apoli:modify_food",
     "entity_action": {
       "type": "shape-shifter-curse:gain_mana_with_time",
       "mana": 100,
@@ -39,7 +39,7 @@
     },
     "always_edible": true,
     "item_condition": {
-      "type": "origins:ingredient",
+      "type": "apoli:ingredient",
       "ingredient": {
         "tag": "ssc_xu_addon:ffp_food_3"
       }
