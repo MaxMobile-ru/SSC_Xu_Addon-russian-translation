@@ -33,7 +33,10 @@
 
         "ssc_xu_addon:form_familiar_fox_purify_low_health_rec",
         "ssc_xu_addon:form_familiar_fox_purify_low_mana_hurt",
-        "ssc_xu_addon:form_familiar_fox_purify_low_mana_debuff"
+        "ssc_xu_addon:form_familiar_fox_purify_low_mana_debuff",
+
+        "shape-shifter-curse:form_tan_prevent_dirty_water_thirst",
+        "shape-shifter-curse:form_familiar_fox_3_tan_temperature_modify"
     ],
     "icon": {
         "item": "minecraft:player_head"

@@ -44,7 +44,10 @@
     "shape-shifter-curse:form_axolotl_2_water_spurt",
     "shape-shifter-curse:form_axolotl_2_falling_protection",
     "shape-shifter-curse:jump_out_water",
-    "shape-shifter-curse:form_axolotl_0_new_puff_speed_down"
+    "shape-shifter-curse:form_axolotl_0_new_puff_speed_down",
+
+    "shape-shifter-curse:form_tan_prevent_dirty_water_thirst",
+    "shape-shifter-curse:form_tan_axolotl_thirst_in_water"
   ],
   "icon": {
     "item": "minecraft:player_head"

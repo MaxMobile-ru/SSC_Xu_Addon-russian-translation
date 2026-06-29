@@ -40,7 +40,10 @@
     "ssc_xu_addon:form_ocelot_jungle_jump_far",
     "ssc_xu_addon:form_ocelot_jungle_jump_high",
     "ssc_xu_addon:form_ocelot_jungle_clash",
-    "ssc_xu_addon:form_ocelot_jungle_auto_feed"
+    "ssc_xu_addon:form_ocelot_jungle_auto_feed",
+
+    "shape-shifter-curse:form_tan_prevent_dirty_water_thirst",
+    "shape-shifter-curse:form_tan_cold_resistance_mild"
 
   ],
   "icon": {
