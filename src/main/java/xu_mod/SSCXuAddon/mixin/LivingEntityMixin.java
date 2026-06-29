@@ -11,6 +11,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.util.Hand;
 import net.minecraft.util.Pair;
 import net.minecraft.world.World;
 import net.onixary.shapeShifterCurseFabric.util.Accessory.AccessoryUtils;
@@ -21,6 +22,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import xu_mod.SSCXuAddon.data.item.UndeadEssence;
 import xu_mod.SSCXuAddon.data.item.trinket.NineLiveCharm;
 import xu_mod.SSCXuAddon.init.Init_Apoli;
 import xu_mod.SSCXuAddon.init.Init_Item;
@@ -110,6 +112,12 @@ public class LivingEntityMixin {
                             return;
                         }
                     }
+                }
+                // 不死精粹
+                if (player.getStackInHand(Hand.OFF_HAND).getItem() instanceof UndeadEssence) {
+                    UndeadEssence.useForTotem(player, player.getStackInHand(Hand.OFF_HAND));
+                    cir.setReturnValue(true);
+                    return;
                 }
             }
         }

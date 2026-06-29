@@ -36,4 +36,11 @@ public class ModPacketsServer {
     public static void sendTriggerNineLiveCharm(ServerPlayerEntity player) {
         ServerPlayNetworking.send(player, ModPackets.triggerNineLiveCharm, PacketByteBufs.create().writeUuid(player.getUuid()));
     }
+
+    public static void sendTriggerUndeadEssenceLikeItem(ServerPlayerEntity player, int type) {
+        PacketByteBuf buf = PacketByteBufs.create();
+        buf.writeUuid(player.getUuid());
+        buf.writeInt(type);
+        ServerPlayNetworking.send(player, ModPackets.triggerUndeadEssenceLikeItem, buf);
+    }
 }

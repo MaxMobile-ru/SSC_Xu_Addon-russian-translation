@@ -58,6 +58,8 @@ public class Init_Item {
     public static final Item SEA_BLESSED_RING = register("sea_blessed_ring", new TrinketWithToolTip(new Item.Settings().maxCount(1), Text.translatable("item.ssc_xu_addon.sea_blessed_ring.tooltip").formatted(Formatting.YELLOW)));
     public static final Item MOISTURE_KEPT_CHARM = register("moisture_kept_charm", new MoistureKeptCharm(new Item.Settings().maxCount(1)));
 
+    public static final Item UNDEAD_ESSENCE = register("undead_essence", new UndeadEssence(new Item.Settings().maxCount(16)));
+
     // 火焰宝石 大地宝石 超级神圣金苹果
     public static final Item FIRE_GEM = register("fire_gem", new FireGem(new Item.Settings().maxCount(64)));
     public static final Item GROUND_GEM = register("ground_gem", new GroundGem(new Item.Settings().maxCount(64)));
@@ -94,12 +96,13 @@ public class Init_Item {
                 entries.add(CHARM_OF_WIND);
                 entries.add(HEAVY_BRACELET);
                 entries.add(VITALITY_STONE);
-                // entries.add(CHARM_OF_NINE_LIVE);  // 隐藏物品 不展示 之后加一下掉落
+                // entries.add(CHARM_OF_NINE_LIVE);  // 隐藏物品 不展示
                 entries.add(CHARM_OF_BLOOD_THIRST);
                 entries.add(SEA_SCEPTER);
                 entries.add(SEA_SCEPTER_VIRTUAL);
                 entries.add(SEA_BLESSED_RING);
                 entries.add(MOISTURE_KEPT_CHARM);
+                entries.add(UNDEAD_ESSENCE);
                 entries.add(SHIELD_RING);
 
                 entries.add(UNSTABLE_HOLY_APPLE);

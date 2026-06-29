@@ -7,4 +7,5 @@ public class ModPackets {
     public static final Identifier playerLogin = new Identifier("ssc_xu_addon", "player_login");
 
     public static final Identifier triggerNineLiveCharm = new Identifier("ssc_xu_addon", "trigger_nine_live_charm");
+    public static final Identifier triggerUndeadEssenceLikeItem = new Identifier("ssc_xu_addon", "trigger_undead_essence_like_item");
 }
