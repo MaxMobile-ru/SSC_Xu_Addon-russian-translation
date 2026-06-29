@@ -1,0 +1,44 @@
+{
+  "type": "apoli:multiple",
+  "minion_damage_1": {
+    "type": "apoli:modify_damage_taken",
+    "modifier": {
+      "name": "add damage taken",
+      "value": 0.25,
+      "operation": "multiply_base"
+    },
+    "condition": {
+      "type": "ssc_xu_addon:has_minion",
+      "minion": "ssc_xu_addon:spider_minion",
+      "inverted": true
+    }
+  },
+  "minion_damage_2": {
+    "type": "apoli:modify_damage_dealt",
+    "modifier": {
+      "name": "sub damage taken",
+      "value": -0.25,
+      "operation": "multiply_base"
+    },
+    "condition": {
+      "type": "ssc_xu_addon:has_minion",
+      "minion": "ssc_xu_addon:spider_minion",
+      "inverted": true
+    }
+  },
+  "minion_speed": {
+    "type": "apoli:conditioned_attribute",
+    "modifier": {
+      "attribute": "minecraft:generic.movement_speed",
+      "operation": "multiply_base",
+      "value": 0.40,
+      "name": "speed up"
+    },
+    "tick_rate": 20,
+    "condition": {
+      "type": "ssc_xu_addon:has_minion",
+      "minion": "ssc_xu_addon:spider_minion",
+      "inverted": true
+    }
+  }
+}

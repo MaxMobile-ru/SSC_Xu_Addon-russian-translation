@@ -21,6 +21,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.village.VillageGossipType;
 import net.onixary.shapeShifterCurseFabric.mana.ManaUtils;
+import net.onixary.shapeShifterCurseFabric.minion.IPlayerEntityMinion;
 import net.onixary.shapeShifterCurseFabric.minion.MinionRegister;
 import xu_mod.SSCXuAddon.SSCXuAddon;
 import xu_mod.SSCXuAddon.data.cca.AddonDataComponent;
@@ -343,6 +344,28 @@ public class SomeRandomConditionAndAction {
                         }
                 )
         );
-
+        ConditionRegister.accept(
+                new ConditionFactory<>(
+                        SSCXuAddon.identifier("has_minion"),
+                        new SerializableData()
+                                .add("minion_id", SerializableDataTypes.IDENTIFIER, null),
+                        (data, entity) -> {
+                            if (entity instanceof IPlayerEntityMinion ipem) {
+                                Identifier minion_id = data.get("minion_id");
+                                if (minion_id != null) {
+                                    return ipem.shape_shifter_curse$getAllMinions().containsKey(minion_id) && ipem.shape_shifter_curse$getAllMinions().get(minion_id).size() > 0;
+                                } else {
+                                    for (Identifier id : ipem.shape_shifter_curse$getAllMinions().keySet()) {
+                                        if (!ipem.shape_shifter_curse$getAllMinions().get(id).isEmpty()) {
+                                            return true;
+                                        }
+                                    }
+                                    return false;
+                                }
+                            }
+                            return false;
+                        }
+                )
+        );
     }
 }

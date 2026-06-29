@@ -226,6 +226,9 @@ public class SpiderMinion extends SpiderEntity implements IMinion<SpiderMinion>,
                 if (entity.getUuid().equals(this.getMinionOwnerUUID())) {
                     return false;
                 }
+                if (entity instanceof SpiderMinion) {
+                    return false;
+                }
                 return true;
             })) {
                 entity.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 100, 2));
