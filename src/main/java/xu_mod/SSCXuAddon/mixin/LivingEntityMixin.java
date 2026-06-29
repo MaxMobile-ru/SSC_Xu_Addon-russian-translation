@@ -26,6 +26,7 @@ import xu_mod.SSCXuAddon.init.Init_Apoli;
 import xu_mod.SSCXuAddon.init.Init_Item;
 import xu_mod.SSCXuAddon.powers.AllayPower;
 import xu_mod.SSCXuAddon.powers.LeveledManaModifyDamageDealtPower;
+import xu_mod.SSCXuAddon.powers.MinionShieldPower;
 import xu_mod.SSCXuAddon.powers.SpeedDamageBoostPower;
 import xu_mod.SSCXuAddon.utils.ShieldUtils;
 
@@ -53,6 +54,9 @@ public class LivingEntityMixin {
             }
         }
         for (AllayPower power : PowerHolderComponent.getPowers(thisAsLiving, AllayPower.class)) {
+            newValue = power.modifyDamageTaken(source, newValue, source.getAttacker());
+        }
+        for (MinionShieldPower power : PowerHolderComponent.getPowers(thisAsLiving, MinionShieldPower.class)) {
             newValue = power.modifyDamageTaken(source, newValue, source.getAttacker());
         }
         if (thisAsLiving instanceof PlayerEntity player) {
