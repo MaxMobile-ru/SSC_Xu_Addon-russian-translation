@@ -32,7 +32,7 @@ public class SpiderMinionShieldPower extends MinionShieldPower {
     public float modifyDamageTaken(DamageSource source, float amount, Entity attacker) {
         float finalDamage = amount;
         float healthPercent = entity.getHealth() / entity.getMaxHealth();
-        float canDecreaseDamage = amount * Math.min(1.0f, 1.5f * (1 - healthPercent));
+        float canDecreaseDamage = amount * Math.min(1.0f, 2f * (1 - healthPercent));
 
         if (entity instanceof IPlayerEntityMinion ipem && entity.getWorld() instanceof ServerWorld serverWorld) {
             ConcurrentHashMap<Identifier, ArrayList<UUID>> allMinion = ipem.shape_shifter_curse$getAllMinions();

@@ -13,6 +13,11 @@
       "max_minion_count": 4
     },
     {
+      "type": "ssc_xu_addon:area_enemy_forget",
+      "range": 64,
+      "only_self": true
+    },
+    {
       "type": "ssc_xu_addon:trigger_cooldown",
       "cooldown_id": "ssc_xu_addon:spider_undead_undying"
     }
