@@ -21,6 +21,7 @@ public class Init_ManaTypeRender {
             }
         }));
         ManaRegistriesClient.registerManaTypeRender(Init_ManaType.AxolotlWaterResource, new DefaultResourceBarRender(SSCXuAddon.identifier("textures/gui/water_bar.png"), false, true, true, 0xFF70F3FF));
+
     }
 
     public static void init() {}

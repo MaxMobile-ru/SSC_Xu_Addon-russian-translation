@@ -26,7 +26,7 @@ public class MinionActions {
             Owner = entities.getRight();
             SpawnNearbyTarget = entities.getLeft();
         }
-        int MinionLevel = data.getInt("minion_level");
+        boolean UseHunger = data.getBoolean("use_hunger");
         int MinionCount = data.getInt("count");
         int MaxMinionCount = data.getInt("max_minion_count");
         int Cooldown = data.getInt("cooldown");
@@ -40,6 +40,9 @@ public class MinionActions {
                         return;
                     }
                     if (MinionRegister.IsInCoolDown(SpiderMinion.minionID, player, Cooldown)) {
+                        return;
+                    }
+                    if (UseHunger && player.getHungerManager().getFoodLevel() <= 10) {
                         return;
                     }
                 }
@@ -74,6 +77,9 @@ public class MinionActions {
                 if (!(player.getWorld() instanceof ServerWorld serverWorld)) {
                     return;
                 }
+                if (UseHunger) {
+                    player.getHungerManager().setFoodLevel(player.getHungerManager().getFoodLevel() - 4);
+                }
                 player.getWorld().playSound(null, player.getBlockPos(), SoundEvents.ENTITY_SPIDER_AMBIENT, player.getSoundCategory(), 1.0f, 1.5f);
                 serverWorld.spawnParticles(player, ParticleTypes.SOUL_FIRE_FLAME, true, player.getBlockPos().getX() + 0.5f, player.getBlockPos().getY() + 0.5f, player.getBlockPos().getZ() + 0.5f, 8, 0, 0, 0, 0);
             }
@@ -84,7 +90,7 @@ public class MinionActions {
         return new ActionFactory<>(
                 SSCXuAddon.identifier("summon_spider_minion_minion"),
                 new SerializableData()
-                        .add("minion_level", SerializableDataTypes.INT, 1)
+                        .add("use_hunger", SerializableDataTypes.BOOLEAN, true)
                         .add("count", SerializableDataTypes.INT, 1)
                         .add("max_minion_count", SerializableDataTypes.INT, Integer.MAX_VALUE)
                         .add("cooldown", SerializableDataTypes.INT, 0)

@@ -35,6 +35,7 @@ public class Init_Apoli {
         Init_Apoli.registerPower(ManaAttributePro.createFactory());
         Init_Apoli.registerPower(AutoFeedPower.createFactory());
         Init_Apoli.registerPower(MinionShieldPower.createFactory());
+        Init_Apoli.registerPower(SpiderMinionShieldPower.createFactory());
 
         // Skill Power
         Init_Apoli.registerPower(OcelotRush1Power.createFactory());
@@ -55,6 +56,7 @@ public class Init_Apoli {
         FireRingAction.registerActions(Init_Apoli::registerEntityAction, Init_Apoli::registerBIEntityAction);
         ShootBloodThornAction.registerActions(Init_Apoli::registerEntityAction, Init_Apoli::registerBIEntityAction);
         AxolotlPower.registerActions(Init_Apoli::registerEntityAction, Init_Apoli::registerBIEntityAction);
+        WebBridgeAction.registerAction(Init_Apoli::registerEntityAction, Init_Apoli::registerBIEntityAction);
     }
 
 

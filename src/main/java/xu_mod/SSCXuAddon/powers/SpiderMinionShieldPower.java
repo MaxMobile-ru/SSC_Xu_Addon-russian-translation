@@ -1,6 +1,5 @@
 package xu_mod.SSCXuAddon.powers;
 
-import io.github.apace100.apoli.power.Power;
 import io.github.apace100.apoli.power.PowerType;
 import io.github.apace100.apoli.power.factory.PowerFactory;
 import io.github.apace100.calio.data.SerializableData;
@@ -18,21 +17,21 @@ import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class MinionShieldPower extends Power {
+public class SpiderMinionShieldPower extends MinionShieldPower {
     private final List<Identifier> minionsIDs;
     private final float damageMulti;
-    private final float damagePercent;
 
-    public MinionShieldPower(PowerType<?> type, LivingEntity entity, List<Identifier> minionIDs, float damageMulti, float damagePercent) {
-        super(type, entity);
+    public SpiderMinionShieldPower(PowerType<?> type, LivingEntity entity, List<Identifier> minionIDs, float damageMulti) {
+        super(type, entity, null, 1.0f, 1.0f);
         this.minionsIDs = minionIDs == null ? new ArrayList<>() : minionIDs;
         this.damageMulti = damageMulti;
-        this.damagePercent = damagePercent;
     }
 
+    @Override
     public float modifyDamageTaken(DamageSource source, float amount, Entity attacker) {
         float finalDamage = amount;
-        float canDecreaseDamage = amount * damagePercent;
+        float healthPercent = entity.getHealth() / entity.getMaxHealth();
+        float canDecreaseDamage = amount * Math.min(1.0f, 1.5f * (1 - healthPercent));
 
         if (entity instanceof IPlayerEntityMinion ipem && entity.getWorld() instanceof ServerWorld serverWorld) {
             ConcurrentHashMap<Identifier, ArrayList<UUID>> allMinion = ipem.shape_shifter_curse$getAllMinions();
@@ -63,13 +62,12 @@ public class MinionShieldPower extends Power {
 
     public static PowerFactory<?> createFactory() {
         return new PowerFactory<>(
-                SSCXuAddon.identifier("minion_shield"),
+                SSCXuAddon.identifier("minion_shield_spider"),
                 new SerializableData()
                         .add("minion_ids", SerializableDataTypes.IDENTIFIERS, null)
-                        .add("damage_multi", SerializableDataTypes.FLOAT, 1.0f)
-                        .add("damage_percent", SerializableDataTypes.FLOAT, 1.0f),
+                        .add("damage_multi", SerializableDataTypes.FLOAT, 1.0f),
                 (data) -> (type, entity) ->
-                        new MinionShieldPower(type, entity, data.get("minion_ids"), data.get("damage_multi"), data.get("damage_percent"))
+                        new SpiderMinionShieldPower(type, entity, data.get("minion_ids"), data.get("damage_multi"))
         );
     }
 }
