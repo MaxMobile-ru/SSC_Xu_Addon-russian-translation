@@ -10,6 +10,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.random.Random;
 import net.onixary.shapeShifterCurseFabric.minion.IPlayerEntityMinion;
 import xu_mod.SSCXuAddon.SSCXuAddon;
 
@@ -36,24 +37,28 @@ public class MinionShieldPower extends Power {
 
         if (entity instanceof IPlayerEntityMinion ipem && entity.getWorld() instanceof ServerWorld serverWorld) {
             ConcurrentHashMap<Identifier, ArrayList<UUID>> allMinion = ipem.shape_shifter_curse$getAllMinions();
+            Random random = entity.getRandom();
             done:
             for (Identifier id : minionsIDs) {
                 if (allMinion.containsKey(id)) {
-                    for (UUID uuid : allMinion.get(id)) {
+                    List<UUID> uuids = allMinion.get(id);
+                    while (!uuids.isEmpty() && canDecreaseDamage > 0) {
+                        int index = random.nextInt(uuids.size());
+                        UUID uuid = uuids.get(index);
                         Entity minion = serverWorld.getEntity(uuid);
                         if (minion instanceof LivingEntity livingEntity) {
                             float finalDecDamage = Math.min(livingEntity.getHealth(), canDecreaseDamage * damageMulti);
                             if (finalDecDamage <= 0) {
-                                continue;
+                                break done;
                             }
                             livingEntity.damage(source, finalDecDamage);
                             float finalDecPDamage = finalDecDamage / damageMulti;
                             canDecreaseDamage -= finalDecPDamage;
                             finalDamage -= finalDecPDamage;
                         }
-                        if (canDecreaseDamage <= 0) {
-                            break done;
-                        }
+                    }
+                    if (canDecreaseDamage <= 0) {
+                        break;
                     }
                 }
             }

@@ -352,7 +352,14 @@ public class Init_ManaType {
                             ShapeShifterCurseFabric.identifier("base_value"),
                             new Pair<Identifier, ManaUtils.Modifier>(
                                     MC_AlwaysTrue,
-                                    new ManaUtils.Modifier(0.02d, 1.0d, 0d)  // 0.4 per sec 24 per min
+                                    new ManaUtils.Modifier(0.02d, 1.0d, 0d)  // +0.4 per sec +24 per min
+                            )
+                    ),
+                    new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
+                            SSCXuAddon.identifier("creative"),
+                            new Pair<Identifier, ManaUtils.Modifier>(
+                                    MC_IsCreative,
+                                    new ManaUtils.Modifier(0d, 1.0d, 1000d)  // +20000 per sec
                             )
                     )
             ),

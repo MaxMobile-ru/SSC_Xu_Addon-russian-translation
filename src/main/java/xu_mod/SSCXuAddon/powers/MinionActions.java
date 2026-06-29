@@ -18,20 +18,17 @@ import xu_mod.SSCXuAddon.SSCXuAddon;
 import xu_mod.SSCXuAddon.data.entity.minion.SpiderMinion;
 import xu_mod.SSCXuAddon.init.Init_Entity;
 
+import java.util.function.Consumer;
+
 public class MinionActions {
     public static void summonMinionSpider(SerializableData.Instance data, Pair<Entity, Entity> entities) {
         Entity Owner = entities.getLeft();
         Entity SpawnNearbyTarget = entities.getRight();
-        if (data.isPresent("reverse") && data.getBoolean("reverse")) {
-            Owner = entities.getRight();
-            SpawnNearbyTarget = entities.getLeft();
-        }
         boolean UseHunger = data.getBoolean("use_hunger");
         int MinionCount = data.getInt("count");
         int MaxMinionCount = data.getInt("max_minion_count");
         int Cooldown = data.getInt("cooldown");
         ActionFactory<Entity>.Instance OwnerAction = data.get("owner_action");
-        ActionFactory<Entity>.Instance TargetAction = data.get("target_action");
         if (Owner instanceof ServerPlayerEntity player) {
             boolean IsSummonSuccess = false;
             for (int i = 0; i < MinionCount; i++) {
@@ -59,7 +56,7 @@ public class MinionActions {
                     if (minion != null) {
                         IsSummonSuccess = true;
                     } else {
-                        SSCXuAddon.LOGGER.warn("Can't spawn minion, wolfMinion is null");
+                        SSCXuAddon.LOGGER.warn("Can't spawn minion, minion is null");
                     }
                 } else {
                     SSCXuAddon.LOGGER.warn("Can't spawn minion, world is not ServerWorld");
@@ -69,9 +66,6 @@ public class MinionActions {
                 MinionRegister.SetCoolDown(SpiderMinion.minionID, player);
                 if (OwnerAction != null) {
                     OwnerAction.accept(Owner);
-                }
-                if (TargetAction != null) {
-                    TargetAction.accept(SpawnNearbyTarget);
                 }
                 // 添加音效与粒子效果
                 if (!(player.getWorld() instanceof ServerWorld serverWorld)) {
@@ -86,9 +80,9 @@ public class MinionActions {
         }
     }
 
-    public static ActionFactory<Entity> createFactory() {
-        return new ActionFactory<>(
-                SSCXuAddon.identifier("summon_spider_minion_minion"),
+    public static void registerAction(Consumer<ActionFactory<Entity>> ActionRegister, Consumer<ActionFactory<Pair<Entity, Entity>>> BIActionRegister) {
+        ActionRegister.accept(new ActionFactory<>(
+                SSCXuAddon.identifier("summon_spider_minion"),
                 new SerializableData()
                         .add("use_hunger", SerializableDataTypes.BOOLEAN, true)
                         .add("count", SerializableDataTypes.INT, 1)
@@ -96,6 +90,6 @@ public class MinionActions {
                         .add("cooldown", SerializableDataTypes.INT, 0)
                         .add("owner_action", ApoliDataTypes.ENTITY_ACTION, null),
                 (data, entity) -> {summonMinionSpider(data, new Pair<>(entity, entity));}
-        );
+        ));
     }
 }

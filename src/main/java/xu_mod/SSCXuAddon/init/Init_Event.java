@@ -24,6 +24,7 @@ public class Init_Event {
 
     static {
         NeedResetCooldownWhenRespawn.add(SSCXuAddon.identifier("feral_cat_undying"));
+        NeedResetCooldownWhenRespawn.add(SSCXuAddon.identifier("spider_undead_undying"));
     }
 
     public static void init() {
@@ -65,6 +66,7 @@ public class Init_Event {
                     for (Identifier cooldown : NeedResetCooldownWhenRespawn) {
                         addonDataComponent.resetCooldown(cooldown);
                     }
+                    Init_CCA.AddonData.sync(newPlayer);
                 }
         );
     }

@@ -1,7 +1,6 @@
 {
   "powers": [
     "shape-shifter-curse:form_spider_3_scale",
-    "shape-shifter-curse:form_spider_3_mana",
     "shape-shifter-curse:form_spider_web_no_slow",
     "shape-shifter-curse:form_spider_climb_web",
     "shape-shifter-curse:form_spider_3_climb",
@@ -34,9 +33,12 @@
     "shape-shifter-curse:form_spider_3_step_sound_speed_up",
 
     "ssc_xu_addon:form_spider_undead_health",
+    "ssc_xu_addon:form_spider_undead_mana",
     "ssc_xu_addon:group_undead",
     "ssc_xu_addon:form_spider_undead_skill_1",
+    "ssc_xu_addon:form_spider_undead_skill_2",
     "ssc_xu_addon:form_spider_undead_minion_shield",
+    "ssc_xu_addon:form_spider_undead_undying",
     "ssc_xu_addon:tan_no_temperature_effect",
     "shape-shifter-curse:form_tan_prevent_dirty_water_thirst"
   ],

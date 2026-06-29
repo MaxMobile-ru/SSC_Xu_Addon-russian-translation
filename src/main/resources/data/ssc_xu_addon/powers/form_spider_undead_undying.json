@@ -1,0 +1,46 @@
+{
+  "type": "shape-shifter-curse:virtual_totem",
+  "virtual_totem_type": "shape-shifter-curse:default",
+  "totem_stack": {
+    "item": "ssc_xu_addon:form_store_stone",
+    "count": 1
+  },
+  "entity_actions": [
+    {
+      "type": "ssc_xu_addon:summon_spider_minion",
+      "use_hunger": false,
+      "count": 4,
+      "max_minion_count": 4
+    },
+    {
+      "type": "ssc_xu_addon:trigger_cooldown",
+      "cooldown_id": "ssc_xu_addon:spider_undead_undying"
+    }
+  ],
+  "totem_health": 8,
+  "totem_status_effects": [
+    {
+      "effect": "minecraft:absorption",
+      "duration": 600,
+      "amplifier": 2,
+      "show_particles": false,
+      "show_icon": true
+    },
+    {
+      "effect": "minecraft:invisibility",
+      "duration": 300,
+      "amplifier": 0,
+      "show_particles": false,
+      "show_icon": true
+    }
+  ],
+  "cooldown": 1,
+  "hud_render": {
+    "should_render": false
+  },
+  "condition": {
+    "type": "ssc_xu_addon:is_not_cooldown",
+    "cooldown_id": "ssc_xu_addon:spider_undead_undying",
+    "cooldown_time": 2400
+  }
+}

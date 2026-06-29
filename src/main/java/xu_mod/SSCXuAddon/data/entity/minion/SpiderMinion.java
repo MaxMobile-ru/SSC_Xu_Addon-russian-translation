@@ -209,15 +209,6 @@ public class SpiderMinion extends SpiderEntity implements IMinion<SpiderMinion>,
         }
     }
 
-    @Override
-    public void tickMovement() {
-        if (this.isAlive()) {
-            if (this.isAffectedByDaylight() && !this.hasStatusEffect(StatusEffects.INVISIBILITY)) {
-                this.setOnFireFor(8);
-            }
-        }
-    }
-
     // 从玩家召唤物列表中移除
     @Override
     public void onDeath(DamageSource source) {
@@ -248,7 +239,6 @@ public class SpiderMinion extends SpiderEntity implements IMinion<SpiderMinion>,
                 }
             }
             this.heal(2);
-            this.setFireTicks(0);
             return true;
         } else {
             return false;

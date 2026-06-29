@@ -45,6 +45,7 @@ public class SomeRandomConditionAndAction {
                             if (entity instanceof PlayerEntity playerEntity && cooldown_id != null) {
                                 AddonDataComponent addonDataComponent = Init_CCA.AddonData.get(playerEntity);
                                 addonDataComponent.triggerCooldown(cooldown_id);
+                                Init_CCA.AddonData.sync(playerEntity);
                             }
                         }
                 )
@@ -85,6 +86,7 @@ public class SomeRandomConditionAndAction {
                                     playerEntity.damage(playerEntity.getDamageSources().magic(), hp_cost_tier1_value);
                                 }
                                 addonDataComponent.triggerCooldown(cooldown_id);
+                                Init_CCA.AddonData.sync(playerEntity);
                             }
                         }
                 )
@@ -99,6 +101,7 @@ public class SomeRandomConditionAndAction {
                             if (entity instanceof PlayerEntity playerEntity && cooldown_id != null) {
                                 AddonDataComponent addonDataComponent = Init_CCA.AddonData.get(playerEntity);
                                 addonDataComponent.resetCooldown(cooldown_id);
+                                Init_CCA.AddonData.sync(playerEntity);
                             }
                         }
                 )

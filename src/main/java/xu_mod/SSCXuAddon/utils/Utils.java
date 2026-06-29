@@ -77,8 +77,6 @@ public class Utils {
     }
 
     public static boolean IsTransformativeMob(Entity entity) {
-        // 有空给主线的每个咒文生物加一个接口
-        // 这几天感冒 等我状态好一些再写成可拓展的方法吧 比如List 这么写有点难看
         return entity instanceof ITMob;
     }
 }
