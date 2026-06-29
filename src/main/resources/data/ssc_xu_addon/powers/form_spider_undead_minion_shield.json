@@ -3,5 +3,5 @@
   "minion_ids": [
     "ssc_xu_addon:spider_minion"
   ],
-  "damage_multi": 1.0
+  "damage_multi": 2.0
 }

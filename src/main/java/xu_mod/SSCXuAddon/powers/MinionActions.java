@@ -39,7 +39,7 @@ public class MinionActions {
                     if (MinionRegister.IsInCoolDown(SpiderMinion.minionID, player, Cooldown)) {
                         return;
                     }
-                    if (UseHunger && player.getHungerManager().getFoodLevel() <= 10) {
+                    if (UseHunger && player.getHungerManager().getFoodLevel() <= 10 && !player.getAbilities().creativeMode) {
                         return;
                     }
                 }
@@ -71,7 +71,7 @@ public class MinionActions {
                 if (!(player.getWorld() instanceof ServerWorld serverWorld)) {
                     return;
                 }
-                if (UseHunger) {
+                if (UseHunger && !player.getAbilities().creativeMode) {
                     player.getHungerManager().setFoodLevel(player.getHungerManager().getFoodLevel() - 4);
                 }
                 player.getWorld().playSound(null, player.getBlockPos(), SoundEvents.ENTITY_SPIDER_AMBIENT, player.getSoundCategory(), 1.0f, 1.5f);

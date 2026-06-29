@@ -16,16 +16,21 @@ import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.mob.SpiderEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.server.ServerConfigHandler;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.*;
 import net.onixary.shapeShifterCurseFabric.ShapeShifterCurseFabric;
 import net.onixary.shapeShifterCurseFabric.minion.IMinion;
 import net.onixary.shapeShifterCurseFabric.minion.IPlayerEntityMinion;
+import net.onixary.shapeShifterCurseFabric.status_effects.EntangledEffectUtils;
 import org.jetbrains.annotations.Nullable;
 import xu_mod.SSCXuAddon.SSCXuAddon;
+import xu_mod.SSCXuAddon.utils.ParticleUtils;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -60,12 +65,12 @@ public class SpiderMinion extends SpiderEntity implements IMinion<SpiderMinion>,
     public static DefaultAttributeContainer.Builder createMobAttributes() {
         // 由于有承伤机制 得大砍血量 设定上是刺客型生物
         // 速度0.45 +50%
-        // 生命8 -50%
+        // 生命12 -25%
         // 攻击3 +50%
         // 4秒中毒2 2点吸血 2秒隐身(隐身时远离所有实体) 50%让被攻击者丢失攻击目标
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.45)
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 8.0)
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 12.0)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 3.0);
     }
 
@@ -209,10 +214,27 @@ public class SpiderMinion extends SpiderEntity implements IMinion<SpiderMinion>,
         }
     }
 
-    // 从玩家召唤物列表中移除
     @Override
     public void onDeath(DamageSource source) {
+        this.playSound(SoundEvents.BLOCK_STONE_BREAK, 1.0f, 1.0f); // 蛛网破坏
+        if (!this.getWorld().isClient) {
+            ParticleUtils.spawnParticle(this, ParticleTypes.CLOUD, 64, 0.0f, new Vec3d(2.0, 1.0, 2.0), 0.5f);
+            for (LivingEntity entity : this.getWorld().getEntitiesByClass(LivingEntity.class, this.getBoundingBox().expand(3f), (entity) -> {
+                if (entity == this) {
+                    return false;
+                }
+                if (entity.getUuid().equals(this.getMinionOwnerUUID())) {
+                    return false;
+                }
+                return true;
+            })) {
+                entity.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 100, 2));
+                entity.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 50, 2));
+                EntangledEffectUtils.applyEntangledEffect(this.getOwner(), entity, 400);
+            }
+        }
         if (this.getMinionOwnerUUID() != null && this.getWorld().getPlayerByUuid(this.getMinionOwnerUUID()) instanceof IPlayerEntityMinion iPlayerEntityMinion) {
+            // 从玩家召唤物列表中移除
             iPlayerEntityMinion.shape_shifter_curse$removeMinion(this.getMinionTypeID(), this.getUuid());
         }
         this.setOwner(null);
