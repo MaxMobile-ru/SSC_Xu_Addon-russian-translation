@@ -1,0 +1,37 @@
+{
+  "type": "apoli:multiple",
+  "summon_minion": {
+    "type": "apoli:action_over_time",
+    "entity_action": {
+      "type": "ssc_xu_addon:summon_spider_minion",
+      "use_hunger": false,
+      "count": 1,
+      "max_minion_count": 2,
+      "cooldown": 300
+    },
+    "interval": 100
+  },
+  "no_minion_damage": {
+    "type": "apoli:action_over_time",
+    "entity_action": {
+      "type": "apoli:damage",
+      "amount": 1,
+      "damage_type": "minecraft:out_of_world"
+    },
+    "interval": 20,
+    "condition": {
+      "type": "ssc_xu_addon:has_minion",
+      "minion": "ssc_xu_addon:spider_minion",
+      "inverted": true
+    }
+  },
+  "boost_health": {
+    "type": "apoli:attribute",
+    "modifier": {
+      "name": "4 extra health",
+      "attribute": "minecraft:generic.max_health",
+      "value": 4.0,
+      "operation": "addition"
+    }
+  }
+}
