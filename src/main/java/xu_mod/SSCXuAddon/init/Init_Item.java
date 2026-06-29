@@ -58,6 +58,8 @@ public class Init_Item {
     public static final Item MOISTURE_KEPT_CHARM = register("moisture_kept_charm", new MoistureKeptCharm(new Item.Settings().maxCount(1)));
 
     public static final Item UNDEAD_ESSENCE = register("undead_essence", new UndeadEssence(new Item.Settings().maxCount(16)));
+    public static final Item SWARMBOND_AMULET = register("swarmbond_amulet", new TrinketWithToolTip(new Item.Settings().maxCount(1), Text.translatable("item.ssc_xu_addon.swarmbond_amulet.tooltip").formatted(Formatting.YELLOW)));
+    public static final Item UNDEAD_RING = register("undead_ring", new TrinketWithToolTip(new Item.Settings().maxCount(1), Text.translatable("item.ssc_xu_addon.undead_ring.tooltip").formatted(Formatting.YELLOW)));
 
     // 火焰宝石 大地宝石 超级神圣金苹果
     public static final Item FIRE_GEM = register("fire_gem", new FireGem(new Item.Settings().maxCount(64)));
@@ -102,6 +104,8 @@ public class Init_Item {
                 entries.add(SEA_BLESSED_RING);
                 entries.add(MOISTURE_KEPT_CHARM);
                 entries.add(UNDEAD_ESSENCE);
+                entries.add(SWARMBOND_AMULET);
+                entries.add(UNDEAD_RING);
                 entries.add(SHIELD_RING);
 
                 entries.add(UNSTABLE_HOLY_APPLE);

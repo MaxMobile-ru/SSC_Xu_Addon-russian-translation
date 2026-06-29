@@ -7,12 +7,14 @@ import io.github.apace100.apoli.util.Comparison;
 import io.github.apace100.calio.data.SerializableData;
 import io.github.apace100.calio.data.SerializableDataTypes;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.brain.MemoryModuleType;
 import net.minecraft.entity.ai.goal.PrioritizedGoal;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Pair;
 import net.minecraft.util.math.BlockPos;
@@ -20,7 +22,6 @@ import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.village.VillageGossipType;
-import net.onixary.shapeShifterCurseFabric.mana.ManaUtils;
 import net.onixary.shapeShifterCurseFabric.minion.IPlayerEntityMinion;
 import net.onixary.shapeShifterCurseFabric.minion.MinionRegister;
 import xu_mod.SSCXuAddon.SSCXuAddon;
@@ -278,6 +279,26 @@ public class SomeRandomConditionAndAction {
                         long nowTime = Utils.sprintingTime.getOrDefault(player.getUuid(), 0L);
                         long finalTime = (long) ((nowTime + base) * percent);
                         Utils.sprintingTime.put(player.getUuid(), finalTime);
+                    }
+                }
+        ));
+        ActionRegister.accept(new ActionFactory<>(
+                SSCXuAddon.identifier("sun_burn"),
+                new SerializableData(),
+                (data, entity) -> {
+                    if (entity instanceof LivingEntity livingEntity) {
+                        ItemStack itemStack = livingEntity.getEquippedStack(EquipmentSlot.HEAD);
+                        if (!itemStack.isEmpty()) {
+                            if (itemStack.isDamageable()) {
+                                itemStack.setDamage(itemStack.getDamage() + livingEntity.getRandom().nextInt(2));
+                                if (itemStack.getDamage() >= itemStack.getMaxDamage()) {
+                                    livingEntity.sendEquipmentBreakStatus(EquipmentSlot.HEAD);
+                                    livingEntity.equipStack(EquipmentSlot.HEAD, ItemStack.EMPTY);
+                                }
+                            }
+                        } else {
+                            livingEntity.setOnFireFor(8);
+                        }
                     }
                 }
         ));

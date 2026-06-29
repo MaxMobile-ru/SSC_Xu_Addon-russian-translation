@@ -19,6 +19,8 @@ public class Init_Apoli {
     public static final PowerType<?> IronGolemFriendlyV2 = new PowerTypeReference<>(SSCXuAddon.identifier("iron_golem_friendly_v2"));  // 被打后铁傀儡会不会支援
     public static final PowerType<?> NoStopSprintWhileAttack = new PowerTypeReference<>(SSCXuAddon.identifier("no_stop_sprint_while_attack"));  // 攻击时不会停止冲刺
     public static final PowerType<?> WaterBreathing = new PowerTypeReference<>(SSCXuAddon.identifier("water_breathing"));  // 水下呼吸
+    public static final PowerType<?> ZombieFriendly = new PowerTypeReference<>(SSCXuAddon.identifier("zombie_friendly"));  // 僵尸友善
+    public static final PowerType<?> SkeletonFriendly = new PowerTypeReference<>(SSCXuAddon.identifier("skeleton_friendly"));  // 骷髅友善
 
     private static void init_Power() {
         Init_Apoli.registerPower(LeveledManaPower.createFactory());

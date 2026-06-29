@@ -11,7 +11,9 @@
 		"SmallFireBallEntityMixin",
 		"VillagerEntityMixin",
 		"PlayerEntityMixin",
-		"StatusEffectUtilMixin"
+		"StatusEffectUtilMixin",
+		"ZombieEntityMixin",
+		"AbstractSkeletonEntityMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
