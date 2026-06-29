@@ -197,10 +197,24 @@ public class SpiderMinion extends SpiderEntity implements IMinion<SpiderMinion>,
     }
 
     @Override
+    public EntityGroup getGroup() {
+        return EntityGroup.UNDEAD;
+    }
+
+    @Override
     public void tick() {
         super.tick();
         if (!this.shouldExist()) {
             this.setHealth(0.0f);
+        }
+    }
+
+    @Override
+    public void tickMovement() {
+        if (this.isAlive()) {
+            if (this.isAffectedByDaylight() && !this.hasStatusEffect(StatusEffects.INVISIBILITY)) {
+                this.setOnFireFor(8);
+            }
         }
     }
 
@@ -234,6 +248,7 @@ public class SpiderMinion extends SpiderEntity implements IMinion<SpiderMinion>,
                 }
             }
             this.heal(2);
+            this.setFireTicks(0);
             return true;
         } else {
             return false;
