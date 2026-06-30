@@ -114,7 +114,7 @@ public class LivingEntityMixin {
                     }
                 }
                 // 不死精粹
-                if (player.getStackInHand(Hand.OFF_HAND).getItem() instanceof UndeadEssence) {
+                if (player.getStackInHand(Hand.OFF_HAND).getItem() instanceof UndeadEssence && !player.getItemCooldownManager().isCoolingDown(Init_Item.UNDEAD_ESSENCE)) {
                     UndeadEssence.useForTotem(player, player.getStackInHand(Hand.OFF_HAND));
                     cir.setReturnValue(true);
                     return;
