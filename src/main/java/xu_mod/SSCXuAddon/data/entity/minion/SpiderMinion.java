@@ -175,7 +175,7 @@ public class SpiderMinion extends SpiderEntity implements IMinion<SpiderMinion>,
     }
 
     public int getMinionMaxAge() {
-        return 2400;  // 2 * 60 * 20 = 2 min
+        return 6000;  // 5 * 60 * 20 = 5 min
     }
 
     public boolean shouldExist() {
