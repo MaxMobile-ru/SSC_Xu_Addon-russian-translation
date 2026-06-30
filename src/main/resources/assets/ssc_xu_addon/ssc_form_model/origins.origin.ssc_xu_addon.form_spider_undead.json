@@ -10,6 +10,8 @@
   "model": "ssc_xu_addon:geo/form/form_spider_undead.geo.json",
   "texture": "ssc_xu_addon:textures/form/form_spider_undead/form_spider_undead.png",
   "texture_mask": "ssc_xu_addon:textures/form/form_spider_undead/form_spider_undead_colormask.png",
+  "fullbright_texture": "ssc_xu_addon:textures/form/form_spider_undead/form_spider_undead_emission.png",
+  "fullbright_texture_mask": "ssc_xu_addon:textures/form/form_spider_undead/form_spider_undead_emission_colormask.png",
   "hidden": [
     "leftLeg",
     "rightLeg",
