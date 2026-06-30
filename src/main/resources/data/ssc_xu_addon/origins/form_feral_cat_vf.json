@@ -29,10 +29,7 @@
         "ssc_xu_addon:form_feral_cat_vf_force_restock",
         "ssc_xu_addon:form_feral_cat_vf_create_emerald",
         "ssc_xu_addon:form_feral_cat_vf_emerald_essence",
-        "ssc_xu_addon:form_feral_cat_vf_craft_potion",
-
-        "shape-shifter-curse:form_tan_prevent_dirty_water_thirst",
-        "shape-shifter-curse:form_tan_cold_resistance_mild"
+        "ssc_xu_addon:form_feral_cat_vf_craft_potion"
     ],
     "icon": {
         "item": "minecraft:player_head"

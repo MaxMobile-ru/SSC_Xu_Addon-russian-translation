@@ -47,9 +47,7 @@
         "shape-shifter-curse:form_bat_diamond_mining_claw_tool",
         "ssc_xu_addon:form_bat_vampire_blood_claw",
 
-        "ssc_xu_addon:group_undead",
-        "ssc_xu_addon:tan_no_temperature_effect",
-        "shape-shifter-curse:form_tan_prevent_dirty_water_thirst"
+        "ssc_xu_addon:group_undead"
     ],
     "icon": {
         "item": "minecraft:player_head"

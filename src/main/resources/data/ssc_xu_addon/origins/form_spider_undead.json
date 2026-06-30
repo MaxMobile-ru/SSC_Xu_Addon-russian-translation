@@ -40,9 +40,7 @@
     "ssc_xu_addon:form_spider_undead_skill_1",
     "ssc_xu_addon:form_spider_undead_skill_2",
     "ssc_xu_addon:form_spider_undead_minion_shield",
-    "ssc_xu_addon:form_spider_undead_undying",
-    "ssc_xu_addon:tan_no_temperature_effect",
-    "shape-shifter-curse:form_tan_prevent_dirty_water_thirst"
+    "ssc_xu_addon:form_spider_undead_undying"
   ],
   "icon": {
     "item": "minecraft:player_head"

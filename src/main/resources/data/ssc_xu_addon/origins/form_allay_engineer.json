@@ -27,9 +27,7 @@
     "ssc_xu_addon:form_allay_engineer_translucent",
     "ssc_xu_addon:form_allay_engineer_ghost_toggle",
     "ssc_xu_addon:form_allay_engineer_ghost",
-    "ssc_xu_addon:form_allay_engineer_ghost_cost_high",
-
-    "shape-shifter-curse:form_tan_prevent_dirty_water_thirst"
+    "ssc_xu_addon:form_allay_engineer_ghost_cost_high"
   ],
   "icon": {
     "item": "minecraft:player_head"
