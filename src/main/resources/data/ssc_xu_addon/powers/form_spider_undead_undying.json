@@ -2,7 +2,7 @@
   "type": "shape-shifter-curse:virtual_totem",
   "virtual_totem_type": "shape-shifter-curse:default",
   "totem_stack": {
-    "item": "ssc_xu_addon:form_store_stone",
+    "item": "ssc_xu_addon:undead_essence",
     "count": 1
   },
   "entity_actions": [

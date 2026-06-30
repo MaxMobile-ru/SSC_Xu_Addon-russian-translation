@@ -332,6 +332,56 @@
     ""
   ],
 
+  "codex.form.ssc_xu_addon.spider_undead.name": ["Spider (Undead Matriarch)"],
+  "codex.form.ssc_xu_addon.spider_undead.title": [
+    "\nYou have absorbed the power of the Undead Essence, fusing your spider form with undead energy. Your carapace is now clad in bony armour, and rotting flesh intertwines with silk—the authority of the Undead Matriarch is yours.\n",
+    "\nExclusive trinkets/tools: [Swarmbond Amulet], [Undead Ring], [Auxiliary Sword], [Auxiliary Pickaxe], [Auxiliary Axe], [Shield (Extra Arm Slot)], [Nutrient Sac (Extra Arm Slot)], [Venom Spindle]"
+  ],
+  "codex.form.ssc_xu_addon.spider_undead.appearance": [
+    "Your body retains the basic structure of a spider, but your six limbs and enlarged abdomen are now covered in pale bony exoskeleton, as if armour has grown from within.\n",
+    "Dark green, rotting flesh peeks through the gaps in the exoskeleton, exuding a faint undead aura that mingles with dried silk glands.\n",
+    "Your four pairs of compound eyes have turned deep red, like bloody stars in the darkness, sending chills down the spine of any who meet your gaze.\n",
+    "Your body is covered in patterns of undead power interwoven with web-like textures, fully displaying the majesty of the Undead Matriarch.\n"
+  ],
+  "codex.form.ssc_xu_addon.spider_undead.pros": [
+    "You possess a Web Value resource bar that regenerates over time. You can also replenish it by slaying creatures or consuming string.\n\n",
+    "Hold the Active Ability (1) key to charge, and whether you are sneaking determines the effect: when not sneaking, you fire a Web Projectile—hitting the side or bottom of a block generates vertical bridge web, and hitting a creature inflicts Slowness, Weakness, and \"Entangled\" (which accumulates into \"Cocooning\", immobilizing the target); when sneaking, you create a horizontal bridge web whose dimensions depend on charge level.\n",
+    "Press Active Ability (2) to consume Web Value and satiation (one summon per 4 points of satiation) to summon small spiders to fight for you, up to 2 at a time, while keeping at least 6 satiation. When these spiders die, they spread Entangled to nearby creatures.\n\n",
+    "Your attacks deal 2 extra damage to creatures with Entangled; if the target is Cocooned, your attacks heal you for 2 HP and restore some Web Value.\n",
+    "The undead power within your body allows you to cheat death: cooldown 2 minutes. When triggered, you gain Invisibility and spawn 4 small spiders.\n",
+    "When you have summons, damage dealt to you is transferred to them: one summon is randomly chosen to take damage equal to 2× the incoming damage (before armour); if it dies, the remainder is passed to the next, until all are dead or the damage is exhausted.\n\n",
+    "You possess an extra pair of arms. By equipping different special items in the Trinkets extra hand slot, you gain various benefits.\n",
+    "You can eat string to replenish Web Value. While holding string in your inventory, right‑click it on another string to craft cobwebs at a small Web Value cost.\n",
+    "While holding a cobweb, right‑click a composter to create a Nutrient Dissolve Cocoon—place meat inside to gradually turn it into Nutrient Sacs you can consume.\n",
+    "Your fully transformed multi‑legged spider body grants you Night Vision, immunity to Poison, and the ability to step up one block and freely climb vertical surfaces.\n",
+    "You are not hindered by cobwebs; you can climb them and sense entities caught in them.\n",
+    "Spiders do not regard you as an enemy.\n"
+  ],
+  "codex.form.ssc_xu_addon.spider_undead.cons": [
+    "Your maximum health is reduced to 12.\n",
+    "When you have no summons, your movement speed is increased by 40%, but you deal 25% less damage and take 25% more damage.\n",
+    "Your multi‑legged body is ill‑suited for sustained endurance actions—your movement and sprint speed are greatly reduced, and you can no longer jump straight up a full block; instead, you can lunge forward while sprinting.\n",
+    "Your spider digestive system allows you to gain hunger only from externally digested Nutrient Sacs. Additionally, weapons enchanted with Smite deal increased damage to you.\n",
+    "Your chitinous body and bristles are vulnerable to fire—you take increased damage from burning.\n",
+    "You cannot wear chestplates, leggings, or boots; only helmets are possible.\n",
+    "Village Iron Golems treat you as an enemy and will attack you on sight.\n"
+  ],
+  "codex.form.ssc_xu_addon.spider_undead.instincts": [
+    ""
+  ],
+  "item.ssc_xu_addon.undead_essence": ["Undead Essence"],
+  "item.ssc_xu_addon.undead_essence.tooltip.1": ["A concentrated essence of undead power. Holding it in your offhand can prevent one fatal blow."],
+  "item.ssc_xu_addon.undead_essence.tooltip.2": ["Can be found in Nether Fortresses."],
+  "message.ssc_xu_addon.item.undead_essence.special_form": ["The Undead Essence resonates with your form, transforming you into a new shape."],
+  "item.ssc_xu_addon.swarmbond_amulet": ["Swarmbond Amulet"],
+  "item.ssc_xu_addon.swarmbond_amulet.tooltip": ["[Spider (Undead Matriarch) Form] Automatically summons 1 small spider every 15 seconds (max 2). Without any summons, you lose 1 HP per second. Increases max health to 16 (8 hearts) and reduces damage transfer multiplier to 1."],
+  "item.ssc_xu_addon.undead_ring": ["Undead Ring"],
+  "item.ssc_xu_addon.undead_ring.tooltip": ["[Spider (Undead Matriarch) Form] Zombies and skeletons remain neutral toward you, but you burn in sunlight."],
+
+  "entity.ssc_xu_addon.blood_thorn": ["Blood Thorn"],
+  "entity.ssc_xu_addon.summon_trident": ["Summoned Trident"],
+  "entity.ssc_xu_addon.spider_minion": ["Spider Minion"],
+
   "item.ssc_xu_addon.shield_ring": ["Shield Ring"],
   "item.ssc_xu_addon.shield_ring.tooltip": ["A ring made with the energy of Earth Gems, capable of forming a shield to block damage."],
   "item.ssc_xu_addon.shield_ring.tooltip2": ["Cannot regenerate shield for 15 seconds after it is consumed."],

@@ -29,7 +29,7 @@ public class Init_Entity {
     public static final EntityType<SpiderMinion> SPIDER_MINION = Registry.register(
             Registries.ENTITY_TYPE,
             SSCXuAddon.identifier("spider_minion"),
-            FabricEntityTypeBuilder.<SpiderMinion>create(SpawnGroup.MISC, SpiderMinion::new).dimensions(EntityDimensions.fixed(0.5f, 0.5f)).trackRangeChunks(10).trackedUpdateRate(1).build()
+            FabricEntityTypeBuilder.<SpiderMinion>create(SpawnGroup.MISC, SpiderMinion::new).dimensions(EntityDimensions.fixed(0.7f, 0.45f)).trackRangeChunks(10).trackedUpdateRate(1).build()
     );
 
     public static void init() {
