@@ -11,6 +11,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.util.Hand;
 import net.minecraft.util.Pair;
 import net.minecraft.world.World;
 import net.onixary.shapeShifterCurseFabric.util.Accessory.AccessoryUtils;
@@ -21,11 +22,13 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import xu_mod.SSCXuAddon.data.item.UndeadEssence;
 import xu_mod.SSCXuAddon.data.item.trinket.NineLiveCharm;
 import xu_mod.SSCXuAddon.init.Init_Apoli;
 import xu_mod.SSCXuAddon.init.Init_Item;
 import xu_mod.SSCXuAddon.powers.AllayPower;
 import xu_mod.SSCXuAddon.powers.LeveledManaModifyDamageDealtPower;
+import xu_mod.SSCXuAddon.powers.MinionShieldPower;
 import xu_mod.SSCXuAddon.powers.SpeedDamageBoostPower;
 import xu_mod.SSCXuAddon.utils.ShieldUtils;
 
@@ -53,6 +56,9 @@ public class LivingEntityMixin {
             }
         }
         for (AllayPower power : PowerHolderComponent.getPowers(thisAsLiving, AllayPower.class)) {
+            newValue = power.modifyDamageTaken(source, newValue, source.getAttacker());
+        }
+        for (MinionShieldPower power : PowerHolderComponent.getPowers(thisAsLiving, MinionShieldPower.class)) {
             newValue = power.modifyDamageTaken(source, newValue, source.getAttacker());
         }
         if (thisAsLiving instanceof PlayerEntity player) {
@@ -106,6 +112,12 @@ public class LivingEntityMixin {
                             return;
                         }
                     }
+                }
+                // 不死精粹
+                if (player.getStackInHand(Hand.OFF_HAND).getItem() instanceof UndeadEssence && !player.getItemCooldownManager().isCoolingDown(Init_Item.UNDEAD_ESSENCE)) {
+                    UndeadEssence.useForTotem(player, player.getStackInHand(Hand.OFF_HAND));
+                    cir.setReturnValue(true);
+                    return;
                 }
             }
         }

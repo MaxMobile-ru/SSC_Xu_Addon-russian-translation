@@ -1,0 +1,7 @@
+{
+  "type": "ssc_xu_addon:minion_shield_spider",
+  "minion_ids": [
+    "ssc_xu_addon:spider_minion"
+  ],
+  "damage_multi": 2.0
+}

@@ -1,0 +1,10 @@
+{
+  "type": "apoli:action_over_time",
+  "entity_action": {
+    "type": "ssc_xu_addon:sun_burn"
+  },
+  "interval": 40,
+  "condition": {
+    "type": "apoli:exposed_to_sun"
+  }
+}

@@ -7,12 +7,14 @@ import io.github.apace100.apoli.util.Comparison;
 import io.github.apace100.calio.data.SerializableData;
 import io.github.apace100.calio.data.SerializableDataTypes;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.brain.MemoryModuleType;
 import net.minecraft.entity.ai.goal.PrioritizedGoal;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Pair;
 import net.minecraft.util.math.BlockPos;
@@ -20,7 +22,7 @@ import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.village.VillageGossipType;
-import net.onixary.shapeShifterCurseFabric.mana.ManaUtils;
+import net.onixary.shapeShifterCurseFabric.minion.IPlayerEntityMinion;
 import net.onixary.shapeShifterCurseFabric.minion.MinionRegister;
 import xu_mod.SSCXuAddon.SSCXuAddon;
 import xu_mod.SSCXuAddon.data.cca.AddonDataComponent;
@@ -45,6 +47,7 @@ public class SomeRandomConditionAndAction {
                             if (entity instanceof PlayerEntity playerEntity && cooldown_id != null) {
                                 AddonDataComponent addonDataComponent = Init_CCA.AddonData.get(playerEntity);
                                 addonDataComponent.triggerCooldown(cooldown_id);
+                                Init_CCA.AddonData.sync(playerEntity);
                             }
                         }
                 )
@@ -85,6 +88,7 @@ public class SomeRandomConditionAndAction {
                                     playerEntity.damage(playerEntity.getDamageSources().magic(), hp_cost_tier1_value);
                                 }
                                 addonDataComponent.triggerCooldown(cooldown_id);
+                                Init_CCA.AddonData.sync(playerEntity);
                             }
                         }
                 )
@@ -99,6 +103,7 @@ public class SomeRandomConditionAndAction {
                             if (entity instanceof PlayerEntity playerEntity && cooldown_id != null) {
                                 AddonDataComponent addonDataComponent = Init_CCA.AddonData.get(playerEntity);
                                 addonDataComponent.resetCooldown(cooldown_id);
+                                Init_CCA.AddonData.sync(playerEntity);
                             }
                         }
                 )
@@ -277,6 +282,26 @@ public class SomeRandomConditionAndAction {
                     }
                 }
         ));
+        ActionRegister.accept(new ActionFactory<>(
+                SSCXuAddon.identifier("sun_burn"),
+                new SerializableData(),
+                (data, entity) -> {
+                    if (entity instanceof LivingEntity livingEntity) {
+                        ItemStack itemStack = livingEntity.getEquippedStack(EquipmentSlot.HEAD);
+                        if (!itemStack.isEmpty()) {
+                            if (itemStack.isDamageable()) {
+                                itemStack.setDamage(itemStack.getDamage() + livingEntity.getRandom().nextInt(2));
+                                if (itemStack.getDamage() >= itemStack.getMaxDamage()) {
+                                    livingEntity.sendEquipmentBreakStatus(EquipmentSlot.HEAD);
+                                    livingEntity.equipStack(EquipmentSlot.HEAD, ItemStack.EMPTY);
+                                }
+                            }
+                        } else {
+                            livingEntity.setOnFireFor(8);
+                        }
+                    }
+                }
+        ));
     }
 
 
@@ -340,6 +365,28 @@ public class SomeRandomConditionAndAction {
                         }
                 )
         );
-
+        ConditionRegister.accept(
+                new ConditionFactory<>(
+                        SSCXuAddon.identifier("has_minion"),
+                        new SerializableData()
+                                .add("minion_id", SerializableDataTypes.IDENTIFIER, null),
+                        (data, entity) -> {
+                            if (entity instanceof IPlayerEntityMinion ipem) {
+                                Identifier minion_id = data.get("minion_id");
+                                if (minion_id != null) {
+                                    return ipem.shape_shifter_curse$getAllMinions().containsKey(minion_id) && ipem.shape_shifter_curse$getAllMinions().get(minion_id).size() > 0;
+                                } else {
+                                    for (Identifier id : ipem.shape_shifter_curse$getAllMinions().keySet()) {
+                                        if (!ipem.shape_shifter_curse$getAllMinions().get(id).isEmpty()) {
+                                            return true;
+                                        }
+                                    }
+                                    return false;
+                                }
+                            }
+                            return false;
+                        }
+                )
+        );
     }
 }

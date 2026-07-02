@@ -1,3 +1,6 @@
 accessWidener   v1  named
 accessible field net/minecraft/entity/LivingEntity lastDamageTaken F
 accessible field net/minecraft/entity/mob/MobEntity targetSelector Lnet/minecraft/entity/ai/goal/GoalSelector;
+accessible field net/minecraft/entity/ai/goal/ActiveTargetGoal targetPredicate Lnet/minecraft/entity/ai/TargetPredicate;
+accessible field net/minecraft/entity/ai/goal/ActiveTargetGoal targetClass Ljava/lang/Class;
+accessible field net/minecraft/entity/ai/TargetPredicate predicate Ljava/util/function/Predicate;

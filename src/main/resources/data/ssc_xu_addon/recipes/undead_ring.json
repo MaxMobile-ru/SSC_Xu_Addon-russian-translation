@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "BCB",
+    " B "
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:soul_soil"
+    },
+    "B": {
+      "item": "minecraft:iron_ingot"
+    },
+    "C": {
+      "item": "ssc_xu_addon:undead_essence"
+    }
+  },
+  "result": {
+    "item": "ssc_xu_addon:undead_ring",
+    "count": 1
+  }
+}

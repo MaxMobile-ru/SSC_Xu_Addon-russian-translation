@@ -12,6 +12,10 @@
   "texture_mask": "ssc_xu_addon:textures/form/form_allay_engineer/form_allay_engineer_colormask.png",
   "overlay": "ssc_xu_addon:textures/form/form_allay_engineer/form_allay_engineer_overlay.png",
   "overlay_mask": "ssc_xu_addon:textures/form/form_allay_engineer/form_allay_engineer_overlay_colormask.png",
+  "fullbright_texture": "ssc_xu_addon:textures/form/form_allay_engineer/form_allay_engineer_emission.png",
+  "fullbright_texture_mask": "ssc_xu_addon:textures/form/form_allay_engineer/form_allay_engineer_emission_colormask.png",
+  "emissive_overlay": "ssc_xu_addon:textures/form/form_allay_engineer/form_allay_engineer_overlay_emission.png",
+  "emissive_overlay_mask": "ssc_xu_addon:textures/form/form_allay_engineer/form_allay_engineer_overlay_emission_colormask.png",
   "hidden": [
     "leftLeg",
     "rightLeg",

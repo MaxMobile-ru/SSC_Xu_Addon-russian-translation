@@ -10,6 +10,7 @@
   "texture": "ssc_xu_addon:textures/form/form_bat_vampire/form_bat_vampire.png",
   "texture_mask": "ssc_xu_addon:textures/form/form_bat_vampire/form_bat_vampire_colormask.png",
   "fullbright_texture": "ssc_xu_addon:textures/form/form_bat_vampire/form_bat_vampire_emissive_overlay.png",
+  "fullbright_texture_mask": "ssc_xu_addon:textures/form/form_bat_vampire/form_bat_vampire_emissive_overlay_mask",
   "hidden": [
     "leftArm",
     "rightArm",

@@ -9,6 +9,8 @@
   "model": "ssc_xu_addon:geo/form/form_feral_cat_vf.geo.json",
   "texture": "ssc_xu_addon:textures/form/form_feral_cat_vf/form_feral_cat_vf.png",
   "texture_mask": "ssc_xu_addon:textures/form/form_feral_cat_vf/form_feral_cat_vf_colormask.png",
+  "fullbright_texture": "ssc_xu_addon:textures/form/form_feral_cat_vf/form_feral_cat_vf_emission.png",
+  "fullbright_texture_mask": "ssc_xu_addon:textures/form/form_feral_cat_vf/form_feral_cat_vf_emission_colormask.png",
   "hidden": [
     "leftLeg",
     "rightLeg",

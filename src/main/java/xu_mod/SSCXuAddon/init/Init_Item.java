@@ -1,8 +1,7 @@
 package xu_mod.SSCXuAddon.init;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
-import net.fabricmc.loader.api.FabricLoader;
+import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.*;
 import net.minecraft.loot.LootPool;
@@ -58,6 +57,10 @@ public class Init_Item {
     public static final Item SEA_BLESSED_RING = register("sea_blessed_ring", new TrinketWithToolTip(new Item.Settings().maxCount(1), Text.translatable("item.ssc_xu_addon.sea_blessed_ring.tooltip").formatted(Formatting.YELLOW)));
     public static final Item MOISTURE_KEPT_CHARM = register("moisture_kept_charm", new MoistureKeptCharm(new Item.Settings().maxCount(1)));
 
+    public static final Item UNDEAD_ESSENCE = register("undead_essence", new UndeadEssence(new Item.Settings().maxCount(16)));
+    public static final Item SWARMBOND_AMULET = register("swarmbond_amulet", new TrinketWithToolTip(new Item.Settings().maxCount(1), Text.translatable("item.ssc_xu_addon.swarmbond_amulet.tooltip.1").formatted(Formatting.YELLOW), Text.translatable("item.ssc_xu_addon.swarmbond_amulet.tooltip.2").formatted(Formatting.YELLOW), Text.translatable("item.ssc_xu_addon.swarmbond_amulet.tooltip.3").formatted(Formatting.YELLOW)));
+    public static final Item UNDEAD_RING = register("undead_ring", new TrinketWithToolTip(new Item.Settings().maxCount(1), Text.translatable("item.ssc_xu_addon.undead_ring.tooltip").formatted(Formatting.YELLOW)));
+
     // 火焰宝石 大地宝石 超级神圣金苹果
     public static final Item FIRE_GEM = register("fire_gem", new FireGem(new Item.Settings().maxCount(64)));
     public static final Item GROUND_GEM = register("ground_gem", new GroundGem(new Item.Settings().maxCount(64)));
@@ -94,12 +97,15 @@ public class Init_Item {
                 entries.add(CHARM_OF_WIND);
                 entries.add(HEAVY_BRACELET);
                 entries.add(VITALITY_STONE);
-                // entries.add(CHARM_OF_NINE_LIVE);  // 隐藏物品 不展示 之后加一下掉落
+                // entries.add(CHARM_OF_NINE_LIVE);  // 隐藏物品 不展示
                 entries.add(CHARM_OF_BLOOD_THIRST);
                 entries.add(SEA_SCEPTER);
                 entries.add(SEA_SCEPTER_VIRTUAL);
                 entries.add(SEA_BLESSED_RING);
                 entries.add(MOISTURE_KEPT_CHARM);
+                entries.add(UNDEAD_ESSENCE);
+                entries.add(SWARMBOND_AMULET);
+                entries.add(UNDEAD_RING);
                 entries.add(SHIELD_RING);
 
                 entries.add(UNSTABLE_HOLY_APPLE);
@@ -128,75 +134,77 @@ public class Init_Item {
         EnchantmentUtils.registerEnchantmentItem(Enchantments.KNOCKBACK, BloodClaw.class);
         EnchantmentUtils.registerEnchantmentItem(Enchantments.LOOTING, BloodClaw.class);
 
-        // 互联似乎没有LootTableLoadingCallback的API 所以加个判断
-        if (!FabricLoader.getInstance().isModLoaded("connectormod")) {
-            LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, tableBuilder, setter) -> {
-                // 鲜血宝石 会在地狱要塞(中 20% 2-3)和废弃地狱门(少 10% 1-2)宝箱刷新
-                if (id.equals(new Identifier("minecraft", "chests/nether_bridge"))) {
-                    LootPool.Builder poolBuilder = LootPool.builder()
-                            .rolls(ConstantLootNumberProvider.create(1))
-                            .with(ItemEntry.builder(Init_Item.BLOOD_GEM).weight(2).quality(1).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2, 3))))
-                            .with(ItemEntry.builder(Items.AIR).weight(8).quality(-1));
-                    tableBuilder.pool(poolBuilder);
-                }
-                if (id.equals(new Identifier("minecraft", "chests/ruined_portal"))) {
-                    LootPool.Builder poolBuilder = LootPool.builder()
-                            .rolls(ConstantLootNumberProvider.create(1))
-                            .with(ItemEntry.builder(Init_Item.BLOOD_GEM).weight(2).quality(1).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 2))))
-                            .with(ItemEntry.builder(Items.AIR).weight(18).quality(-2));
-                    tableBuilder.pool(poolBuilder);
-                }
-                // 风之宝石 丛林神庙刷新 或者用很贵的材料合成(别问为什么配方那么难获得 主要为了鼓励探索丛林神庙)
-                if (id.equals(new Identifier("minecraft", "chests/jungle_temple"))) {
-                    LootPool.Builder poolBuilder = LootPool.builder()
-                            .rolls(ConstantLootNumberProvider.create(1))
-                            .with(ItemEntry.builder(Init_Item.WIND_GEM).weight(2).quality(1).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2, 3))))
-                            .with(ItemEntry.builder(Items.AIR).weight(6).quality(-1));
-                    tableBuilder.pool(poolBuilder);
-                }
-                // 地之宝石 废弃矿井和藏宝图宝藏中刷新
-                if (id.equals(new Identifier("minecraft", "chests/abandoned_mineshaft"))) {
-                    LootPool.Builder poolBuilder = LootPool.builder()
-                            .rolls(ConstantLootNumberProvider.create(1))
-                            .with(ItemEntry.builder(Init_Item.GROUND_GEM).weight(2).quality(1).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 2))))
-                            .with(ItemEntry.builder(Items.AIR).weight(6).quality(-1));
-                    tableBuilder.pool(poolBuilder);
-                }
-                // 还有魔法海螺 潮汐宝石
-                if (id.equals(new Identifier("minecraft", "chests/buried_treasure"))) {
-                    LootPool.Builder poolBuilder = LootPool.builder()
-                            .rolls(ConstantLootNumberProvider.create(1))
-                            .with(ItemEntry.builder(Init_Item.GROUND_GEM).weight(2).quality(1).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(3, 5))))
-                            .with(ItemEntry.builder(Items.AIR).weight(6).quality(-1));
-                    tableBuilder.pool(poolBuilder);
-                    poolBuilder = LootPool.builder()
-                            .rolls(ConstantLootNumberProvider.create(1))
-                            .with(ItemEntry.builder(Init_Item.WATER_GEM).weight(4).quality(1).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(3, 5))))
-                            .with(ItemEntry.builder(Items.AIR).weight(6).quality(-1));
-                    tableBuilder.pool(poolBuilder);
-                    poolBuilder = LootPool.builder()
-                            .rolls(ConstantLootNumberProvider.create(1))
-                            .with(ItemEntry.builder(Init_Item.MAGIC_CONCH).weight(2).quality(1).apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1))))
-                            .with(ItemEntry.builder(Items.AIR).weight(12).quality(-1));
-                    tableBuilder.pool(poolBuilder);
-                }
-                // 潮汐宝石
-                if (id.equals(new Identifier("minecraft", "chests/underwater_ruin_small"))) {
-                    LootPool.Builder poolBuilder = LootPool.builder()
-                            .rolls(ConstantLootNumberProvider.create(1))
-                            .with(ItemEntry.builder(Init_Item.WATER_GEM).weight(1).quality(1).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 2))))
-                            .with(ItemEntry.builder(Items.AIR).weight(9).quality(-1));
-                    tableBuilder.pool(poolBuilder);
-                }
-                if (id.equals(new Identifier("minecraft", "chests/underwater_ruin_big"))) {
-                    LootPool.Builder poolBuilder = LootPool.builder()
-                            .rolls(ConstantLootNumberProvider.create(1))
-                            .with(ItemEntry.builder(Init_Item.WATER_GEM).weight(2).quality(1).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2, 3))))
-                            .with(ItemEntry.builder(Items.AIR).weight(8).quality(-1));
-                    tableBuilder.pool(poolBuilder);
-                }
-            });
-        }
+        LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, lootTableSource) -> {
+            // 鲜血宝石 会在地狱要塞(中 20% 2-3)和废弃地狱门(少 10% 1-2)宝箱刷新
+            if (id.equals(new Identifier("minecraft", "chests/nether_bridge"))) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .with(ItemEntry.builder(Init_Item.BLOOD_GEM).weight(2).quality(1).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2, 3))))
+                        .with(ItemEntry.builder(Items.AIR).weight(8).quality(-1));
+                tableBuilder.pool(poolBuilder);
+                poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .with(ItemEntry.builder(Init_Item.UNDEAD_ESSENCE).weight(2).quality(1).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 2))))
+                        .with(ItemEntry.builder(Items.AIR).weight(8).quality(-1));
+                tableBuilder.pool(poolBuilder);
+            }
+            if (id.equals(new Identifier("minecraft", "chests/ruined_portal"))) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .with(ItemEntry.builder(Init_Item.BLOOD_GEM).weight(2).quality(1).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 2))))
+                        .with(ItemEntry.builder(Items.AIR).weight(18).quality(-2));
+                tableBuilder.pool(poolBuilder);
+            }
+            // 风之宝石 丛林神庙刷新 或者用很贵的材料合成(别问为什么配方那么难获得 主要为了鼓励探索丛林神庙)
+            if (id.equals(new Identifier("minecraft", "chests/jungle_temple"))) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .with(ItemEntry.builder(Init_Item.WIND_GEM).weight(2).quality(1).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2, 3))))
+                        .with(ItemEntry.builder(Items.AIR).weight(6).quality(-1));
+                tableBuilder.pool(poolBuilder);
+            }
+            // 地之宝石 废弃矿井和藏宝图宝藏中刷新
+            if (id.equals(new Identifier("minecraft", "chests/abandoned_mineshaft"))) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .with(ItemEntry.builder(Init_Item.GROUND_GEM).weight(2).quality(1).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 2))))
+                        .with(ItemEntry.builder(Items.AIR).weight(6).quality(-1));
+                tableBuilder.pool(poolBuilder);
+            }
+            // 还有魔法海螺 潮汐宝石
+            if (id.equals(new Identifier("minecraft", "chests/buried_treasure"))) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .with(ItemEntry.builder(Init_Item.GROUND_GEM).weight(2).quality(1).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(3, 5))))
+                        .with(ItemEntry.builder(Items.AIR).weight(6).quality(-1));
+                tableBuilder.pool(poolBuilder);
+                poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .with(ItemEntry.builder(Init_Item.WATER_GEM).weight(4).quality(1).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(3, 5))))
+                        .with(ItemEntry.builder(Items.AIR).weight(6).quality(-1));
+                tableBuilder.pool(poolBuilder);
+                poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .with(ItemEntry.builder(Init_Item.MAGIC_CONCH).weight(2).quality(1).apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1))))
+                        .with(ItemEntry.builder(Items.AIR).weight(12).quality(-1));
+                tableBuilder.pool(poolBuilder);
+            }
+            // 潮汐宝石
+            if (id.equals(new Identifier("minecraft", "chests/underwater_ruin_small"))) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .with(ItemEntry.builder(Init_Item.WATER_GEM).weight(1).quality(1).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 2))))
+                        .with(ItemEntry.builder(Items.AIR).weight(9).quality(-1));
+                tableBuilder.pool(poolBuilder);
+            }
+            if (id.equals(new Identifier("minecraft", "chests/underwater_ruin_big"))) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .with(ItemEntry.builder(Init_Item.WATER_GEM).weight(2).quality(1).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2, 3))))
+                        .with(ItemEntry.builder(Items.AIR).weight(8).quality(-1));
+                tableBuilder.pool(poolBuilder);
+            }
+        });
     }
 
     public static <T extends Item> T register(String path, T item) {

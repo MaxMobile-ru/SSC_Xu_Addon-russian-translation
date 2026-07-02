@@ -15,6 +15,8 @@ import xu_mod.SSCXuAddon.powers.LeveledManaPower;
 import xu_mod.SSCXuAddon.SSCXuAddon;
 import xu_mod.SSCXuAddon.utils.Utils;
 
+import static net.onixary.shapeShifterCurseFabric.mana.ManaRegistries.MC_AlwaysTrue;
+
 public class Init_ManaType {
     public static Identifier MC_IsNight = ManaRegistries.registerManaConditionType(
             ShapeShifterCurseFabric.identifier("is_night"),
@@ -91,7 +93,7 @@ public class Init_ManaType {
                     new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
                             SSCXuAddon.identifier("base_value"),
                             new Pair<Identifier, ManaUtils.Modifier>(
-                                    ManaRegistries.MC_AlwaysTrue,
+                                    MC_AlwaysTrue,
                                     new ManaUtils.Modifier(500d, 1.0d, 0d)
                             )
                     )
@@ -100,7 +102,7 @@ public class Init_ManaType {
                     new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
                             SSCXuAddon.identifier("base_value"),
                             new Pair<Identifier, ManaUtils.Modifier>(
-                                    ManaRegistries.MC_AlwaysTrue,
+                                    MC_AlwaysTrue,
                                     new ManaUtils.Modifier(0.25d, 1.0d, 0d)  // 5 per sec
                             )
                     ),
@@ -141,7 +143,7 @@ public class Init_ManaType {
                     new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
                             SSCXuAddon.identifier("base_value"),
                             new Pair<Identifier, ManaUtils.Modifier>(
-                                    ManaRegistries.MC_AlwaysTrue,
+                                    MC_AlwaysTrue,
                                     new ManaUtils.Modifier(600d, 1.0d, 0d)
                             )
                     )
@@ -150,7 +152,7 @@ public class Init_ManaType {
                     new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
                             SSCXuAddon.identifier("base_value"),
                             new Pair<Identifier, ManaUtils.Modifier>(
-                                    ManaRegistries.MC_AlwaysTrue,
+                                    MC_AlwaysTrue,
                                     new ManaUtils.Modifier(-0.0125d, 1.0d, 0d)  // -0.25 per sec
                             )
                     ),
@@ -198,7 +200,7 @@ public class Init_ManaType {
                     new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
                             SSCXuAddon.identifier("base_value"),
                             new Pair<Identifier, ManaUtils.Modifier>(
-                                    ManaRegistries.MC_AlwaysTrue,
+                                    MC_AlwaysTrue,
                                     new ManaUtils.Modifier(240d, 1.0d, 0d)
                             )
                     )
@@ -207,7 +209,7 @@ public class Init_ManaType {
                     new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
                             SSCXuAddon.identifier("base_value"),
                             new Pair<Identifier, ManaUtils.Modifier>(
-                                    ManaRegistries.MC_AlwaysTrue,
+                                    MC_AlwaysTrue,
                                     new ManaUtils.Modifier(-0.1d, 1.0d, 0d)  // -2 per sec
                             )
                     ),
@@ -240,7 +242,7 @@ public class Init_ManaType {
                     new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
                             SSCXuAddon.identifier("base_value"),
                             new Pair<Identifier, ManaUtils.Modifier>(
-                                    ManaRegistries.MC_AlwaysTrue,
+                                    MC_AlwaysTrue,
                                     new ManaUtils.Modifier(120d, 1.0d, 0d)
                             )
                     )
@@ -249,7 +251,7 @@ public class Init_ManaType {
                     new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
                             SSCXuAddon.identifier("base_value"),
                             new Pair<Identifier, ManaUtils.Modifier>(
-                                    ManaRegistries.MC_AlwaysTrue,
+                                    MC_AlwaysTrue,
                                     new ManaUtils.Modifier(0.1d, 1.0d, 0d)  // +2 per sec 1 min to full
                             )
                     ),
@@ -290,7 +292,7 @@ public class Init_ManaType {
                     new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
                             SSCXuAddon.identifier("base_value"),
                             new Pair<Identifier, ManaUtils.Modifier>(
-                                    ManaRegistries.MC_AlwaysTrue,
+                                    MC_AlwaysTrue,
                                     new ManaUtils.Modifier(300d, 1.0d, 0d)
                             )
                     )
@@ -299,7 +301,7 @@ public class Init_ManaType {
                     new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
                             SSCXuAddon.identifier("base_value"),
                             new Pair<Identifier, ManaUtils.Modifier>(
-                                    ManaRegistries.MC_AlwaysTrue,
+                                    MC_AlwaysTrue,
                                     new ManaUtils.Modifier(-0.025d, 1.0d, 0d)  // -0.5 per sec  600sec->10min to empty
                             )
                     ),
@@ -334,6 +336,36 @@ public class Init_ManaType {
             ),
             ManaRegistries.EMPTY_MANA_HANDLER
     );
+
+    public static Identifier SpiderWebResource = ManaRegistries.registerManaType(SSCXuAddon.identifier("spider_web_resource"),
+            new ManaUtils.ModifierList(
+                    new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
+                            ShapeShifterCurseFabric.identifier("base_value"),
+                            new Pair<Identifier, ManaUtils.Modifier>(
+                                    MC_AlwaysTrue,
+                                    new ManaUtils.Modifier(100d, 1.0d, 0d)
+                            )
+                    )
+            ),
+            new ManaUtils.ModifierList(
+                    new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
+                            ShapeShifterCurseFabric.identifier("base_value"),
+                            new Pair<Identifier, ManaUtils.Modifier>(
+                                    MC_AlwaysTrue,
+                                    new ManaUtils.Modifier(0.02d, 1.0d, 0d)  // +0.4 per sec +24 per min
+                            )
+                    ),
+                    new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
+                            SSCXuAddon.identifier("creative"),
+                            new Pair<Identifier, ManaUtils.Modifier>(
+                                    MC_IsCreative,
+                                    new ManaUtils.Modifier(0d, 1.0d, 1000d)  // +20000 per sec
+                            )
+                    )
+            ),
+            ManaRegistries.EMPTY_MANA_HANDLER
+    );
+
 
     public static void init() {
     }

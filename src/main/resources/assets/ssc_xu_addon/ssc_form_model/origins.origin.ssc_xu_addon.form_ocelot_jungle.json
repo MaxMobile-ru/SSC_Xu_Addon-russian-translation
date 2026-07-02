@@ -9,6 +9,8 @@
   "model": "ssc_xu_addon:geo/form/form_ocelot_jungle.geo.json",
   "texture": "ssc_xu_addon:textures/form/form_ocelot_jungle/form_ocelot_jungle.png",
   "texture_mask": "ssc_xu_addon:textures/form/form_ocelot_jungle/form_ocelot_jungle_colormask.png",
+  "fullbright_texture": "ssc_xu_addon:textures/form/form_ocelot_jungle/form_ocelot_jungle_emission.png",
+  "fullbright_texture_mask": "ssc_xu_addon:textures/form/form_ocelot_jungle/form_ocelot_jungle_emission_colormask.png",
   "hidden": [
     "leftLeg",
     "rightLeg",

@@ -19,6 +19,8 @@ public class Init_Apoli {
     public static final PowerType<?> IronGolemFriendlyV2 = new PowerTypeReference<>(SSCXuAddon.identifier("iron_golem_friendly_v2"));  // 被打后铁傀儡会不会支援
     public static final PowerType<?> NoStopSprintWhileAttack = new PowerTypeReference<>(SSCXuAddon.identifier("no_stop_sprint_while_attack"));  // 攻击时不会停止冲刺
     public static final PowerType<?> WaterBreathing = new PowerTypeReference<>(SSCXuAddon.identifier("water_breathing"));  // 水下呼吸
+    public static final PowerType<?> ZombieFriendly = new PowerTypeReference<>(SSCXuAddon.identifier("zombie_friendly"));  // 僵尸友善
+    public static final PowerType<?> SkeletonFriendly = new PowerTypeReference<>(SSCXuAddon.identifier("skeleton_friendly"));  // 骷髅友善
 
     private static void init_Power() {
         Init_Apoli.registerPower(LeveledManaPower.createFactory());
@@ -34,6 +36,8 @@ public class Init_Apoli {
         Init_Apoli.registerPower(JumpClashPower.createFactory());
         Init_Apoli.registerPower(ManaAttributePro.createFactory());
         Init_Apoli.registerPower(AutoFeedPower.createFactory());
+        Init_Apoli.registerPower(MinionShieldPower.createFactory());
+        Init_Apoli.registerPower(SpiderMinionShieldPower.createFactory());
 
         // Skill Power
         Init_Apoli.registerPower(OcelotRush1Power.createFactory());
@@ -54,6 +58,8 @@ public class Init_Apoli {
         FireRingAction.registerActions(Init_Apoli::registerEntityAction, Init_Apoli::registerBIEntityAction);
         ShootBloodThornAction.registerActions(Init_Apoli::registerEntityAction, Init_Apoli::registerBIEntityAction);
         AxolotlPower.registerActions(Init_Apoli::registerEntityAction, Init_Apoli::registerBIEntityAction);
+        WebBridgeAction.registerAction(Init_Apoli::registerEntityAction, Init_Apoli::registerBIEntityAction);
+        MinionActions.registerAction(Init_Apoli::registerEntityAction, Init_Apoli::registerBIEntityAction);
     }
 
 

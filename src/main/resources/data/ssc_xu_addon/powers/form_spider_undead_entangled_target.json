@@ -1,0 +1,54 @@
+{
+  "type": "apoli:multiple",
+  "damage_boost": {
+    "type": "apoli:modify_damage_dealt",
+    "bientity_condition": {
+      "type": "apoli:target_condition",
+      "condition": {
+        "type": "apoli:status_effect",
+        "effect": "shape-shifter-curse:entangled_effect"
+      }
+    },
+    "damage_condition": {
+      "type": "apoli:amount",
+      "comparison": ">=",
+      "compare_to": 2
+    },
+    "modifier": {
+      "name": "add 2 damage",
+      "operation": "add_base_late",
+      "value": 2.0
+    }
+  },
+  "regen": {
+    "type": "apoli:self_action_on_hit",
+    "entity_action": {
+      "type": "apoli:and",
+      "actions": [
+        {
+          "type": "apoli:heal",
+          "amount": 2
+        }
+      ]
+    },
+    "damage_condition": {
+      "type": "apoli:and",
+      "conditions": [
+        {
+          "type": "apoli:projectile",
+          "inverted" : true
+        },
+        {
+          "type": "apoli:amount",
+          "comparison": ">=",
+          "compare_to": 2
+        }
+      ]
+    },
+    "target_condition": {
+      "type": "apoli:status_effect",
+      "effect": "shape-shifter-curse:entangled_full_effect"
+    },
+    "cooldown": 10
+  }
+}

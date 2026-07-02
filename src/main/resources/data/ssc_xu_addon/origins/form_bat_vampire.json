@@ -45,7 +45,9 @@
         "ssc_xu_addon:form_bat_vampire_blood_sense",
 
         "shape-shifter-curse:form_bat_diamond_mining_claw_tool",
-        "ssc_xu_addon:form_bat_vampire_blood_claw"
+        "ssc_xu_addon:form_bat_vampire_blood_claw",
+
+        "ssc_xu_addon:group_undead"
     ],
     "icon": {
         "item": "minecraft:player_head"

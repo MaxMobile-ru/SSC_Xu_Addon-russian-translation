@@ -1,0 +1,22 @@
+{
+  "type": "apoli:active_self",
+  "cooldown": 1,
+
+  "entity_action": {
+    "type": "ssc_xu_addon:summon_spider_minion",
+    "use_hunger": true,
+    "count": 2,
+    "max_minion_count": 2,
+    "cooldown": 200,
+    "owner_action": {
+      "type": "shape-shifter-curse:consume_mana",
+      "mana": 7.5
+    }
+  },
+  "hud_render": {
+    "should_render": false
+  },
+  "key": {
+    "key": "key.origins.secondary_active"
+  }
+}

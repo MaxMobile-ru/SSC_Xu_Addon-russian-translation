@@ -1,0 +1,26 @@
+{
+  "ssc_xu_addon:swarmbond_amulet": {
+    "forms": {
+      "ssc_xu_addon:spider_undead": {
+        "add": [
+          "ssc_xu_addon:form_spider_undead_accessory_1",
+          "ssc_xu_addon:form_spider_undead_minion_shield_accessory"
+        ],
+        "remove": [
+          "ssc_xu_addon:form_spider_undead_minion_shield"
+        ]
+      }
+    }
+  },
+  "ssc_xu_addon:undead_ring": {
+    "forms": {
+      "ssc_xu_addon:spider_undead": {
+        "add": [
+          "ssc_xu_addon:form_spider_undead_accessory_burn_under_sun",
+          "ssc_xu_addon:zombie_friendly",
+          "ssc_xu_addon:skeleton_friendly"
+        ]
+      }
+    }
+  }
+}
