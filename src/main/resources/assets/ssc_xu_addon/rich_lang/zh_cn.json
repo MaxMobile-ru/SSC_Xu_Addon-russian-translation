@@ -366,7 +366,9 @@
   "item.ssc_xu_addon.undead_essence.tooltip.2": ["或许可以在下界要塞中找到。"],
   "message.ssc_xu_addon.item.undead_essence.special_form": ["不死精粹与你的形态发生共鸣，你变化成了新的形态。"],
   "item.ssc_xu_addon.swarmbond_amulet": ["集群护符"],
-  "item.ssc_xu_addon.swarmbond_amulet.tooltip": ["[蜘蛛(不死蛛后)形态]每15秒自动召唤1只小蜘蛛（上限2只）。若无召唤物则每秒失去1点生命值。生命上限提升至16点(8颗心)，伤害转移倍率降为1。"],
+  "item.ssc_xu_addon.swarmbond_amulet.tooltip.1": ["[蜘蛛(不死蛛后)形态]"],
+  "item.ssc_xu_addon.swarmbond_amulet.tooltip.2": ["每15秒自动召唤1只小蜘蛛（上限2只）。若无召唤物则每秒失去1点生命值。"],
+  "item.ssc_xu_addon.swarmbond_amulet.tooltip.3": ["生命上限提升至16点(8颗心)，伤害转移倍率降为1。"],
   "item.ssc_xu_addon.undead_ring": ["亡灵戒指"],
   "item.ssc_xu_addon.undead_ring.tooltip": ["[蜘蛛(不死蛛后)形态]僵尸与骷髅对你保持中立，但你在阳光下会燃烧。"],
 
